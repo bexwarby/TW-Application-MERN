@@ -1,0 +1,25 @@
+{
+  "name": "backp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5",
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "pm2": "pm2 start server.js -i max --watch --ignore-watch='node_modules' --time --merge-logs --name TW_SERVER"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.lebocal.academy/CPerez/back.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
