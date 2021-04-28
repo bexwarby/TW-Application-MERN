@@ -2,42 +2,29 @@
 require('dotenv').config({ path: './.env' });
 const express = require("express");
 const app = express();
-const myRoutes = require("./routes/myRoutes");
-const env = require("./env");
 
-const mongoose = require("mongoose");
-
-const uri = `mongodb+srv://Fsj7ftw1O:${env.dbUser.password}@truewings.685ft.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-
-mongoose.connect(
-  uri,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) {
-      console.log("Erreur connection" + err);
-    }
-  }
-);
-
-const helmet = require('helmet');
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
-// Imports Middleware
+
+// MongoDB
+const mongoose = require("mongoose");
+const uri = `mongodb+srv://${process.env.DB_LOGIN_PWD}@truewings.685ft.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB Atlas connected.'))
+  .catch(err => console.log("Erreur connection" + err))
+
+
+// Imports Middleware (auth ...)
 
 
 // Imports Router
-const myRouter = require("./routes/myRoutes");
 const traineeRouter = require("./routes/traineeRoutes");
 const instructorRouter = require("./routes/instuctorRoutes");
 const adminRouter = require("./routes/adminRoutes");
 
 // Middlewares integrated
-app.use(helmet());
 app.use(cors({ origin: `http://${process.env.CLIENT}`, credentials: true, optionsSuccessStatus: 204 }));
 app.use(cookieParser());
 app.use(express.json());
@@ -45,7 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routers
-app.use("/", myRouter);
 app.use("/trainee", traineeRouter);
 app.use("/instuctor", instructorRouter);
 app.use("/admin", adminRouter);
