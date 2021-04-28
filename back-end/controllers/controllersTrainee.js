@@ -1,12 +1,18 @@
 /**
  * Trainee Controller
  */
-
-
-module.exports = {
+const traineeController = {
   signUp: async (req, res) => {
-    const { mail, password } = req.body;
-    res.status(201).json({ mail, password });
+    const trainee = require("../models/User");
+    const { fullName, email, password } = req.body;
+
+    trainee.save((err) => {
+      if (err) {
+        res.status(501).json({ message: err, data: "" });
+      } else {
+        res.json({ message: "New trainee created!", data: contact });
+      }
+    });
   },
 
   signIn: (req, res) => {
@@ -47,6 +53,8 @@ module.exports = {
   },
   profileDelete: (req, res) => {
     console.log(req.params.id);
-    res.status(200).send( `trainee ${req.params.id} a bien été supprimé` );
+    res.status(200).send(`trainee ${req.params.id} a bien été supprimé`);
   },
 };
+
+module.exports = traineeController;
