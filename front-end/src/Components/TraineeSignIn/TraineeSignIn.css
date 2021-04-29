@@ -1,44 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap%22");
-#traineeLogin {
-  font-family: Montserrat;
+.linkHere {
+  color: orange;
 }
-#mainTitle {
-  text-align: center;
-  font-size: 10vh;
-  font-weight: bold;
+.myMail {
+  background-color: rgba(128, 128, 128, 0.11);
+  height: 50px;
 }
-.loginArea {
-  margin: 5vw;
+.myPassword {
+  background-color: rgba(128, 128, 128, 0.11);
+  height: 50px;
+  margin-top: 9px;
+}
+.buttonLogin {
+  background-color: transparent;
+  border-style: solid;
+  border-radius: 2px;
+}
+.subButton {
+  color: white;
 }
 
-.checkBox {
-  width: 1.5vw;
-  height: 20px;
-  margin-left: 0px;
+@media screen and (max-width: 450px) {
+  /*gestion logo*/
+  .contentLogo {
+    margin-top: 64%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .contentInput {
+    display: flex;
+    flex-direction: column;
+    margin-left: 13%;
+    margin-right: 13%;
+    margin-top: 50%;
+  }
+  .contentButton {
+    margin-top: 35px;
+    margin-left: 13%;
+    margin-right: 13%;
+  }
+  .contentLink {
+    margin-left: 13%;
+    margin-right: 13%;
+    margin-top: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
-.checkBoxText {
-  padding-left: 15px;
-}
-.checkBoxArea {
-  padding-top: 25px;
-  padding-bottom: 30px;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-input,
-button {
-  background-color: rgb(226, 225, 225);
-  border: none;
-  width: 100%;
-  height: 8vh;
-  border-radius: 5px;
-}
-button {
-  background-color: rgb(3, 91, 192);
-  color: white;
-}
-:active button {
-  background-color: rgb(2, 77, 163);
-  color: white;
+@media screen and (max-height: 668px) {
+  .underLogo {
+    margin-top: 52%;
+  }
 }
