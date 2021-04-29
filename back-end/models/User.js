@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+
 const { Schema } = mongoose;
 
 const UserSchema = new mongoose.Schema({
@@ -12,6 +14,15 @@ const UserSchema = new mongoose.Schema({
   licenceFile: { type: String, required: false },
   birthday: { type: String, required: false },
   bio: { type: String, required: false },
+});
+
+UserSchema.pre("save", async function (next) {
+  if (!this.password || this.password.search(/$2[a-z].{57}/) !== -1) {
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+
+    next();
+  }
 });
 
 module.exports = mongoose.model("User", UserSchema);

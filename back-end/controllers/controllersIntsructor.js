@@ -1,4 +1,0 @@
-/**
- * Instructor Controller
- */
-
