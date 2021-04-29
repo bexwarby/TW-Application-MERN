@@ -43,16 +43,10 @@ function Software(props) {
               <option value="Xplane">Xplane 11</option>
               <option value="Prepa">Prepa 3D</option>
               <option value="FSX">FSX</option>
-              <div className="other">
-                <option value="other">Other</option>
-                <textarea
-                  className="form-control"
-                  id="otherSoft"
-                  placeholder="Write your rating here"
-                  rows="10"
-                  cols="20"
-                ></textarea>
-              </div>
+
+              <option type="text" value="other">
+                Other
+              </option>
             </select>
           </div>
           <input type="submit" />

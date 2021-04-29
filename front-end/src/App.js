@@ -12,11 +12,11 @@ import InstructorSignIn from "./Components/InstructorSignIn/InstructorSignIn";
 
 //import InstructorSignUp from "./navigation/InstructorSignUp";
 //import SignUpPilot from "./Components/InstructorSignUp/SignUp";
-import InstructorHome from "./Components/PageInstructor/PageInstructor";
-import TraineeHome from "./Components/PageTrainee/PageTrainee";
-import AdminHome from "./Components/PageAdmin/PageAdmin";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { StateMachineProvider, createStore } from "little-state-machine";
+//import InstructorHome from "./Components/PageInstructor/PageInstructor";
+//import TraineeHome from "./Components/PageTrainee/PageTrainee";
+//import AdminHome from "./Components/PageAdmin/PageAdmin";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { StateMachineProvider } from "little-state-machine";
 
 import Welcome from "./Components/InstructorSignUp/Welcome/Welcome";
 import Name from "./Components/InstructorSignUp/1Name/Name";

@@ -10,7 +10,7 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 function Thanks(props) {
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);

@@ -1,7 +1,8 @@
 import { useStateMachine } from "little-state-machine";
-import updateAction from "./updateAction";
+import updateAction from "../updateAction";
 
 function Result(props) {
+  const { state } = useStateMachine(updateAction);
   const onSubmit = async (e) => {
     e.preventDefault();
     const message = await fetch(
@@ -12,21 +13,7 @@ function Result(props) {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          fullName: fullName,
-          flightHours: flightHours,
-          ratingName: ratingName,
-          moduleName: moduleName,
-          equipmentName: equipmentName,
-          software: software,
-          hoursRequested: hoursRequested,
-          timeTeaching: timeTeaching,
-          languageCodeIso: languageCodeIso,
-          licenceFile: licenceFile,
-          birthday: birthday,
-          bio: bio,
-          email: email,
-        }),
+        body: JSON.stringify(state, null, 2),
       }
     );
     console.log(message);
@@ -34,18 +21,14 @@ function Result(props) {
     console.log(data);
   };
 
-  const Result = (props) => {
-    const { state } = useStateMachine(updateAction);
-
-    return (
-      <div>
-        <pre> {JSON.stringify(state, null, 2)} </pre>
-        <button className="valider" onClick={onSubmit}>
-          VALIDER
-        </button>
-      </div>
-    );
-  };
+  return (
+    <div>
+      <pre> {JSON.stringify(state, null, 2)} </pre>
+      <button className="valider" onClick={onSubmit}>
+        VALIDER
+      </button>
+    </div>
+  );
 }
 
 export default Result;
