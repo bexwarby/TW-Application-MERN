@@ -15,7 +15,7 @@ const traineeController = {
       trainee: true,
       flightHours: 0,
       licenceFile: "",
-      birthday: "",
+      birthDay: "",
       bio: "",
       photo: "",
       dateInsert: Date.now(),
