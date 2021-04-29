@@ -18,7 +18,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <div className="contentApp">
       <Router>
         <Switch>
           <Route exact path="/">
