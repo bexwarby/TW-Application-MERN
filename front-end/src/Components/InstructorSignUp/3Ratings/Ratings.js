@@ -5,8 +5,8 @@
 /* Imports */
 import { useState } from "react";
 import "./ratings.css";
-import 'bootstrap/dist/css/bootstrap.css';
-
+/* import 'bootstrap/dist/css/bootstrap.css';
+ */
 /**
  *  Contact component */
 function Ratings() {

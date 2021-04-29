@@ -3,7 +3,7 @@
  * */
 
 /* Imports */
-import "./thanks.css";
+import "./welcome.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
 /**

@@ -58,7 +58,7 @@ function Software() {
                                 <textarea
                                     className="form-control"
                                     id="otherSoft"
-                                    value={ratingSubmitted}
+                                    value={software}
                                     placeholder="Write your rating here"
                                     /* onChange={(e) => setRatingSubmitted(e.target.value)} */
                                     rows="10"

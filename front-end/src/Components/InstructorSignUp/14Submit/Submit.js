@@ -10,9 +10,9 @@ import "bootstrap/dist/css/bootstrap.css";
  *  Submit component */
 function Thanks() {
 
-    const { state } = useStateMachine(updateAction);
-
-    const onSubmit = async (e) => {
+/*     const { state } = useStateMachine(updateAction);
+ */
+    /* const onSubmit = async (e) => {
         e.preventDefault();
         const message = await fetch("process.env.REACT_APP_SERVER/trainee/signup", {
             method: 'POST',
@@ -39,7 +39,7 @@ function Thanks() {
         console.log(message);
         const data = await message.json();
         console.log(data);
-    };
+    }; */
 
     return (
         <div className="signUp">
@@ -72,8 +72,8 @@ function Thanks() {
                         <button
                             type="submit"
                             className="btn btn-block buttonSubmit"
-                            onClick={handleSubmit(onSubmit)}
-                        >
+/*                             onClick={handleSubmit(onSubmit)}
+ */                        >
                             Join the crew!
                         </button>
                     </div>

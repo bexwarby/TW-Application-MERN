@@ -52,14 +52,14 @@ function Bio() {
                             className="buttonOK"
                             type="submit"
                             className="btn btn-block buttonSubmit"
-                            onClick={ }
-                        >
+/*                             onClick={ }
+ */                        >
                             OK
                         </button>
                         <p
                             className="enter"
-                            onChange={ }
-                        >
+/*                             onChange={ }
+ */                        >
                             Press Enter
                         </p>
                     </div>

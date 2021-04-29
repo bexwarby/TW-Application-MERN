@@ -5,8 +5,8 @@
 /* Imports */
 import { useState } from "react";
 import "./name.css";
-import 'bootstrap/dist/css/bootstrap.css';
-
+/* import 'bootstrap/dist/css/bootstrap.css';
+ */
 /**
  *  Contact component */
 function NamePilot() {

@@ -5,8 +5,8 @@
 /* Imports */
 import { useState } from "react";
 import "./hoursTotal.css";
-import 'bootstrap/dist/css/bootstrap.css';
-import React from "react";
+/* import 'bootstrap/dist/css/bootstrap.css';
+ */import React from "react";
 
 /**
  *  Contact component */
@@ -29,7 +29,7 @@ function HoursTotal() {
                             {/* ADD ARROW ICON */}
                         </div>
                         <label for="hours">
-                            Dear {contactName}, how many "real-world flight hours"
+                            How many "real-world flight hours"
                             do you have approximately?
                         </label>
                         <input

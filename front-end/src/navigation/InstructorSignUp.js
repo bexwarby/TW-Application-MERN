@@ -19,7 +19,7 @@ import Submit from "../Components/InstructorSignUp/14Submit/Submit";
 
 createStore({
     data: {
-        useState = {
+        useState: {
             fullName: " ",
             flightHours: " ",
             ratingName: " ",

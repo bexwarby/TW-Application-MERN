@@ -6,7 +6,6 @@
 import { useState } from "react";
 import "./birthday.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import TextField from '@material-ui/core/TextField';
 
 /**
  *  Contact component */

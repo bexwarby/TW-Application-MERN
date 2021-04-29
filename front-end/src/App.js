@@ -9,7 +9,7 @@ import Home from "./Components/PageHome/PageHome";
 import TraineeSignIn from "./Components/TraineeSignIn/TraineeSignIn";
 import TraineeSignUp from "./Components/TraineeSignUp/TraineeSignUp";
 import InstructorSignIn from "./Components/InstructorSignIn/InstructorSignIn";
-import InstructorSignUp from "./Components/InstructorSignUp/SignUp";
+import InstructorSignUp from "./navigation/InstructorSignUp";
 //import SignUpPilot from "./Components/InstructorSignUp/SignUp";
 import InstructorHome from "./Components/PageInstructor/PageInstructor";
 import TraineeHome from "./Components/PageTrainee/PageTrainee";
