@@ -37,7 +37,7 @@ function Birthday(props) {
               type="date"
             />
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

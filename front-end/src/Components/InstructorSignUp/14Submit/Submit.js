@@ -10,11 +10,11 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 function Thanks(props) {
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step");
+    props.history.push("/Instructor/SignUp/result");
   };
   return (
     <div className="signUp">
@@ -35,7 +35,7 @@ function Thanks(props) {
               "If you really want to master something, teach it"
             </p>
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

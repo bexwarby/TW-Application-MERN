@@ -36,7 +36,7 @@ function NamePilot(props) {
               placeholder="Type your answer here"
             />
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

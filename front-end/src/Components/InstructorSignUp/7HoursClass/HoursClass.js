@@ -20,7 +20,6 @@ function HoursClass(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/ 7 Hours per week /}
         <div className="formSection">
           <div className="form-group">
             <div className="numberQuestion">
@@ -40,7 +39,7 @@ function HoursClass(props) {
               placeholder="Type your answer here"
             />
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

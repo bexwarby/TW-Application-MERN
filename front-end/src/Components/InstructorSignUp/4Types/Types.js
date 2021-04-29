@@ -42,7 +42,7 @@ function Types(props) {
               size="8"
               multiple
             >
-              <option value="CPL">PPL</option>
+              <option value="PPL">PPL</option>
               <option value="CPL">CPL</option>
               <option value="IFR">IFR</option>
               <option value="multi">Multi-engines initial</option>
@@ -52,7 +52,7 @@ function Types(props) {
               <option value="sim">Sim assessment prep</option>
             </select>
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

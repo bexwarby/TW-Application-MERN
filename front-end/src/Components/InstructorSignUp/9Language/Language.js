@@ -41,19 +41,10 @@ function Language(props) {
               <option value="fr">French</option>
               <option value="it">Italian</option>
               <option value="es">Spanish</option>
-              <div className="other">
-                <option value="other">Other</option>
-                <textarea
-                  className="form-control"
-                  id="otherLanguage"
-                  placeholder="Write your language here"
-                  rows="10"
-                  cols="10"
-                ></textarea>
-              </div>
+              <option value="other">Other</option>
             </select>
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

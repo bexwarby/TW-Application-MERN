@@ -12,11 +12,11 @@ import InstructorSignIn from "./Components/InstructorSignIn/InstructorSignIn";
 
 //import InstructorSignUp from "./navigation/InstructorSignUp";
 //import SignUpPilot from "./Components/InstructorSignUp/SignUp";
-import InstructorHome from "./Components/PageInstructor/PageInstructor";
-import TraineeHome from "./Components/PageTrainee/PageTrainee";
-import AdminHome from "./Components/PageAdmin/PageAdmin";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { StateMachineProvider, createStore } from "little-state-machine";
+//import InstructorHome from "./Components/PageInstructor/PageInstructor";
+//import TraineeHome from "./Components/PageTrainee/PageTrainee";
+//import AdminHome from "./Components/PageAdmin/PageAdmin";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { StateMachineProvider } from "little-state-machine";
 
 import Welcome from "./Components/InstructorSignUp/Welcome/Welcome";
 import Name from "./Components/InstructorSignUp/1Name/Name";
@@ -33,6 +33,7 @@ import Birthday from "./Components/InstructorSignUp/11Birthday/Birthday";
 import Bio from "./Components/InstructorSignUp/12Bio/Bio";
 import Email from "./Components/InstructorSignUp/13Email/Email";
 import Submit from "./Components/InstructorSignUp/14Submit/Submit";
+import Result from "./Components/InstructorSignUp/Result/Result";
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
               <Route path="/Instructor/SignUp/step12" component={Bio} />
               <Route path="/Instructor/SignUp/step13" component={Email} />
               <Route path="/Instructor/SignUp/submit" component={Submit} />
+              <Route path="/Instructor/SignUp/result" component={Result} />
             </div>
             {/*<InstructorHome />*/}
             {/* <TraineeHome /> */}
