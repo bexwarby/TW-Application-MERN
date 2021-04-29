@@ -6,22 +6,27 @@
  * ex: import { SharedComponentEXAMPLE } '../../Components/index'
  */
 
+import logo from "./logoHome.png";
 import "./PageHome.css";
 import { Link } from "react-router-dom";
 function PageHome() {
   return (
-    <div id="mainpage">
-      <div className="logo">
-        <img src=""></img>
+    <div id="mainPage">
+      <div className="contentLogo">
+        <img className="logo" src={logo} alt="logo" />
       </div>
-
-      <Link className="link" to="/TraineeSignIn">
-        TRAINEE
-      </Link>
-      <br></br>
-      <Link className="link" to="/InstructorSignIn">
-        INSTRUCTOR
-      </Link>
+      <div className="contentTraineeInstructor">
+        <div className="linkTrainee">
+          <Link to="/TraineeSignIn">
+            <p className="link">TRAINEE</p>
+          </Link>
+        </div>
+        <div className="linkInstructor">
+          <Link to="/InstructorSignIn">
+            <p className="link">INSTRUCTOR</p>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

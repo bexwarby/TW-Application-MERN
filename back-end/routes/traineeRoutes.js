@@ -20,5 +20,4 @@ router.get("/profile/:id", traineeCrtl.profile);
 router.put("/profile/:id", traineeCrtl.profileEdit);
 router.delete("/profile/:id", traineeCrtl.profileDelete);
 
-
 module.exports = router;

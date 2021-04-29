@@ -37,7 +37,7 @@ import Result from "./Components/InstructorSignUp/Result/Result";
 
 function App() {
   return (
-    <div>
+    <div className="contentApp">
       <StateMachineProvider>
         <Router>
           <Switch>
