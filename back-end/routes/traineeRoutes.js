@@ -3,22 +3,22 @@
  */
 
 const router = require("express").Router();
-const traineeCrtl = require("../controllers/controllersTrainee");
 
-router.post("/signup", traineeCrtl.signUp);
-router.post("/signin", traineeCrtl.signIn);
+const traineeController = require("../controllers/controllersTrainee");
 
-router.get("/dashboard/:id", traineeCrtl.dashboard);
+router.post("/signup", traineeController.signUp);
+router.post("/signin", traineeController.signIn);
 
-router.get("/modules", traineeCrtl.allModules);
-router.get("/modules/:id", traineeCrtl.oneModule);
+router.get("/dashboard/:id", traineeController.dashboard);
 
-router.get("/flybooking", traineeCrtl.instructorsList);
+router.get("/modules", traineeController.allModules);
+router.get("/modules/:id", traineeController.oneModule);
 
-router.post("/profile/add", traineeCrtl.profileAdd);
-router.get("/profile/:id", traineeCrtl.profile);
-router.put("/profile/:id", traineeCrtl.profileEdit);
-router.delete("/profile/:id", traineeCrtl.profileDelete);
+router.get("/flybooking", traineeController.instructorsList);
 
+router.post("/profile/add", traineeController.profileAdd);
+router.get("/profile/:id", traineeController.profile);
+router.put("/profile/:id", traineeController.profileEdit);
+router.delete("/profile/:id", traineeController.profileDelete);
 
 module.exports = router;
