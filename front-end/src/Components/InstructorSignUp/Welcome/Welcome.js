@@ -1,50 +1,38 @@
-/** 
- *  components/InstructorSignUp/Welcome.js - Welcome component 
+/**
+ *  components/InstructorSignUp/Welcome.js - Welcome component
  * */
 
 /* Imports */
 import "./welcome.css";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
+import { useForm } from "react-hook-form";
+import { useStateMachine } from "little-state-machine";
+import updateAction from "../updateAction";
 
-/**
- *  Thanks component */
-function Welcome() {
+const Welcome = (props) => {
+  const { handleSubmit } = useForm();
+  const { actions } = useStateMachine({ updateAction });
+  const onSubmit = (data) => {
+    actions.updateAction(data);
+    props.history.push("/Instructor/SignUp/step1");
+  };
 
-    return (
-
-        <div className="startSignUp">
-
-            <div className="textBlock">
-                <h1 className="title">TrueWings</h1>
-                <p className="subtitle">
-                    Ready to make money from your expertise?
-                    <br />
-                    It starts here.
-                    <br />
-                    Less than 1 min
-                </p>
-            </div>
-            {/* Submit Button  */}
-            <div className="buttonStart">
-                <button
-                    className="start"
-                    type="submit"
-                    className="btn btn-block buttonSubmit"
-                /* onClick={ } */
-                >
-                    Start
-                    </button>
-                <p
-                    className="enter"
-                /* onChange={ } */
-                >
-                    Press Enter
-                    </p>
-            </div>
-
-        </div>
-
-    );
-}
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <h1 className="title">TrueWings</h1>
+        <p className="subtitle">
+          Ready to make money from your expertise?
+          <br />
+          It starts here.
+          <br />
+          Less than 1 min
+        </p>
+      </div>
+      {/* Submit Button  */}
+      <input type="submit" />
+    </form>
+  );
+};
 
 export default Welcome;
