@@ -30,7 +30,7 @@ const Welcome = (props) => {
         </p>
       </div>
       {/* Submit Button  */}
-      <input type="submit" />
+      <input type="submit" value="Submit" />
     </form>
   );
 };

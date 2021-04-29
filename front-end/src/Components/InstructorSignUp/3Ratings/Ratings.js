@@ -53,7 +53,7 @@ function Ratings(props) {
               <option value="B737">B737 TR</option>
             </select>
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

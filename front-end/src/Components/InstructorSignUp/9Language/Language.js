@@ -44,7 +44,7 @@ function Language(props) {
               <option value="other">Other</option>
             </select>
           </div>
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>
