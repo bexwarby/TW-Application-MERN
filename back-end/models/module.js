@@ -1,8 +1,18 @@
+import { ratingSchema } from "Rating";
+
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const moduleSchema = new Schema({
-  name: { type: String, required: true },
-  moduleparentid: { type: String, required: true },
+export default stepSchema = new Schema({
+  stepName: { type: String, required: true },
 });
-module.exports = mongoose.model("Modules", moduleSchema);
+
+const moduleSchema = new Schema({
+  moduleName: { type: String, required: true },
+  nbHours: { type: Number, required: true },
+  price: { type: Number, required: true },
+  steps: [stepSchema],
+  ratings: [ratingSchema],
+});
+
+module.exports = mongoose.model("Module", moduleSchema);

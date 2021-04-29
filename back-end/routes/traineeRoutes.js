@@ -4,21 +4,21 @@
 
 const router = require("express").Router();
 
-const traineeCrtl = require("../controllers/controllersTrainee");
+const traineeController = require("../controllers/controllersTrainee");
 
-router.post("/trainee/signup", traineeCrtl.signUp);
-router.post("/trainee/signin", traineeCrtl.signIn);
+router.post("/trainee/signup", traineeController.signUp);
+router.post("/trainee/signin", traineeController.signIn);
 
-router.get("/trainee/dashboard/:id", traineeCrtl.dashboard);
+router.get("/trainee/dashboard/:id", traineeController.dashboard);
 
-router.get("/trainee/modules", traineeCrtl.allModules);
-router.get("/trainee/modules/:id", traineeCrtl.oneModule);
+router.get("/trainee/modules", traineeController.allModules);
+router.get("/trainee/modules/:id", traineeController.oneModule);
 
-router.get("/trainee/flybooking", traineeCrtl.instructorsList);
+router.get("/trainee/flybooking", traineeController.instructorsList);
 
-router.post("/trainee/profile/add", traineeCrtl.profileAdd);
-router.get("/trainee/profile/:id", traineeCrtl.profile);
-router.put("/trainee/profile/:id", traineeCrtl.profileEdit);
-router.delete("/trainee/profile/:id", traineeCrtl.profileDelete);
+router.post("/trainee/profile/add", traineeController.profileAdd);
+router.get("/trainee/profile/:id", traineeController.profile);
+router.put("/trainee/profile/:id", traineeController.profileEdit);
+router.delete("/trainee/profile/:id", traineeController.profileDelete);
 
 module.exports = router;

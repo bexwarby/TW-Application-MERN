@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 
 // MongoDB
 const mongoose = require("mongoose");
-const uri = `mongodb+srv://${process.env.DB_LOGIN_PWD}@truewings.685ft.mongodb.net/TRUEWINGS?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_LOGIN_PWD}${process.env.DB_SERVER}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB Atlas connected."))
