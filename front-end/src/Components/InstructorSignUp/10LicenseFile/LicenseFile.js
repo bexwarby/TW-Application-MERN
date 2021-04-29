@@ -1,47 +1,44 @@
 /**
- *  components/InstructorSignUp/12Bio.js - Bio component
+ *  components/InstructorSignUp/10File.js - File component
  * */
 
 /* Imports */
-import "./bio.css";
+import "./LicenseFile.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-function Bio(props) {
+function LicenseFile(props) {
   const { register, handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step13");
+    props.history.push("/Instructor/SignUp/step11");
   };
-
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="formSection">
           <div className="form-group">
             <div className="numberQuestion">
-              <p>12</p>
+              <p>10</p>
             </div>
-            <div>
-              <label for="bio">
-                Do you want to add something ? or a quick Bio ?
-              </label>
-              <p> Or click OK to pass the question.</p>
+            <label for="file">
+              Add a picture or your license or <b>later</b> by email
+            </label>
+            <p>
+              You can skip this question for now with the arrow at the bottom of
+              the page
+            </p>
+            <div className="file-uploader">
               <input
-                {...register("bio")}
-                type="text"
-                className="form-control"
-                id="bio"
-                placeholder="Type your answer here"
-                rows="10"
-                cols="20"
+                {...register("licenseFile")}
+                id="licenseFile"
+                type="file"
               />
             </div>
           </div>
-
           <input type="submit" />
         </div>
       </form>
@@ -49,4 +46,5 @@ function Bio(props) {
   );
 }
 
-export default Bio;
+/* Export */
+export default LicenseFile;

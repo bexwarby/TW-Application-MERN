@@ -56,7 +56,7 @@ function InstructorSignIn(e) {
         </div>
         <div>
           <span>Don't have an account? Sign-up</span>
-          <Link className="link" to="/Instructor/SignUp">
+          <Link className="link" to="/Welcome">
             here
           </Link>
         </div>

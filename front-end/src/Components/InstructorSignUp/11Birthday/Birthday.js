@@ -1,74 +1,47 @@
-/** 
- *  components/InstructorSignUp/11Birthday.js - Birthday component 
+/**
+ *  components/InstructorSignUp/11Birthday.js - Birthday component
  * */
 
 /* Imports */
-import { useState } from "react";
 import "./birthday.css";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
+import { useForm } from "react-hook-form";
+import { useStateMachine } from "little-state-machine";
+import updateAction from "../updateAction";
 
-/**
- *  Contact component */
-function Birthday() {
-
-    /*create state for each input*/
-    const [birthday, setBirthday] = useState(" ");
-
-    return (
-        <div className="signUp">
-
-            {/* Form to submit new Message
-            NEED COMPLETION BAR AT THE BOTTOM
-            */}
-            <form className="submitSignUp">
-
-                {/* 11 Birthday */}
-                <div className="formSection">
-                    <div className="form-group">
-                        <div className="numberQuestion">
-                            <p>11</p>
-                            {/* ADD ARROW ICON */}
-                        </div>
-                        <label for="date">
-                            Last question!
-                            <br />
-                            <br />
-                            What is your date of birth please ?
-                        </label>
-                        <input
-                            id="date"
-                            label="Birthday"
-                            type="date"
-                            value={birthday}
-                            onChange={(e) => setBirthday(e.target.value)}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                        />
-                    </div>
-                    <div className="buttonSection">
-                        <button
-                            className="buttonOK"
-                            type="submit"
-                            className="btn btn-block buttonSubmit"
-                        /* onClick={ } */
-                        >
-                            OK
-                        </button>
-                        <p
-                            className="enter"
-                        /* onChange={ } */
-                        >
-                            Press Enter
-                        </p>
-                    </div>
-                </div>
-
-            </form>
-
+function Birthday(props) {
+  const { register, handleSubmit } = useForm();
+  const { actions } = useStateMachine({ updateAction });
+  const onSubmit = (data) => {
+    actions.updateAction(data);
+    props.history.push("/Instructor/SignUp/step12");
+  };
+  return (
+    <div className="signUp">
+      <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
+        <div className="formSection">
+          <div className="form-group">
+            <div className="numberQuestion">
+              <p>11</p>
+            </div>
+            <label for="birthday">
+              Last question!
+              <br />
+              <br />
+              What is your date of birth please ?
+            </label>
+            <input
+              {...register("birthday")}
+              id="birthday"
+              label="birthday"
+              type="date"
+            />
+          </div>
+          <input type="submit" />
         </div>
-
-    );
+      </form>
+    </div>
+  );
 }
 
 /* Export */
