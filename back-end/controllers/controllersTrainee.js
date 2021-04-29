@@ -3,14 +3,27 @@
  */
 const traineeController = {
   signUp: async (req, res) => {
-    const trainee = require("../models/User");
+    const Trainee = require("../models/User");
     const { fullName, email, password } = req.body;
 
-    trainee.save((err) => {
+    const docTrainee = new Trainee({
+      fullName: fullName,
+      email: email,
+      password: password,
+      instructor: false,
+      admin: false,
+      trainee: true,
+      flightHours: 0,
+      licenceFile: "",
+      birthday: "",
+      bio: "",
+    });
+
+    docTrainee.save((err) => {
       if (err) {
-        res.status(501).json({ message: err, data: "" });
+        res.status(501).json({ message: err });
       } else {
-        res.json({ message: "New trainee created!", data: contact });
+        res.json({ message: "New trainee created!" });
       }
     });
   },
