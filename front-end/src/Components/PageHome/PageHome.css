@@ -8,7 +8,7 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
   /*gestion logo*/
   .contentLogo {
     margin-top: 68%;
