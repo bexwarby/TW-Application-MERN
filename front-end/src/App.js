@@ -36,33 +36,7 @@ import Submit from "./Components/InstructorSignUp/14Submit/Submit";
 
 function App() {
   return (
-<<<<<<< HEAD
     <div className="contentApp">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/TraineeSignIn">
-            <TraineeSignIn />
-          </Route>
-          <Route path="/Trainee/SignUp">
-            <TraineeSignUp />
-          </Route>
-          <Route path="/InstructorSignIn">
-            <InstructorSignIn />
-          </Route>
-          <Route path="/Instructor/SignUp">
-            <InstructorSignUp />
-          </Route>
-
-          {/*<InstructorHome />*/}
-          {/* <TraineeHome /> */}
-          {/* <AdminHome /> */}
-        </Switch>
-      </Router>
-=======
-    <div>
       <StateMachineProvider>
         <Router>
           <Switch>
@@ -101,7 +75,6 @@ function App() {
           </Switch>
         </Router>
       </StateMachineProvider>
->>>>>>> 8dfb5fd27c0ea1534e518b92518255f74ab8c964
     </div>
   );
 }
