@@ -1,8 +1,8 @@
-import { instructorSchema } from "../instructor/Instructor";
-import { traineeSchema } from "../trainee/Trainee";
-
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+
+const instructorSchema = require("../instructor/Instructor");
+const traineeSchema = require("../trainee/Trainee");
 
 const equipmentLessonSchema = new Schema({
   equipmentName: { type: String, required: true },

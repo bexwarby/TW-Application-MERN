@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
   fullName: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
@@ -10,8 +10,8 @@ const UserSchema = new mongoose.Schema({
   trainee: { type: Boolean, required: true },
   flightHours: { type: Number, required: true },
   licenceFile: { type: String },
-  birthday: { type: String, required: true },
-  photo: { type: String, required: true },
+  birthDay: { type: String },
+  photo: { type: String },
   bio: { type: String },
   dateInsert: { type: Date, required: true },
   enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true

@@ -1,8 +1,8 @@
-import { ratingSchema } from "Rating";
-import { stepSchema } from "Module";
-
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+
+const { ratingSchema } = require("../models/Rating");
+const { stepSchema } = require("../models/Step");
 
 const profileStep = new Schema({
   modulesId: { type: String, required: true },

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-export default ratingSchema = new Schema({
+const ratingSchema = new Schema({
   ratingName: { type: String, require: true },
 });
 
