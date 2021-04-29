@@ -12,7 +12,6 @@ const moduleSchema = new Schema({
   nbHours: { type: Number, required: true },
   price: { type: Number, required: true },
   steps: [stepSchema],
-  ratings: [ratingSchema],
 });
 
 module.exports = mongoose.model("Module", moduleSchema);

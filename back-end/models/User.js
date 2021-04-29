@@ -9,12 +9,12 @@ const UserSchema = new mongoose.Schema({
   admin: { type: Boolean, required: true },
   trainee: { type: Boolean, required: true },
   flightHours: { type: Number, required: true },
-  licenceFile: { type: String, required: true },
+  licenceFile: { type: String },
   birthday: { type: String, required: true },
   photo: { type: String, required: true },
-  bio: { type: String, required: true },
+  bio: { type: String },
   dateInsert: { type: Date, required: true },
-  enabled: { type: Boolean, required: true },
+  enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true
 });
 
 module.exports = mongoose.model("User", UserSchema);

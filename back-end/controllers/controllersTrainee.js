@@ -17,6 +17,9 @@ const traineeController = {
       licenceFile: "",
       birthday: "",
       bio: "",
+      photo: "",
+      dateInsert: Date.now(),
+      enabled: true,
     });
 
     docTrainee.save((err) => {

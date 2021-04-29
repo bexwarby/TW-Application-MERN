@@ -27,6 +27,7 @@ const lessonSchema = new Schema({
   equipments: [equipmentLessonSchema],
   instructor: instructorSchema,
   canceled: { type: Boolean, required: true },
+  language: { type: String, required: true },
 });
 
 const formationSchema = new Schema({
@@ -38,7 +39,6 @@ const formationSchema = new Schema({
   percentKnowledge: { type: Number, required: true },
   percentTrajectory: { type: Number, required: true },
   percentCommunication: { type: Number, required: true },
-  language: { type: String, required: true },
 });
 
 module.export = mongoose.model("Formation", formationSchema);
