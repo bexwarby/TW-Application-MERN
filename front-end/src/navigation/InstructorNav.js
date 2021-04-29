@@ -13,6 +13,7 @@ export default function InstructorNav() {
     return (
         <Router>
             <div>
+                
                 <Switch>
                     <Route exact path="/Instructor/dashboard">
                         <InstructorDashboard />
@@ -23,12 +24,6 @@ export default function InstructorNav() {
                     <Route exact path="/Instructor/profile">
                         <InstructorProfile />
                     </Route>
-                    {/*<Route exact path="/Instructor/signup">
-            <InstructorSignIn />
-          </Route>
-          <Route exact path="/Instructor/join">
-            <InstructorSignUp />
-  </Route>*/}
                 </Switch>
 
                 <nav>

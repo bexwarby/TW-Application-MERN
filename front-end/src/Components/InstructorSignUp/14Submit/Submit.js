@@ -1,16 +1,45 @@
 /** 
- *  components/InstructorSignUp/14Thanks.js - Thanks component 
+ *  components/InstructorSignUp/Submit.js - Submit component 
  * */
 
 /* Imports */
-import "./thanks.css";
-import 'bootstrap/dist/css/bootstrap.css';
+import "./submit.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 /**
- *  Thanks component */
+ *  Submit component */
 function Thanks() {
 
-    /**ADD FUNCTION TO SEND SIGN UP WHEN THE BUTTON IS PRESSED */
+    const { state } = useStateMachine(updateAction);
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const message = await fetch("process.env.REACT_APP_SERVER/trainee/signup", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fullName: fullName,
+                flightHours: flightHours,
+                ratingName: ratingName,
+                moduleName: moduleName,
+                equipmentName: equipmentName,
+                software: software,
+                hoursRequested: hoursRequested,
+                timeTeaching: timeTeaching,
+                languageCodeIso: languageCodeIso,
+                licenceFile: licenceFile,
+                birthday: birthday,
+                bio: bio,
+                email: email,
+            }),
+        });
+        console.log(message);
+        const data = await message.json();
+        console.log(data);
+    };
 
     return (
         <div className="signUp">
@@ -43,7 +72,7 @@ function Thanks() {
                         <button
                             type="submit"
                             className="btn btn-block buttonSubmit"
-                        /* onClick={handleSubmitButton} */
+                            onClick={handleSubmit(onSubmit)}
                         >
                             Join the crew!
                         </button>
