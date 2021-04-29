@@ -17,6 +17,14 @@ function Software(props) {
     props.history.push("/Instructor/SignUp/step7");
   };
 
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step5");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
+  };
+
   return (
     <div className="signUp">
       <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
@@ -50,6 +58,12 @@ function Software(props) {
             </select>
           </div>
           <input type="submit" value="Submit" />
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

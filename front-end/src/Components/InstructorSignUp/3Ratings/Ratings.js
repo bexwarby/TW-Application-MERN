@@ -17,6 +17,14 @@ function Ratings(props) {
     props.history.push("/Instructor/SignUp/step4");
   };
 
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step2");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
+  };
+
   return (
     <div className="signUp">
       <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
@@ -38,7 +46,7 @@ function Ratings(props) {
               id="ratingName"
               className="ratings"
               name="ratingName"
-              size="9"
+              size="10"
               multiple
             >
               <option value="FI">FI</option>
@@ -54,6 +62,12 @@ function Ratings(props) {
             </select>
           </div>
           <input type="submit" value="Submit" />
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

@@ -6,11 +6,21 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 function NamePilot(props) {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
     props.history.push("/Instructor/SignUp/step2");
+  };
+  const backClick = () => {
+    props.history.push("/Welcome");
+  };
+  const homeClick = () => {
+    props.history.push("/");
   };
 
   return (
@@ -29,14 +39,27 @@ function NamePilot(props) {
               instructor.
             </p>
             <input
-              {...register("fullName")}
+              {...register("fullName", {
+                required: "required",
+                minLength: { value: 2, message: "Please enter answer" },
+              })}
               type="text"
               className="form-control"
               id="fullName"
               placeholder="Type your answer here"
             />
           </div>
+          {errors.fullName && (
+            <span role="alert">{errors.fullName.message}</span>
+          )}
           <input type="submit" value="Submit" />
+
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

@@ -10,11 +10,23 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 function HoursClass(props) {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
     props.history.push("/Instructor/SignUp/step8");
+  };
+
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step6");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
   };
 
   return (
@@ -32,14 +44,27 @@ function HoursClass(props) {
               <em>(Think about unproductive layover with Netflix...)</em>
             </p>
             <input
-              {...register("hoursRequested")}
+              {...register("hoursRequested", {
+                required: "required",
+                minLength: { value: 1, message: "Please enter answer" },
+              })}
               type="text"
               className="form-control"
               id="hoursRequested"
               placeholder="Type your answer here"
             />
           </div>
+          {errors.hoursRequested && (
+            <span role="alert">{errors.hoursRequested.message}</span>
+          )}
           <input type="submit" value="Submit" />
+
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

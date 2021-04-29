@@ -10,11 +10,23 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 function Time(props) {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
     props.history.push("/Instructor/SignUp/step9");
+  };
+
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step7");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
   };
 
   return (
@@ -30,15 +42,27 @@ function Time(props) {
             </label>
             <p>Day of the week, part of the day...</p>
             <input
-              {...register("timeTeaching")}
+              {...register("timeTeaching", {
+                required: "required",
+                minLength: { value: 1, message: "Please enter answer" },
+              })}
               type="text"
-              name="timeTeaching"
               className="form-control"
               id="timeTeaching"
               placeholder="Type your answer here"
             />
           </div>
+          {errors.timeTeaching && (
+            <span role="alert">{errors.timeTeaching.message}</span>
+          )}
           <input type="submit" value="Submit" />
+
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

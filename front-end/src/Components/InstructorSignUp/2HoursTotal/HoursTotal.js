@@ -9,11 +9,22 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 function HoursTotal(props) {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
     props.history.push("/Instructor/SignUp/step3");
+  };
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step1");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
   };
   return (
     <div className="signUp">
@@ -27,14 +38,24 @@ function HoursTotal(props) {
               How many "real-world flight hours" do you have approximately?
             </label>
             <input
-              {...register("hours")}
+              {...register("hours", {
+                required: "required",
+                minLength: { value: 1, message: "Please enter answer" },
+              })}
               type="text"
               className="form-control"
-              id="flightHours"
+              id="hours"
               placeholder="Type your answer here"
             />
           </div>
+          {errors.hours && <span role="alert">{errors.hours.message}</span>}
           <input type="submit" value="Submit" />
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

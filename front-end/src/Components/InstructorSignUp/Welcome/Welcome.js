@@ -16,6 +16,9 @@ const Welcome = (props) => {
     actions.updateAction(data);
     props.history.push("/Instructor/SignUp/step1");
   };
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step12");
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -31,6 +34,9 @@ const Welcome = (props) => {
       </div>
       {/* Submit Button  */}
       <input type="submit" value="Submit" />
+      <button type="button" onClick={backClick}>
+        Back
+      </button>
     </form>
   );
 };

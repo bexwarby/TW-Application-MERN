@@ -17,6 +17,14 @@ function Bio(props) {
     props.history.push("/Instructor/SignUp/step13");
   };
 
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step11");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
+  };
+
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -43,6 +51,12 @@ function Bio(props) {
           </div>
 
           <input type="submit" value="Submit" />
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

@@ -17,6 +17,14 @@ function Equipment(props) {
     props.history.push("/Instructor/SignUp/step6");
   };
 
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step4");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
+  };
+
   return (
     <div className="Equipment">
       <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
@@ -53,6 +61,13 @@ function Equipment(props) {
             </select>
           </div>
           <input type="submit" value="Submit" />
+
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>

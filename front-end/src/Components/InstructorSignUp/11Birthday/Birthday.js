@@ -16,6 +16,14 @@ function Birthday(props) {
     actions.updateAction(data);
     props.history.push("/Instructor/SignUp/step12");
   };
+
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step10");
+  };
+
+  const homeClick = () => {
+    props.history.push("/");
+  };
   return (
     <div className="signUp">
       <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
@@ -38,6 +46,12 @@ function Birthday(props) {
             />
           </div>
           <input type="submit" value="Submit" />
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
       </form>
     </div>
