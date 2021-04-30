@@ -85,7 +85,7 @@ const adminController = {
     const docAdmin1 = new Admin({
       fullName: "Martin Dumont",
       email: "martin.dumont@true-wings.com",
-      password: await encryption.encrypt(process.env.ADMIN1_PWD),
+      password: process.env.ADMIN1_PWD,
       instructor: false,
       admin: true,
       trainee: false,
@@ -105,7 +105,7 @@ const adminController = {
     const docAdmin2 = new Admin({
       fullName: "Truewings",
       email: "admin@true-wings.com",
-      password: await encryption.encrypt(process.env.ADMIN2_PWD),
+      password: process.env.ADMIN2_PWD,
       instructor: false,
       admin: true,
       trainee: false,
@@ -125,28 +125,29 @@ const adminController = {
     const User = require("../models/User");
     const encryption = require("../tools/crypt/encryption");
 
-    User.findOne({ email: req.body.email })
-      .then((user) => {
-        if (!user) {
-          return res.status(401).json({ error: "Administrator nor found !" });
-        }
+    const adminUser = await User.findOne({ email: req.body.email });
 
-        encryption
-          .compare(req.body.password, user.password)
-          .then((valid) => {
-            if (!valid) {
-              //a vérifier
-              return res.status(401).json({ error: "Incorrect password !" });
-            }
-            res.status(200).json({
-              userId: user._id,
-              token: "TOKEN",
-              message: "Administrator connects",
-            });
-          })
-          .catch((error) => res.status(500).json({ error }));
-      })
-      .catch((error) => res.status(500).json({ error }));
+    try {
+      if (!adminUser) {
+        return res.status(401).json({ error: "Administrator nor found !" });
+      }
+
+      const valid = await encryption.compare(
+        req.body.password,
+        adminUser.password
+      );
+
+      if (!valid) {
+        return res.status(401).json({ error: "Incorrect password !" });
+      }
+      res.status(200).json({
+        userId: user._id,
+        token: "TOKEN",
+        message: "Administrator connects",
+      });
+    } catch (error) {
+      if (error) res.status(500).json(error.message);
+    }
   },
 };
 
