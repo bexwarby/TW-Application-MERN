@@ -1,96 +1,73 @@
-/** 
- *  components/InstructorSignUp/6Software.js - Software component 
+/**
+ *  components/InstructorSignUp/6Software.js - Software component
  * */
 
 /* Imports */
-import { useState } from "react";
 import "./software.css";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
+import { useForm } from "react-hook-form";
+import { useStateMachine } from "little-state-machine";
+import updateAction from "../updateAction";
 
-/**
- *  Contact component */
-function Software() {
+function Software(props) {
+  const { register, handleSubmit } = useForm();
+  const { actions } = useStateMachine({ updateAction });
+  const onSubmit = (data) => {
+    actions.updateAction(data);
+    props.history.push("/Instructor/SignUp/step7");
+  };
 
-    /*create state for each input*/
-    // ADD STATE FOR TEXT AREA
-    const [software, setSoftware] = useState([" "]);
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step5");
+  };
 
-    {/** TO DO
-- tick after every selected item 
-*/}
+  const homeClick = () => {
+    props.history.push("/");
+  };
 
-    return (
-        <div className="signUp">
+  return (
+    <div className="signUp">
+      <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
+        <div className="formSection">
+          <div className="form-group">
+            <div className="numberQuestion">
+              <p>6</p>
+            </div>
+            <label for="software">
+              Which simulation software do you plan to use for training?
+            </label>
+            <p>
+              <em>Our students mostly use MSFS or Xplane 11.</em>
+            </p>
+            <p>Choose 1</p>
+            <select
+              {...register("software")}
+              id="software"
+              name="software"
+              size="5"
+              multiple
+            >
+              <option value="MSFS">MSFS</option>
+              <option value="Xplane">Xplane 11</option>
+              <option value="Prepa">Prepa 3D</option>
+              <option value="FSX">FSX</option>
 
-            {/* Form to submit new Message
-            NEED COMPLETION BAR AT THE BOTTOM
-            */}
-            <form className="submitSignUp">
-
-                {/* 6 Sim Software Input */}
-                <div className="formSection">
-                    <div className="form-group">
-                        <div className="numberQuestion">
-                            <p>6</p>
-                            {/* ADD ARROW ICON */}
-                        </div>
-                        <label for="software">
-                            Which simulation software do you plan to use for training?
-                        </label>
-                        <p>
-                            <em>Our students mostly use MSFS or Xplane 11.</em>
-                        </p>
-                        <p>Choose 1</p>
-                        <select 
-                            id="software" 
-                            name="equipment" 
-                            size="5"
-                            value={software}
-                            onChange={(e) => setSoftware(e.target.value[0])}
-                        >
-                            <option value="MSFS">MSFS</option>
-                            <option value="Xplane">Xplane 11</option>
-                            <option value="Prepa">Prepa 3D</option>
-                            <option value="FSX">FSX</option>
-                            <div className="other">
-                                <option value="other">Other</option>
-                                {/* NEEDS TO ONLY SHOW IF WE CLICK OTHER */}
-                                <textarea
-                                    className="form-control"
-                                    id="otherSoft"
-                                    value={ratingSubmitted}
-                                    placeholder="Write your rating here"
-                                    /* onChange={(e) => setRatingSubmitted(e.target.value)} */
-                                    rows="10"
-                                    cols="20"
-                                >
-                                </textarea>
-                            </div>
-                        </select>
-                    </div>
-                    <div className="buttonSection">
-                        <button
-                            className="buttonOK"
-                            type="submit"
-                            className="btn btn-block buttonSubmit"
-                        /* onClick={ } */
-                        >
-                            OK
-                        </button>
-                        <p
-                            className="enter"
-                        /* onChange={ } */
-                        >
-                            Press Enter
-                        </p>
-                    </div>
-                </div>
-
-            </form>
-
+              <option type="text" value="other">
+                Other
+              </option>
+            </select>
+          </div>
+          <input type="submit" value="Submit" />
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
-
-    );
+      </form>
+    </div>
+  );
 }
 
 /* Export */

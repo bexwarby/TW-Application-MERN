@@ -1,70 +1,65 @@
-/** 
- *  components/InstructorSignUp/2HoursTotal.js - HoursTotal component 
+/**
+ *  components/InstructorSignUp/2HoursTotal.js - HoursTotal component
  * */
 
-/* Imports */
-import { useState } from "react";
 import "./hoursTotal.css";
-import 'bootstrap/dist/css/bootstrap.css';
-import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { useForm } from "react-hook-form";
+import { useStateMachine } from "little-state-machine";
+import updateAction from "../updateAction";
 
-/**
- *  Contact component */
-function HoursTotal() {
+function HoursTotal(props) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { actions } = useStateMachine({ updateAction });
+  const onSubmit = (data) => {
+    actions.updateAction(data);
+    props.history.push("/Instructor/SignUp/step3");
+  };
+  const backClick = () => {
+    props.history.push("/Instructor/SignUp/step1");
+  };
 
-    /*create state for each input*/
-    const [hoursTotal, sethoursTotal] = useState(" ");
-
-    return (
-
-        <div className="signUp">
-
-            <form>
-
-                {/* 2 Flight Hours Input */}
-                <div className="formSection">
-                    <div className="form-group">
-                        <div className="numberQuestion">
-                            <p>2</p>
-                            {/* ADD ARROW ICON */}
-                        </div>
-                        <label for="hours">
-                            Dear {contactName}, how many "real-world flight hours"
-                            do you have approximately?
-                        </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="hours"
-                            placeholder="Type your answer here"
-                            value={hoursTotal}
-                            onChange={(e) => sethoursTotal(e.target.value)} 
-                            />
-                    </div>
-                    <div className="buttonSection">
-                        <button
-                            className="buttonOK"
-                            type="submit"
-                            className="btn btn-block buttonSubmit"
-                        /* onClick={ } */
-                        >
-                            OK
-                        </button>
-                        <p
-                            className="enter"
-                        /* onChange={ } */
-                        >
-                            Press Enter
-                        </p>
-                    </div>
-                </div>
-
-            </form>
-
+  const homeClick = () => {
+    props.history.push("/");
+  };
+  return (
+    <div className="signUp">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="formSection">
+          <div className="form-group">
+            <div className="numberQuestion">
+              <p>2</p>
+            </div>
+            <label for="flightHours">
+              How many "real-world flight hours" do you have approximately?
+            </label>
+            <input
+              {...register("hours", {
+                required: "required",
+                minLength: { value: 1, message: "Please enter answer" },
+              })}
+              type="text"
+              className="form-control"
+              id="hours"
+              placeholder="Type your answer here"
+            />
+          </div>
+          {errors.hours && <span role="alert">{errors.hours.message}</span>}
+          <input type="submit" value="Submit" />
+          <button type="button" onClick={backClick}>
+            Back
+          </button>
+          <button type="button" onClick={homeClick}>
+            Home
+          </button>
         </div>
-
-    );
+      </form>
+    </div>
+  );
 }
 
-/* Export */
 export default HoursTotal;

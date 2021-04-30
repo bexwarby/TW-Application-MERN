@@ -1,3 +1,65 @@
-#mainPage {
-  background-color: black;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap%22");
+
+.link {
+  color: white;
+  padding-top: 8px;
+  letter-spacing: -0.2px;
+  font-family: Montserrat;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 450px) {
+  /*gestion logo*/
+  .contentLogo {
+    margin-top: 68%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .contentTraineeInstructor {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 66%;
+  }
+
+  .linkTrainee {
+    background-color: black;
+    width: 100vw;
+    text-align: center;
+    height: 37px;
+    padding-top: 6px;
+    border-width: 1px;
+    border-radius: 2px;
+    border-color: rgba(128, 128, 128, 0.548);
+    border-style: solid;
+    border-left: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .linkInstructor {
+    margin-top: 20px;
+    background-color: black;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-width: 1px;
+    border-radius: 2px;
+    height: 37px;
+    padding-top: 6px;
+    border-color: rgba(128, 128, 128, 0.548);
+    border-style: solid;
+    border-left: hidden;
+    border-right: hidden;
+  }
+  /*gestion link*/
+}
+@media screen and (max-height: 668px) {
+  .contentTraineeInstructor {
+    margin-top: 52%;
+  }
 }

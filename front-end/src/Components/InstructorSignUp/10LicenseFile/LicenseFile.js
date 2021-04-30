@@ -1,54 +1,52 @@
 /**
- *  components/InstructorSignUp/13Email.js - Email component
+ *  components/InstructorSignUp/10File.js - File component
  * */
 
 /* Imports */
-import "./email.css";
+import "./LicenseFile.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-function Email(props) {
+function LicenseFile(props) {
   const { register, handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/submit");
+    props.history.push("/Instructor/SignUp/step11");
   };
 
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step12");
+    props.history.push("/Instructor/SignUp/step9");
   };
 
   const homeClick = () => {
     props.history.push("/");
   };
-
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="formSection">
           <div className="form-group">
             <div className="numberQuestion">
-              <p>13</p>
+              <p>10</p>
             </div>
-            <div>
-              <label for="email">Please write down your email.</label>
-              <p>
-                It will only be used to let you know when a student requests an
-                instructor.
-              </p>
+            <label for="file">
+              Add a picture or your license or <b>later</b> by email
+            </label>
+            <p>
+              You can skip this question for now with the arrow at the bottom of
+              the page
+            </p>
+            <div className="file-uploader">
               <input
-                {...register("email")}
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="name@example.com"
+                {...register("licenseFile")}
+                id="licenseFile"
+                type="file"
               />
             </div>
           </div>
-
           <input type="submit" value="Submit" />
           <button type="button" onClick={backClick}>
             Back
@@ -63,4 +61,4 @@ function Email(props) {
 }
 
 /* Export */
-export default Email;
+export default LicenseFile;

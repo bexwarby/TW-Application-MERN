@@ -1,24 +1,23 @@
 /**
- *  components/InstructorSignUp/11Birthday.js - Birthday component
+ *  components/InstructorSignUp/Submit.js - Submit component
  * */
 
 /* Imports */
-import "./birthday.css";
+import "./submit.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-function Birthday(props) {
-  const { register, handleSubmit } = useForm();
+function Thanks(props) {
+  const { handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step12");
+    props.history.push("/Instructor/SignUp/result");
   };
-
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step10");
+    props.history.push("/Instructor/SignUp/step13");
   };
 
   const homeClick = () => {
@@ -26,24 +25,22 @@ function Birthday(props) {
   };
   return (
     <div className="signUp">
-      <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {/* 14 Thank You Page */}
         <div className="formSection">
-          <div className="form-group">
-            <div className="numberQuestion">
-              <p>11</p>
-            </div>
-            <label for="birthday">
-              Last question!
+          <div>
+            <h3>Thank you very much for joining the crew.</h3>
+
+            <p>
+              We already have some students undertraining.
               <br />
-              <br />
-              What is your date of birth please ?
-            </label>
-            <input
-              {...register("birthday")}
-              id="birthday"
-              label="birthday"
-              type="date"
-            />
+              We will contact you as soon as a new one wants to book a lesson
+              with you.
+            </p>
+
+            <p className="boldItalic">
+              "If you really want to master something, teach it"
+            </p>
           </div>
           <input type="submit" value="Submit" />
           <button type="button" onClick={backClick}>
@@ -58,5 +55,4 @@ function Birthday(props) {
   );
 }
 
-/* Export */
-export default Birthday;
+export default Thanks;
