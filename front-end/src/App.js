@@ -55,21 +55,21 @@ function App() {
             </Route>
             <div>
               <Route path="/Welcome" component={Welcome} />
-              <Route path="/Instructor/SignUp/step1" component={Name} />
-              <Route path="/Instructor/SignUp/step2" component={HoursTotal} />
-              <Route path="/Instructor/SignUp/step3" component={Ratings} />
-              <Route path="/Instructor/SignUp/step4" component={Types} />
-              <Route path="/Instructor/SignUp/step5" component={Equipment} />
-              <Route path="/Instructor/SignUp/step6" component={Software} />
-              <Route path="/Instructor/SignUp/step7" component={HoursClass} />
-              <Route path="/Instructor/SignUp/step8" component={Time} />
-              <Route path="/Instructor/SignUp/step9" component={Language} />
-              <Route path="/Instructor/SignUp/step10" component={LicenseFile} />
-              <Route path="/Instructor/SignUp/step11" component={Birthday} />
-              <Route path="/Instructor/SignUp/step12" component={Bio} />
-              <Route path="/Instructor/SignUp/step13" component={Email} />
-              <Route path="/Instructor/SignUp/submit" component={Submit} />
-              <Route path="/Instructor/SignUp/result" component={Result} />
+              <Route path="/Instructor/signup/step1" component={Name} />
+              <Route path="/Instructor/signup/step2" component={HoursTotal} />
+              <Route path="/Instructor/signup/step3" component={Ratings} />
+              <Route path="/Instructor/signup/step4" component={Types} />
+              <Route path="/Instructor/signup/step5" component={Equipment} />
+              <Route path="/Instructor/signup/step6" component={Software} />
+              <Route path="/Instructor/signup/step7" component={HoursClass} />
+              <Route path="/Instructor/signup/step8" component={Time} />
+              <Route path="/Instructor/signup/step9" component={Language} />
+              <Route path="/Instructor/signup/step10" component={LicenseFile} />
+              <Route path="/Instructor/signup/step11" component={Birthday} />
+              <Route path="/Instructor/signup/step12" component={Bio} />
+              <Route path="/Instructor/signup/step13" component={Email} />
+              <Route path="/Instructor/signup/submit" component={Submit} />
+              <Route path="/Instructor/signup/result" component={Result} />
             </div>
             {/*<InstructorHome />*/}
             {/* <TraineeHome /> */}
