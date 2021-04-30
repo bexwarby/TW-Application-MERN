@@ -6,7 +6,8 @@ const instructorCtrl = require("../controllers/controllersInstructor");
 
 const router = require("express").Router();
 
-router.post("/signup", instructorCtrl.signUp); /* inscription */
+router.post("/signup", instructorCtrl.signUp);
+router.post("/signup/rating", instructorCtrl.rating); /* inscription */
 router.post("/signin", instructorCtrl.signIn); /* connection */
 
 router.get("/dashboard", instructorCtrl.dashboard); /* dashboard */

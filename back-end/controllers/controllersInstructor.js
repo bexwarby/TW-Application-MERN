@@ -3,18 +3,55 @@
  */
 
 /**TO DO
-   * - signUp + signUp optimisation/mettre en place (voir controllersTrainee)
-   * - teste d'unicite - avec un pre.
-   * - ajouter les champs utile pour instructeur - voir Rebekah
-   */
-
+ * - signUp + signUp optimisation/mettre en place (voir controllersTrainee)
+ * - teste d'unicite - avec un pre.
+ * - ajouter les champs utile pour instructeur - voir Rebekah
+ */
 
 module.exports = {
   /* option a selectioner avant signUp*/
-  signUp: (req, res) => {
-    const { mail, password } = req.body;
-    res.status(201).json({ mail, password });
+  rating: (req, res) => {
+    const Rating = require("../models/Rating");
+    const optionsRating = new Rating({
+      equipmentId: req.body.id,
+      name: req.body.name,
+    });
+    optionsRating.save((err) => {
+      if (err) {
+        res.status(501).json({ message: err });
+      } else {
+        res.json({ message: "New Rating created!" });
+      }
+    });
   },
+  signUp: async (req, res) => {
+    const Instructor = require("../models/User");
+    const { fullName, email, password } = req.body;
+    const docInstructor = new Instructor({
+      fullName: fullName,
+      email: email,
+      password: password,
+      instructor: false,
+      admin: false,
+      trainee: true,
+      flightHours: 0,
+      licenceFile: "",
+      birthDay: "",
+      bio: "",
+      photo: "",
+      dateInsert: Date.now(),
+      enabled: true,
+    });
+
+    docInstructor.save((err) => {
+      if (err) {
+        res.status(501).json({ message: err });
+      } else {
+        res.json({ message: "New Instructor created!" });
+      }
+    });
+  },
+
   signIn: (req, res) => {
     console.log(req.body);
     res.status(201).json(req.body);
