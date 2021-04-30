@@ -16,16 +16,22 @@ function InstructorSignIn(e) {
     };
     setSignIn(connexion);
   }
-  const handleSignIn = () => {
-    const url = "http://localhost:3000/users/signIn";
-    fetch(url, {
-      method: "POST",
-      header: {
-        Accept: "application/json",
-        authorization: "bearer token",
-      },
-      body: JSON.stringify(signIn),
-    }).then((value) => value.json());
+  const handleSignIn = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER}/users/signIn`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify(signIn),
+      })
+      const res = await response.json()
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

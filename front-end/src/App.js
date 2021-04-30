@@ -18,6 +18,8 @@ import InstructorSignIn from "./Components/InstructorSignIn/InstructorSignIn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { StateMachineProvider } from "little-state-machine";
 
+import PageAdmin from "./Components/PageAdmin/PageAdmin";
+
 import Welcome from "./Components/InstructorSignUp/Welcome/Welcome";
 import Name from "./Components/InstructorSignUp/1Name/Name";
 import HoursTotal from "./Components/InstructorSignUp/2HoursTotal/HoursTotal";
@@ -41,6 +43,11 @@ function App() {
       <StateMachineProvider>
         <Router>
           <Switch>
+            
+            <Route exact path="/admin">
+              <PageAdmin />
+            </Route>
+
             <Route exact path="/">
               <Home />
             </Route>
