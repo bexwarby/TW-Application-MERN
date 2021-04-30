@@ -75,6 +75,30 @@ const adminController = {
       }
     });
   },
+  signIn: async (req, res) => {
+    console.log(req.body);
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (!user) {
+          return res.status(401).json({ error: "Administrator nor found !" });
+        }
+        bcrypt
+          .compare(req.body.password, user.password)
+          .then((valid) => {
+            if (!valid || this.password.search(/$2[a-z].{57}/) !== -1) {
+              //a vérifier
+              return res.status(401).json({ error: "Incorrect password !" });
+            }
+            res.status(200).json({
+              userId: user._id,
+              token: "TOKEN",
+              message: "Administrator connects",
+            });
+          })
+          .catch((error) => res.status(500).json({ error }));
+      })
+      .catch((error) => res.status(500).json({ error }));
+  },
 };
 
 module.exports = adminController;
