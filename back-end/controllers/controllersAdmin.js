@@ -22,6 +22,8 @@ const adminController = {
       steps: steps,
     });
 
+    docModule1.collection.drop();
+
     docModule1.save((err) => {
       if (err) {
         res.status(501).json({ message: err });
@@ -72,6 +74,45 @@ const adminController = {
         res.status(501).json({ message: err });
       } else {
         res.json({ message: "All Modules created!" });
+      }
+    });
+  },
+  dbAddAdminUsers: async (req, res) => {
+    const encryption = require("../tools/crypt/encryption");
+
+    const Admin = require("../models/User");
+
+    const docAdmin1 = new Admin({
+      fullName: "Martin Dumont",
+      email: "admin@true-wings.com",
+      password: encryption.encrypt(process.env.ADMIN1_PWD),
+      instructor: false,
+      admin: true,
+      trainee: false,
+      dateInsert: Date.now(),
+      enabled: true,
+    });
+
+    docAdmin1.save((err) => {
+      if (err) {
+        res.status(501).json({ message: err });
+      }
+    });
+
+    const docAdmin2 = new Admin({
+      fullName: "Truewings",
+      email: "admin@true-wings.com",
+      password: encryption.encrypt(process.env.ADMIN2_PWD),
+      instructor: false,
+      admin: true,
+      trainee: false,
+      dateInsert: Date.now(),
+      enabled: true,
+    });
+
+    docAdmin2.save((err) => {
+      if (err) {
+        res.status(501).json({ message: err });
       }
     });
   },

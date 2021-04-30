@@ -3,12 +3,11 @@
  */
 const bcrypt = require("bcrypt");
 const traineeController = {
-  
   /**TO DO
    * - teste d'unicite - avec un pre.
    * - enlever les champs inutiles pour trainee
    */
-  
+
   signUp: async (req, res) => {
     const Trainee = require("../models/User");
     const { fullName, email, password } = req.body;
@@ -46,7 +45,9 @@ const traineeController = {
     if (!trainee) {
       return res.status(401).json({ error: "Utilisateur non trouvé !" });
     }
-    const validation = await bcrypt.compare(password, trainee.password);
+
+    const encryption = require("../tools/crypt/encryption");
+    const validation = encryption.compare(password, trainee.password);
     if (!validation) {
       return res.status(401).json({ error: "Mot de passe incorrect !" });
     }
