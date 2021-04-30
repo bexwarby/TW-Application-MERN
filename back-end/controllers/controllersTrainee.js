@@ -1,6 +1,7 @@
 /**
  * Trainee Controller
  */
+const bcrypt = require("bcrypt");
 const traineeController = {
   signUp: async (req, res) => {
     const Trainee = require("../models/User");
@@ -31,9 +32,20 @@ const traineeController = {
     });
   },
 
-  signIn: (req, res) => {
-    console.log(req.body);
-    res.status(200).json(req.body);
+  signIn: async (req, res) => {
+    const { email, password } = req.body;
+    const Trainee = require("../models/User");
+    const trainee = await Trainee.findOne({ email });
+
+    if (!trainee) {
+      return res.status(401).json({ error: "Utilisateur non trouvé !" });
+    }
+    const validation = await bcrypt.compare(password, trainee.password);
+    if (!validation) {
+      return res.status(401).json({ error: "Mot de passe incorrect !" });
+    }
+
+    return res.status(200).json({ traineeId: trainee._id });
   },
 
   dashboard: (req, res) => {

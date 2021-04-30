@@ -3,11 +3,10 @@ require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const app = express();
 
-const path = require('path');
-const helmet = require('helmet');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-
+const path = require("path");
+const helmet = require("helmet");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 // MongoDB
 const mongoose = require("mongoose");
@@ -25,6 +24,7 @@ const instructorRouter = require("./routes/instructorRoutes");
 const adminRouter = require("./routes/adminRoutes");
 
 // Middlewares integrated
+app.use(helmet());
 app.use(
   cors({
     origin: `http://${process.env.CLIENT}`,
