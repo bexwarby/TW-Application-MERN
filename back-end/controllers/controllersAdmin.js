@@ -84,8 +84,8 @@ const adminController = {
 
     const docAdmin1 = new Admin({
       fullName: "Martin Dumont",
-      email: "admin@true-wings.com",
-      password: encryption.encrypt(process.env.ADMIN1_PWD),
+      email: "martin.dumont@true-wings.com",
+      password: await encryption.encrypt(process.env.ADMIN1_PWD),
       instructor: false,
       admin: true,
       trainee: false,
@@ -98,11 +98,14 @@ const adminController = {
         res.status(501).json({ message: err });
       }
     });
+    const deletedCount = await docAdmin1.collection.deleteMany({
+      admin: { $eq: true },
+    });
 
     const docAdmin2 = new Admin({
       fullName: "Truewings",
       email: "admin@true-wings.com",
-      password: encryption.encrypt(process.env.ADMIN2_PWD),
+      password: await encryption.encrypt(process.env.ADMIN2_PWD),
       instructor: false,
       admin: true,
       trainee: false,
@@ -113,6 +116,8 @@ const adminController = {
     docAdmin2.save((err) => {
       if (err) {
         res.status(501).json({ message: err });
+      } else {
+        res.json({ message: "All admins created!" });
       }
     });
   },

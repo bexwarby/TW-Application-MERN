@@ -30,7 +30,7 @@ const traineeController = {
 
     docTrainee.save((err) => {
       if (err) {
-        res.status(501).json({ message: err });
+        res.status(501).json({ message: err.message });
       } else {
         res.json({ message: "New trainee created!" });
       }
