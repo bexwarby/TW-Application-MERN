@@ -6,6 +6,7 @@ const traineeSchema = require("../trainee/Trainee");
 
 const equipmentLessonSchema = new Schema({
   equipmentName: { type: String, required: true },
+  software: { type: Boolean, required: true },
 });
 
 const datesLessonSchema = new Schema({
@@ -22,6 +23,8 @@ const moduleLessonSchema = new Schema({
 
 const lessonSchema = new Schema({
   lessonName: { type: String, required: true },
+  hoursRequested: { type: String, required: true },
+  timeTeaching: { type: String, required: true },
   dates: datesLessonSchema,
   module: moduleLessonSchema,
   equipments: [equipmentLessonSchema],
