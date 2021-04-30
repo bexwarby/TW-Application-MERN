@@ -1,7 +1,8 @@
 /**
  * Admin Controller
  */
-
+const bcrypt = require("bcrypt");
+const User = require("../models/User");
 const adminController = {
   dbInitModules: async (req, res) => {
     const Step = require("../models/Step");
@@ -85,7 +86,7 @@ const adminController = {
         bcrypt
           .compare(req.body.password, user.password)
           .then((valid) => {
-            if (!valid || this.password.search(/$2[a-z].{57}/) !== -1) {
+            if (!valid) {
               //a vérifier
               return res.status(401).json({ error: "Incorrect password !" });
             }

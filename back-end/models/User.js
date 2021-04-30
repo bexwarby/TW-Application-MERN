@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema({
-  fullName: { type: String, required: true, unique: true },
+  fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   instructor: { type: Boolean, required: true },
@@ -19,7 +19,7 @@ const UserSchema = new Schema({
 });
 
 UserSchema.pre("save", async function (next) {
-  if (!this.password || this.password.search(/$2[a-z].{57}/) !== -1) {
+  if (!this.password) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
 
