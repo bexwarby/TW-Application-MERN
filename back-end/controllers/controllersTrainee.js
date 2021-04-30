@@ -3,6 +3,12 @@
  */
 const bcrypt = require("bcrypt");
 const traineeController = {
+  
+  /**TO DO
+   * - teste d'unicite - avec un pre.
+   * - enlever les champs inutiles pour trainee
+   */
+  
   signUp: async (req, res) => {
     const Trainee = require("../models/User");
     const { fullName, email, password } = req.body;

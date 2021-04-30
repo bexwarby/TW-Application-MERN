@@ -2,6 +2,13 @@
  * Instructor Controller
  */
 
+/**TO DO
+   * - signUp + signUp optimisation/mettre en place (voir controllersTrainee)
+   * - teste d'unicite - avec un pre.
+   * - ajouter les champs utile pour instructeur - voir Rebekah
+   */
+
+
 module.exports = {
   /* option a selectioner avant signUp*/
   signUp: (req, res) => {
