@@ -75,6 +75,16 @@ const adminController = {
       }
     });
   },
+
+  signIn: (req, res) => {
+    const { mail, password } = req.body
+    if (mail == 'ok@mail.com') {
+      res.status(200).json({ mail, password });
+    } else {
+      res.status(400).json({ msg: "une erreur s'est produite" });
+    }
+  },
 };
 
 module.exports = adminController;
+

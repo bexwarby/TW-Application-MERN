@@ -11,7 +11,7 @@ function Result(props) {
     props.history.push("/");
 
     const message = await fetch(
-      "process.env.REACT_APP_SERVER/instructor/signup",
+      `${process.env.REACT_APP_SERVER}/instructor/signup`,
       {
         method: "POST",
         headers: {

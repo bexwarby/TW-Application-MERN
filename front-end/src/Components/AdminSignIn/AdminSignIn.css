@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap%22");
+.adminContainer {
+  font-family: Monstsera;
+}
+
+.adminContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminContainer h2 {
+  color: goldenrod;
+}
+
+.adminContainer > form {
+  text-align: center;
+  margin: 0 5vw;
+}
+
+.adminContainer > form input {
+  margin: 0 0 2vh 0 ;
+  padding: 5px;
+  text-align: center;
+}
+
+.adminContainer > form button:hover {
+  border-radius: 5px;
+  color: goldenrod;
+  background-color: aliceblue;
+  border: 3px solid goldenrod
+}
+.adminContainer > form button {
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: goldenrod;
+  border: 3px solid goldenrod
+}
