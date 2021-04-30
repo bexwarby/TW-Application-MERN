@@ -8,6 +8,9 @@ const router = require("express").Router();
 
 router.post("/signup", instructorCtrl.signUp);
 router.post("/signup/rating", instructorCtrl.rating); /* inscription */
+router.post("/signup/equipment", instructorCtrl.equipment);
+router.post("/signup/language", instructorCtrl.language);
+router.post("/signup/module", instructorCtrl.module);
 router.post("/signin", instructorCtrl.signIn); /* connection */
 
 router.get("/dashboard", instructorCtrl.dashboard); /* dashboard */

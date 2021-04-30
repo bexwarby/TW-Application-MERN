@@ -10,19 +10,71 @@
 
 module.exports = {
   /* option a selectioner avant signUp*/
+  equipment: (req, res) => {
+    const Equipment = require("../models/Equipement");
+    const optionEquipment = new Equipment({
+      equipmentId: req.body.equipmentId,
+      name: req.body.name,
+    });
+    optionEquipment
+      .save()
+      .then(() => {
+        res.status(200).json({
+          message: `Equipement selectionner ${req.body.equipmentId}`,
+        });
+      })
+      .catch((error) => {
+        res.status(400).json({ error: error });
+      });
+  },
+  language: (req, res) => {
+    const Language = require("../models/language");
+    const optionLanguage = new Language({
+      languageCodeIso: req.body.codeiso,
+      language: req.body.codeiso,
+    });
+    optionLanguage
+      .save()
+      .then(() => {
+        res.status(200).json({ message: "Langage selectioner" });
+      })
+      .catch((error) => {
+        res.status(400).json({ message: error });
+      });
+  },
+  module: (req, res) => {
+    const Module = require("../models/module");
+    const { moduleName, nbHours, price, steps } = req.body;
+    const optionModule = new Module({
+      moduleName,
+      nbHours,
+      price,
+      steps,
+    });
+    optionModule
+      .save()
+      .then(() => {
+        res
+          .status(200)
+          .json({ message: `Vous avez selectionner le ${moduleName}` });
+      })
+      .catch((error) => {
+        res.status(400).json({ message: error });
+      });
+  },
   rating: (req, res) => {
     const Rating = require("../models/Rating");
     const optionsRating = new Rating({
-      equipmentId: req.body.id,
-      name: req.body.name,
+      ratingName: req.body.ratingName,
     });
-    optionsRating.save((err) => {
-      if (err) {
-        res.status(501).json({ message: err });
-      } else {
-        res.json({ message: "New Rating created!" });
-      }
-    });
+    optionsRating
+      .save()
+      .then(() => {
+        res.status(201).json({ message: `Equipement chois ${optionsRating}` });
+      })
+      .catch((error) => {
+        res.status(400).json({ error: error });
+      });
   },
   signUp: async (req, res) => {
     const Instructor = require("../models/User");
