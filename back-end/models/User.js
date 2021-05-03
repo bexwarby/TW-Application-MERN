@@ -13,7 +13,6 @@ const UserSchema = new Schema({
   instructor: { type: Boolean, required: true },
   admin: { type: Boolean, required: true },
   trainee: { type: Boolean, required: true },
-  dateInsert: { type: Date, required: true },
 
   /** SPECIFIC */
   // front/InstructorSignUp/2HoursTotal :
