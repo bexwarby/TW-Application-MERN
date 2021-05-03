@@ -14,7 +14,7 @@ function Email(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/submit");
+    props.history.push("/Instructor/signup/step14");
   };
 
   const backClick = () => {
