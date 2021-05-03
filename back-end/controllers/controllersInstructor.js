@@ -2,6 +2,8 @@
  * Instructor Controller
  */
 
+const User = require("../models/User");
+
 /**TO DO
  * - signUp + signUp optimisation/mettre en place (voir controllersTrainee)
  * - teste d'unicite - avec un pre.
@@ -105,8 +107,22 @@ module.exports = {
   },
 
   signIn: (req, res) => {
-    console.log(req.body);
-    res.status(201).json(req.body);
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (!user) {
+          return res.status(400).json({ message: "Instructeur non trouvée" });
+        }
+        bcrypt
+          .compare(req.body.password, user.password)
+          .then((confirmation) => {
+            if (!confirmation) {
+              res.status(400).json({ message: "mot de passe erroné" });
+            }
+            res.status(200).json({ message: "bien connecté" });
+          })
+          .catch((error) => res.status(500).json({ error }));
+      })
+      .catch((error) => res.status(500).json({ error }));
   },
   dashboard: (req, res) => {
     console.log(req.params.id);
