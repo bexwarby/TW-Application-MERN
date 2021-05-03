@@ -6,4 +6,4 @@ const traineeSchema = new Schema({
   userId: { type: String, required: true },
   notation: { type: String, required: true },
 });
-module.export = mongoose.model("Trainee", traineeSchema);
+module.exports = mongoose.model("Trainee", traineeSchema);

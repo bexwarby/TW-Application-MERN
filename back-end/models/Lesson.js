@@ -7,4 +7,4 @@ const lessonSchema = new Schema({
   equipment: { type: String, required: true },
   languageCodeIso: { type: String, require: true },
 });
-module.export = mongoose.model("Lesson", lessonSchema);
+module.exports = mongoose.model("Lesson", lessonSchema);

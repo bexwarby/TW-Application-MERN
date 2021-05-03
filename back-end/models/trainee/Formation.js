@@ -44,4 +44,4 @@ const formationSchema = new Schema({
   percentCommunication: { type: Number, required: true },
 });
 
-module.export = mongoose.model("Formation", formationSchema);
+module.exports = mongoose.model("Formation", formationSchema);

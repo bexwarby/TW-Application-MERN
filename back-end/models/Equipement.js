@@ -5,4 +5,4 @@ const equipmentSchema = new Schema({
     equipmentId ={ type: String, require:true},
     name = { type:String, require:true},
 })
-module.export= mongoose.model("Equipment",equipmentSchema);
+module.exports = mongoose.model("Equipment",equipmentSchema);
