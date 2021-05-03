@@ -30,7 +30,7 @@ const traineeController = {
 
     docTrainee.save((err) => {
       if (err) {
-        res.status(501).json({ message: err });
+        res.status(501).json({ message: err.message });
       } else {
         res.json({ message: "New trainee created!" });
       }
@@ -45,7 +45,9 @@ const traineeController = {
     if (!trainee) {
       return res.status(401).json({ error: "Utilisateur non trouvé !" });
     }
-    const validation = await bcrypt.compare(password, trainee.password);
+
+    const encryption = require("../tools/crypt/encryption");
+    const validation = encryption.compare(password, trainee.password);
     if (!validation) {
       return res.status(401).json({ error: "Mot de passe incorrect !" });
     }

@@ -17,19 +17,24 @@ function TraineeSignUp() {
     setnewSignup(inscription);
   }
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     /*fetch*/
     console.log(newSignup);
-    const url = "process.env.REACT_APP_SERVER/TraineeSignUp";
-    fetch(url, {
-      method: "POST",
-      Headers: {
-        Accept: "application/json",
-      },
-      body: JSON.stringify(newSignup),
-    })
-      .then((value) => value.json())
-      .then((value2) => console.log(value2));
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER}/trainee/signup`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify(newSignup),
+      })
+      const res = await response.json()
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

@@ -17,22 +17,28 @@ function TraineeSignIn() {
     };
     setTraineeLogin(connexion);
   }
-  const handleSignUp = () => {
-    const url = "http://localhost:5555/users/signUp";
-    fetch(url, {
-      method: "POST",
-      header: {
-        Accept: "application/json",
-        authorization: "bearer token",
-      },
-      body: JSON.stringify(traineeLogin),
-    }).then((value) => value.json());
+  const handleSignUp = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER}/trainee/signin`, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            'Content-Type': "application/json"
+          },
+          body: JSON.stringify(traineeLogin),
+        })
+      const res = await response.json()
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div id="content">
       <div className="contentLogo">
-        <img src={logo} />
+        {/* <img src={logo} /> */}
       </div>
       <section className="underLogo">
         <div className="contentInput">
