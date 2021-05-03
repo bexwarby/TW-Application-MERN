@@ -19,7 +19,7 @@ const UserSchema = new Schema({
 });
 
 UserSchema.pre("save", async function (next) {
-  if (!this.password || this.password.search(/$2[a-z].{57}/) !== -1) {
+  if (!this.password || this.password.search(/$2[a-z].{57}/) === -1) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
 

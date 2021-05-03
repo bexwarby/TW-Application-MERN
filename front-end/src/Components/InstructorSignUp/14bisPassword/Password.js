@@ -1,47 +1,47 @@
-/**
- *  components/InstructorSignUp/Submit.js - Submit component
- * */
-
 /* Imports */
-import "./submit.css";
+import "./password.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-function Thanks(props) {
-  const { handleSubmit } = useForm();
+function Password(props) {
+  const { register, handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/result");
+    props.history.push("/Instructor/SignUp/submit");
   };
+
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step14");
+    props.history.push("/Instructor/SignUp/step13");
   };
 
   const homeClick = () => {
     props.history.push("/");
   };
+
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* 14 Thank You Page */}
         <div className="formSection">
-          <div>
-            <h3>Thank you very much for joining the crew.</h3>
+          <div className="form-group">
+            <div className="numberQuestion">
+              <p>14</p>
+            </div>
+            <div>
+              <label for="email">Please write down your password.</label>
 
-            <p>
-              We already have some students undertraining.
-              <br />
-              We will contact you as soon as a new one wants to book a lesson
-              with you.
-            </p>
-
-            <p className="boldItalic">
-              "If you really want to master something, teach it"
-            </p>
+              <input
+                {...register("password")}
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="password"
+              />
+            </div>
           </div>
+
           <input type="submit" value="Submit" />
           <button type="button" onClick={backClick}>
             Back
@@ -55,4 +55,5 @@ function Thanks(props) {
   );
 }
 
-export default Thanks;
+/* Export */
+export default Password;

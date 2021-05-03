@@ -34,6 +34,7 @@ import LicenseFile from "./Components/InstructorSignUp/10LicenseFile/LicenseFile
 import Birthday from "./Components/InstructorSignUp/11Birthday/Birthday";
 import Bio from "./Components/InstructorSignUp/12Bio/Bio";
 import Email from "./Components/InstructorSignUp/13Email/Email";
+import Password from "./Components/InstructorSignUp/14bisPassword/Password";
 import Submit from "./Components/InstructorSignUp/14Submit/Submit";
 import Result from "./Components/InstructorSignUp/Result/Result";
 
@@ -43,7 +44,6 @@ function App() {
       <StateMachineProvider>
         <Router>
           <Switch>
-            
             <Route exact path="/admin">
               <PageAdmin />
             </Route>
@@ -75,6 +75,7 @@ function App() {
               <Route path="/Instructor/signup/step11" component={Birthday} />
               <Route path="/Instructor/signup/step12" component={Bio} />
               <Route path="/Instructor/signup/step13" component={Email} />
+              <Route path="/Instructor/signup/step14" component={Password} />
               <Route path="/Instructor/signup/submit" component={Submit} />
               <Route path="/Instructor/signup/result" component={Result} />
             </div>

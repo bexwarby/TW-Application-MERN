@@ -20,15 +20,17 @@ function TraineeSignIn() {
   const handleSignUp = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/signin`, {
+        `${process.env.REACT_APP_SERVER}/trainee/signin`,
+        {
           method: "POST",
           headers: {
             Accept: "application/json",
-            'Content-Type': "application/json"
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(traineeLogin),
-        })
-      const res = await response.json()
+        }
+      );
+      const res = await response.json();
       console.log(res);
     } catch (err) {
       console.log(err);
@@ -37,21 +39,19 @@ function TraineeSignIn() {
 
   return (
     <div id="content">
-      <div className="contentLogo">
-        {/* <img src={logo} /> */}
-      </div>
+      <div className="contentLogo">{/* <img src={logo} /> */}</div>
       <section className="underLogo">
         <div className="contentInput">
           <input
             className="myMail"
             type="text"
-            name="password"
+            name="email"
             onChange={handleData}
           />
 
           <input
             className="myPassword"
-            type="text"
+            type="password"
             name="password"
             onChange={handleData}
           />
