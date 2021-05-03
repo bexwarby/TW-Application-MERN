@@ -4,10 +4,12 @@ const { Schema } = mongoose;
 const instructorSchema = require("../instructor/Instructor");
 const traineeSchema = require("../trainee/Trainee");
 
-const equipmentLessonSchema = new Schema({
+// Pas sure que c'est nécessaire
+
+/* const equipmentLessonSchema = new Schema({
   equipmentName: { type: String, required: true },
   software: { type: Boolean, required: true },
-});
+}); */
 
 const datesLessonSchema = new Schema({
   startDate: { type: Date, required: true },
@@ -23,8 +25,6 @@ const moduleLessonSchema = new Schema({
 
 const lessonSchema = new Schema({
   lessonName: { type: String, required: true },
-  hoursRequested: { type: String, required: true },
-  timeTeaching: { type: String, required: true },
   dates: datesLessonSchema,
   module: moduleLessonSchema,
   equipments: [equipmentLessonSchema],
