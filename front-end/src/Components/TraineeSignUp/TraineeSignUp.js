@@ -22,15 +22,17 @@ function TraineeSignUp() {
     console.log(newSignup);
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/signup`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          'Content-Type': "application/json"
-        },
-        body: JSON.stringify(newSignup),
-      })
-      const res = await response.json()
+        `${process.env.REACT_APP_SERVER}/trainee/signup`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newSignup),
+        }
+      );
+      const res = await response.json();
       console.log(res);
     } catch (err) {
       console.log(err);
@@ -46,7 +48,7 @@ function TraineeSignUp() {
       <label>Enter your full name * : </label>
       <br></br>
       <br></br>
-      <input type="text" name="FullName" onChange={handleData} />
+      <input type="text" name="fullName" onChange={handleData} />
 
       <br></br>
       <br></br>
