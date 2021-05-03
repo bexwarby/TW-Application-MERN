@@ -19,6 +19,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { StateMachineProvider } from "little-state-machine";
 
 import PageAdmin from "./Components/PageAdmin/PageAdmin";
+import CalendrierTrainee from "./Components/CalendrierTrainee/CalendrierTrainee";
 
 import Welcome from "./Components/InstructorSignUp/Welcome/Welcome";
 import Name from "./Components/InstructorSignUp/1Name/Name";
@@ -47,6 +48,9 @@ function App() {
             <Route exact path="/admin">
               <PageAdmin />
             </Route>
+            <Route exact path="/calendrierTrainee">
+              <CalendrierTrainee />
+            </Route>
 
             <Route exact path="/">
               <Home />
@@ -60,6 +64,7 @@ function App() {
             <Route path="/InstructorSignIn">
               <InstructorSignIn />
             </Route>
+
             <div>
               <Route path="/Welcome" component={Welcome} />
               <Route path="/Instructor/signup/step1" component={Name} />
