@@ -4,14 +4,9 @@
 
 const User = require("../models/User");
 
-/**TO DO
- * - signUp + signUp optimisation/mettre en place (voir controllersTrainee)
- * - teste d'unicite - avec un pre.
- * - ajouter les champs utile pour instructeur - voir Rebekah
- */
-
 module.exports = {
-  /* option a selectioner avant signUp*/
+
+  /* USER CONTROLLERS */
   equipment: (req, res) => {
     const Equipment = require("../models/Equipement");
     const optionEquipment = new Equipment({
@@ -89,6 +84,13 @@ module.exports = {
       admin: false,
       trainee: true,
       flightHours: 0,
+      ratingName: "",
+      moduleName: "",
+      equipmentName: "",
+      software: "",
+      hoursRequested: 0,
+      timeTeaching: "",
+      language: "",
       licenceFile: "",
       birthDay: "",
       bio: "",
@@ -105,7 +107,6 @@ module.exports = {
       }
     });
   },
-
   signIn: (req, res) => {
     User.findOne({ email: req.body.email })
       .then((user) => {
@@ -133,6 +134,8 @@ module.exports = {
       })
       .catch((error) => res.status(500).json({ error }));
   },
+
+  /* DASHBOARD CONTROLLERS */
   dashboard: (req, res) => {
     console.log(req.params.id);
     res.status(201).json({ instructorId: req.params.id });
@@ -146,6 +149,7 @@ module.exports = {
     res.status(201).json(req.body);
   },
 
+  /* PROFILE CONTROLLERS */
   profileAdd: (req, res) => {
     console.log(req.body);
     res.status(201).json({ instuctorId: req.body });

@@ -13,4 +13,4 @@ const disponibiliteSchema = new Schema({
   dates: [datesDispoSchema],
 });
 
-module.export = mongoose.model("Disponibilite", disponibiliteSchema);
+module.exports = mongoose.model("Disponibilite", disponibiliteSchema);

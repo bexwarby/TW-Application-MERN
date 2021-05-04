@@ -4,11 +4,8 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const traineeController = {
-  /**TO DO
-   * - teste d'unicite - avec un pre.
-   * - enlever les champs inutiles pour trainee
-   */
 
+  /* USER CONTROLLERS */
   signUp: async (req, res) => {
     const Trainee = require("../models/User");
     const { fullName, email, password } = req.body;
@@ -21,6 +18,10 @@ const traineeController = {
       admin: false,
       trainee: true,
       flightHours: 0,
+      moduleName: "",
+      equipmentName: "",
+      software: "",
+      language: "",
       licenceFile: "",
       birthDay: "",
       bio: "",
@@ -38,6 +39,7 @@ const traineeController = {
     });
   },
 
+  /* USER CONTROLLERS */
   signIn: async (req, res) => {
     const { email, password } = req.body;
     const Trainee = require("../models/User");
@@ -61,11 +63,11 @@ const traineeController = {
     });
   },
 
+  /* DASHBOARD CONTROLLERS */
   dashboard: (req, res) => {
     console.log(req.params.id);
     res.status(200).json({ traineeId: req.params.id });
   },
-
   allModules: (req, res) => {
     console.log("Demande de mes modules ");
     res.status(200).send("Demande liste des mes modules");
@@ -74,12 +76,12 @@ const traineeController = {
     console.log(req.params.id);
     res.status(200).json({ moduleId: req.params.id });
   },
-
   instructorsList: (req, res) => {
     console.log("Demande de mes instructeurs");
     res.status(200).send("Demande liste des instructeurs");
   },
 
+  /* PROFILE CONTROLLERS */
   profileAdd: (req, res) => {
     console.log(req.body);
     res.status(201).json({ traineeId: req.body });
