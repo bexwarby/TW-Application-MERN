@@ -5,6 +5,7 @@
 const instructorCtrl = require("../controllers/controllersInstructor");
 
 const router = require("express").Router();
+const validInstructor = require("../middlewares/tokenverifInstructor");
 
 router.post("/signup", instructorCtrl.signUp);
 router.post("/signup/rating", instructorCtrl.rating); /* inscription */

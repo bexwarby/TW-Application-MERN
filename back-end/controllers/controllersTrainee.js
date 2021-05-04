@@ -1,6 +1,7 @@
 /**
  * Trainee Controller
  */
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const traineeController = {
   /**TO DO
@@ -52,7 +53,12 @@ const traineeController = {
       return res.status(401).json({ error: "Mot de passe incorrect !" });
     }
 
-    return res.status(200).json({ traineeId: trainee._id });
+    return res.status(200).json({
+      traineeId: trainee._id,
+      token: jwt.sign({ traineeId: trainee_id }, "clés_secrete_trainee", {
+        expiresIn: "8h",
+      }),
+    });
   },
 
   dashboard: (req, res) => {
