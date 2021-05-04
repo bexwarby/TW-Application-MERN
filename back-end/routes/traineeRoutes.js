@@ -5,9 +5,10 @@
 const router = require("express").Router();
 
 const traineeController = require("../controllers/controllersTrainee");
+const controllTrainee = require("../middlewares/tokenverifTrainee");
 
 router.post("/signup", traineeController.signUp);
-router.post("/signin", traineeController.signIn);
+router.post("/signin", controllTrainee, traineeController.signIn);
 
 router.get("/dashboard/:id", traineeController.dashboard);
 

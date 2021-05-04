@@ -120,7 +120,16 @@ module.exports = {
             if (!confirmation) {
               res.status(400).json({ message: "mot de passe erroné" });
             }
-            res.status(200).json({ message: "bien connecté" });
+            res.status(200).json({
+              instructorId: user._id,
+              token: jwt.sign(
+                { instructorId: user._id },
+                "clés_secrete_instructor",
+                {
+                  expiresIn: "8h",
+                }
+              ),
+            });
           })
           .catch((error) => res.status(500).json({ error }));
       })
