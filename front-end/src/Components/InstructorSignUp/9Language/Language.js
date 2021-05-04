@@ -40,16 +40,16 @@ function Language(props) {
             </p>
             <p>Choose as many as apply</p>
             <select
-              {...register("languageCodeIso")}
-              id="languageCodeIso"
-              name="languageCodeIso"
+              {...register("language")}
+              id="language"
+              name="language"
               size="5"
               multiple
             >
-              <option value="en">English</option>
-              <option value="fr">French</option>
-              <option value="it">Italian</option>
-              <option value="es">Spanish</option>
+              <option value="english">English</option>
+              <option value="french">French</option>
+              <option value="italian">Italian</option>
+              <option value="spanish">Spanish</option>
               <option value="other">Other</option>
             </select>
           </div>
