@@ -20,6 +20,7 @@ import { StateMachineProvider } from "little-state-machine";
 
 import PageAdmin from "./Components/PageAdmin/PageAdmin";
 import CalendrierTrainee from "./Components/CalendrierTrainee/CalendrierTrainee";
+import CalendrierInstructor from "./Components/CalendrierInstructor/CalendrierInstructor";
 
 import Welcome from "./Components/InstructorSignUp/Welcome/Welcome";
 import Name from "./Components/InstructorSignUp/1Name/Name";
@@ -51,7 +52,9 @@ function App() {
             <Route exact path="/calendrierTrainee">
               <CalendrierTrainee />
             </Route>
-
+            <Route exact path="/calendrierInstructor">
+              <CalendrierInstructor />
+            </Route>
             <Route exact path="/">
               <Home />
             </Route>

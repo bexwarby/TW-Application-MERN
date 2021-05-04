@@ -16,35 +16,15 @@ function CalendrierTrainee() {
     new Date(2021, 4, 25),
   ];
   /*function envoyer horaire*/
-  const [horaire, setHoraire] = useState({});
+  const [time, setTime] = useState({});
   function handleChange(e) {
-    let sendHoraire = {
-      ...horaire,
+    let sendTime = {
+      ...time,
       [e.target.name]: e.target.value,
     };
-    setHoraire(sendHoraire);
-    //console.log(sendHoraire)
+    setTime(sendTime);
+    //console.log(sendTime)
   }
-  /*function envoyer date ET horaire*/
-  /*async function submitRdv(event) {
-    const message = await fetch(
-      `${process.env.REACT_APP_SERVER}/trainee/calendrier`,
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          date: day,
-          horaire: horaire,
-        }),
-      }
-    );
-    console.log(message);
-    const data = await message.json();
-    console.log(data);
-  }*/
 
   const submitRdv = async () => {
     /*fetch*/
@@ -60,7 +40,7 @@ function CalendrierTrainee() {
           },
           body: JSON.stringify({
             date: day,
-            horaire: horaire,
+            time: time,
           }),
         }
       );
@@ -90,11 +70,12 @@ function CalendrierTrainee() {
 
       <p>Choose time</p>
       <select
-        id="horaire"
-        name="horaire"
+        id="time"
+        name="time"
         size=""
         onChange={handleChange}
-        value="horaireSend"
+        value="timeSend"
+        key="timeSend"
       >
         <option value="8-9">8-9</option>
         <option value="9-10">9-10</option>
