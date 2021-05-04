@@ -34,7 +34,7 @@ function Bio(props) {
               <p>12</p>
             </div>
             <div>
-              <label for="bio">
+              <label htmlFor="bio">
                 Do you want to add something ? or a quick Bio ?
               </label>
               <p> Or click OK to pass the question.</p>

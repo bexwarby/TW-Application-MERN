@@ -18,19 +18,19 @@ const UserSchema = new Schema({
   // front/InstructorSignUp/2HoursTotal :
   flightHours: Number,
   // front/InstructorSignUp/3Ratings :
-  ratingName: String,
+  ratingName: [String],
   // front/InstructorSignUp/4Types :
-  moduleName: String,
+  moduleName: [String],
   // front/InstructorSignUp/5Equipment :
-  equipmentName: String,
+  equipmentName: [String],
   // front/InstructorSignUp/6Software :
-  software: String,
+  software: [String],
   // front/InstructorSignUp/7HoursClass :
   hoursRequested: String,
   // front/InstructorSignUp/8Time :
   timeTeaching: String,
   // front/InstructorSignUp/9Language :
-  language: String,
+  language: [String],
   // front/InstructorSignUp/10LicenseFile :
   licenceFile: String,
   // front/InstructorSignUp/11Birthday :
@@ -39,6 +39,8 @@ const UserSchema = new Schema({
   bio: String,
   
   photo: String,
+
+  dateInsert: { type: Date, required: true },
   
   enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true
 });
@@ -47,9 +49,8 @@ UserSchema.pre("save", async function (next) {
   if (!this.password || this.password.search(/$2[a-z].{57}/) === -1) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
-
-    next();
   }
+    next();
 });
 
 module.exports = mongoose.model("User", UserSchema);

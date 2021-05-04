@@ -33,7 +33,7 @@ function Software(props) {
             <div className="numberQuestion">
               <p>6</p>
             </div>
-            <label for="software">
+            <label htmlFor="software">
               Which simulation software do you plan to use for training?
             </label>
             <p>

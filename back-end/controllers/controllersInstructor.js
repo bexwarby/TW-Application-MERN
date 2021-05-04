@@ -9,27 +9,42 @@ module.exports = {
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
     const Instructor = require("../models/User");
-    const { fullName, email, password } = req.body;
+    const { 
+      fullName, 
+      email, 
+      password, 
+      flightHours,
+      ratingName,
+      moduleName,
+      equipmentName,
+      software,
+      hoursRequested,
+      timeTeaching,
+      language,
+      licenceFile,
+      birthDay,
+      bio
+    } = req.body;
     const docInstructor = new Instructor({
       fullName: fullName,
       email: email,
       password: password,
-      instructor: false,
+      instructor: true,
       admin: false,
-      trainee: true,
-      flightHours: 0,
-      ratingName: "",
-      moduleName: "",
-      equipmentName: "",
-      software: "",
-      hoursRequested: 0,
-      timeTeaching: "",
-      language: "",
-      licenceFile: "",
-      birthDay: "",
-      bio: "",
-      photo: "",
-      dateInsert: Date.now(),
+      trainee: false,
+      flightHours: flightHours,
+      ratingName: ratingName,
+      moduleName: moduleName,
+      equipmentName: equipmentName,
+      software: software,
+      hoursRequested: hoursRequested,
+      timeTeaching: timeTeaching,
+      language: language,
+      licenceFile: licenceFile,
+      birthDay: birthDay,
+      bio: bio,
+/*       photo: photo,
+ */      dateInsert: Date.now(),
       enabled: true,
     });
     console.log(req.body);

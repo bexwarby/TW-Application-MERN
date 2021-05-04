@@ -33,7 +33,7 @@ function Equipment(props) {
             <div className="numberQuestion">
               <p>5</p>
             </div>
-            <label for="equipment">
+            <label htmlFor="equipment">
               What sim equipment do you have or plan to get?
             </label>
             <p>

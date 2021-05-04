@@ -32,7 +32,7 @@ function Birthday(props) {
             <div className="numberQuestion">
               <p>11</p>
             </div>
-            <label for="birthday">
+            <label htmlFor="birthday">
               Last question!
               <br />
               <br />

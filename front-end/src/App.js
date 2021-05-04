@@ -38,6 +38,7 @@ import Email from "./Components/InstructorSignUp/13Email/Email";
 import Password from "./Components/InstructorSignUp/14bisPassword/Password";
 import Submit from "./Components/InstructorSignUp/14Submit/Submit";
 import Result from "./Components/InstructorSignUp/Result/Result";
+import React from "react";
 
 function App() {
   return (
@@ -65,7 +66,7 @@ function App() {
               <InstructorSignIn />
             </Route>
 
-            <div>
+            <React.Fragment>
               <Route path="/Welcome" component={Welcome} />
               <Route path="/Instructor/signup/step1" component={Name} />
               <Route path="/Instructor/signup/step2" component={HoursTotal} />
@@ -83,7 +84,7 @@ function App() {
               <Route path="/Instructor/signup/step14" component={Password} />
               <Route path="/Instructor/signup/submit" component={Submit} />
               <Route path="/Instructor/signup/result" component={Result} />
-            </div>
+            </React.Fragment>
             {/*<InstructorHome />*/}
             {/* <TraineeHome /> */}
             {/* <AdminHome /> */}

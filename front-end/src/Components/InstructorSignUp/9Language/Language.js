@@ -33,7 +33,7 @@ function Language(props) {
             <div className="numberQuestion">
               <p>9</p>
             </div>
-            <label for="language">In which language(s) can you train?</label>
+            <label htmlFor="language">In which language(s) can you train?</label>
             <p>
               We recommend English as it's the aviation language and it's easier
               to find an instructor.

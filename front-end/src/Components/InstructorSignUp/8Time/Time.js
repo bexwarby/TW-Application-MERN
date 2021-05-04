@@ -37,7 +37,7 @@ function Time(props) {
             <div className="numberQuestion">
               <p>8</p>
             </div>
-            <label for="time">
+            <label htmlFor="time">
               Please let us know the more convenient time for you to train ?
             </label>
             <p>Day of the week, part of the day...</p>
