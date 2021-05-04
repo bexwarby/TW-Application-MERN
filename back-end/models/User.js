@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema({
-  
+
   /** GENERAL */
   // front/InstructorSignUp/1Name :
   fullName: { type: String, required: true },
@@ -18,17 +18,17 @@ const UserSchema = new Schema({
   // front/InstructorSignUp/2HoursTotal :
   flightHours: Number,
   // front/InstructorSignUp/3Ratings :
-  ratingName: { type: String, required: true },
+  ratingName: String,
   // front/InstructorSignUp/4Types :
   moduleName: String,
   // front/InstructorSignUp/5Equipment :
-  equipmentName: { type: String, required: true },
+  equipmentName: String,
   // front/InstructorSignUp/6Software :
-  software: { type: String, required: true },
+  software: String,
   // front/InstructorSignUp/7HoursClass :
-  hoursRequested: { type: String, required: true },
+  hoursRequested: String,
   // front/InstructorSignUp/8Time :
-  timeTeaching: { type: String, required: true },
+  timeTeaching: String,
   // front/InstructorSignUp/9Language :
   language: String,
   // front/InstructorSignUp/10LicenseFile :
@@ -37,9 +37,11 @@ const UserSchema = new Schema({
   birthDay: String,
   // front/InstructorSignUp/12Bio :
   bio: String,
-  
+
+  weeksToStart: String,
+
   photo: String,
-  
+
   enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true
 });
 
@@ -47,9 +49,8 @@ UserSchema.pre("save", async function (next) {
   if (!this.password || this.password.search(/$2[a-z].{57}/) === -1) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
-
-    next();
   }
+  next();
 });
 
 module.exports = mongoose.model("User", UserSchema);

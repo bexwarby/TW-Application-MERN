@@ -6,7 +6,6 @@ const app = express();
 const path = require("path");
 const helmet = require("helmet");
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
 
 // MongoDB
 const mongoose = require("mongoose");
@@ -37,7 +36,6 @@ app.use(
     optionsSuccessStatus: 204,
   })
 );
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));

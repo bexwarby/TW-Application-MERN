@@ -1,7 +1,7 @@
 /**
  * Trainee Controller
  */
-const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const traineeController = {
 
   /* USER CONTROLLERS */
@@ -23,6 +23,7 @@ const traineeController = {
       language: "",
       licenceFile: "",
       birthDay: "",
+      weekstoStart: "",
       bio: "",
       photo: "",
       dateInsert: Date.now(),
@@ -54,7 +55,12 @@ const traineeController = {
       return res.status(401).json({ error: "Mot de passe incorrect !" });
     }
 
-    return res.status(200).json({ traineeId: trainee._id });
+    return res.status(200).json({
+      traineeId: trainee._id,
+      token: jwt.sign({ traineeId: trainee_id }, "clés_secrete_trainee", {
+        expiresIn: "8h",
+      }),
+    });
   },
 
   /* DASHBOARD CONTROLLERS */
