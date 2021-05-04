@@ -18,17 +18,17 @@ const UserSchema = new Schema({
   // front/InstructorSignUp/2HoursTotal :
   flightHours: Number,
   // front/InstructorSignUp/3Ratings :
-  ratingName: { type: String, required: true },
+  ratingName: String,
   // front/InstructorSignUp/4Types :
   moduleName: String,
   // front/InstructorSignUp/5Equipment :
-  equipmentName: { type: String, required: true },
+  equipmentName: String,
   // front/InstructorSignUp/6Software :
-  software: { type: String, required: true },
+  software: String,
   // front/InstructorSignUp/7HoursClass :
-  hoursRequested: { type: String, required: true },
+  hoursRequested: String,
   // front/InstructorSignUp/8Time :
-  timeTeaching: { type: String, required: true },
+  timeTeaching: String,
   // front/InstructorSignUp/9Language :
   language: String,
   // front/InstructorSignUp/10LicenseFile :
