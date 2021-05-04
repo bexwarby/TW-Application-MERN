@@ -14,7 +14,7 @@ const traineeSchema = require("../trainee/Trainee");
 const datesLessonSchema = new Schema({
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
-  effectiveHours: { type: Number, required: true },
+  time: { type: Number, required: true },
 });
 
 const moduleLessonSchema = new Schema({

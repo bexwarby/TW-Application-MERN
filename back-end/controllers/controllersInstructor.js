@@ -7,6 +7,41 @@ const User = require("../models/User");
 module.exports = {
 
   /* USER CONTROLLERS */
+  signUp: async (req, res) => {
+    const Instructor = require("../models/User");
+    const { fullName, email, password } = req.body;
+    const docInstructor = new Instructor({
+      fullName: fullName,
+      email: email,
+      password: password,
+      instructor: false,
+      admin: false,
+      trainee: true,
+      flightHours: 0,
+      ratingName: "",
+      moduleName: "",
+      equipmentName: "",
+      software: "",
+      hoursRequested: 0,
+      timeTeaching: "",
+      language: "",
+      licenceFile: "",
+      birthDay: "",
+      bio: "",
+      photo: "",
+      dateInsert: Date.now(),
+      enabled: true,
+    });
+    console.log(req.body);
+
+    docInstructor.save((err) => {
+      if (err) {
+        res.status(501).json({ message: err });
+      } else {
+        res.json({ message: "New Instructor created!" });
+      }
+    });
+  },
   equipment: (req, res) => {
     const Equipment = require("../models/Equipement");
     const optionEquipment = new Equipment({
@@ -72,40 +107,6 @@ module.exports = {
       .catch((error) => {
         res.status(400).json({ error: error });
       });
-  },
-  signUp: async (req, res) => {
-    const Instructor = require("../models/User");
-    const { fullName, email, password } = req.body;
-    const docInstructor = new Instructor({
-      fullName: fullName,
-      email: email,
-      password: password,
-      instructor: false,
-      admin: false,
-      trainee: true,
-      flightHours: 0,
-      ratingName: "",
-      moduleName: "",
-      equipmentName: "",
-      software: "",
-      hoursRequested: 0,
-      timeTeaching: "",
-      language: "",
-      licenceFile: "",
-      birthDay: "",
-      bio: "",
-      photo: "",
-      dateInsert: Date.now(),
-      enabled: true,
-    });
-
-    docInstructor.save((err) => {
-      if (err) {
-        res.status(501).json({ message: err });
-      } else {
-        res.json({ message: "New Instructor created!" });
-      }
-    });
   },
   signIn: (req, res) => {
     User.findOne({ email: req.body.email })
