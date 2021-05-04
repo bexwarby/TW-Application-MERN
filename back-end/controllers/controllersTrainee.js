@@ -23,6 +23,7 @@ const traineeController = {
       language: "",
       licenceFile: "",
       birthDay: "",
+      weekstoStart: "",
       bio: "",
       photo: "",
       dateInsert: Date.now(),

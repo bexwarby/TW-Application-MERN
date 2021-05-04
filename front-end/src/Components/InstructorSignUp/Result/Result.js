@@ -18,7 +18,7 @@ function Result(props) {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(state, null, 2),
+        body: JSON.stringify(state),
       }
     );
     console.log(message);

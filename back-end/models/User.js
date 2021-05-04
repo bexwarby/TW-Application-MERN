@@ -38,6 +38,8 @@ const UserSchema = new Schema({
   // front/InstructorSignUp/12Bio :
   bio: String,
 
+  weeksToStart: String,
+
   photo: String,
 
   enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true
