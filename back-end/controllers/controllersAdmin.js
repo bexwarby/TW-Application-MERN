@@ -1,6 +1,8 @@
 /**
  * Admin Controller
  */
+ const jwt = require('jsonwebtoken')
+
 
 const adminController = {
   dbInitModules: async (req, res) => {
@@ -140,9 +142,11 @@ const adminController = {
       if (!valid) {
         return res.status(401).json({ error: "Incorrect password !" });
       }
+      const token = jwt.sign({ userId: adminUser._id}, process.env.JWT_TOKEN, { expiresIn: '48h' })
+
       res.status(200).json({
-        userId: user._id,
-        token: "TOKEN",
+        userId: adminUser._id,
+        token,
         message: "Administrator connects",
       });
     } catch (error) {

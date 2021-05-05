@@ -16,10 +16,13 @@ function InstructorSignIn(e) {
     };
     setSignIn(connexion);
   }
-  const handleSignIn = async () => {
+  const handleSignIn = async (e) => { 
+    e.preventDefault()
+    console.log('BP', process.env.REACT_APP_SERVER);
+
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/users/signIn`, {
+        `${process.env.REACT_APP_SERVER}/instructor/signin`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -28,7 +31,10 @@ function InstructorSignIn(e) {
         body: JSON.stringify(signIn),
       })
       const res = await response.json()
-      console.log(res);
+      console.log('res', res);
+      if (res) {
+        localStorage.setItem('jwt', res.token);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -62,7 +68,7 @@ function InstructorSignIn(e) {
         </div>
         <div>
           <span>Don't have an account? Sign-up</span>
-          <Link className="link" to="/Welcome">
+          <Link className="link" to="/welcome">
             here
           </Link>
         </div>

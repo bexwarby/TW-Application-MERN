@@ -3,19 +3,19 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema({
-  fullName: { type: String, required: true },
+  fullName: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  instructor: { type: Boolean, required: true },
-  admin: { type: Boolean, required: true },
-  trainee: { type: Boolean, required: true },
+  instructor: { type: Boolean },
+  admin: { type: Boolean },
+  trainee: { type: Boolean },
   flightHours: { type: Number },
   licenceFile: { type: String },
   birthDay: { type: String },
   photo: { type: String },
   bio: { type: String },
-  dateInsert: { type: Date, required: true },
-  enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true
+  dateInsert: { type: Date },
+  enabled: { type: Boolean }, //  todo: instructor enabled = false and trainee true
 });
 
 UserSchema.pre("save", async function (next) {

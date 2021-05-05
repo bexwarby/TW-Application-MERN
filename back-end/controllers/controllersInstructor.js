@@ -3,6 +3,8 @@
  */
 
 const User = require("../models/User");
+const jwt = require('jsonwebtoken')
+
 
 /**TO DO
  * - signUp + signUp optimisation/mettre en place (voir controllersTrainee)
@@ -106,24 +108,30 @@ module.exports = {
     });
   },
 
-  signIn: (req, res) => {
-    User.findOne({ email: req.body.email })
+  signIn:  (req, res) => { 
+    const { email, password } = req.body
+    
+    User.findOne({ email: email })
       .then((user) => {
         if (!user) {
           return res.status(400).json({ message: "Instructeur non trouvée" });
         }
         bcrypt
-          .compare(req.body.password, user.password)
+          .compare(password, user.password)
           .then((confirmation) => {
+            console.log('BP', confirmation);
+
             if (!confirmation) {
               res.status(400).json({ message: "mot de passe erroné" });
             }
-            res.status(200).json({ message: "bien connecté" });
+            const token = jwt.sign({ userId: user._id}, process.env.JWT_TOKEN, { expiresIn: '48h' })
+            res.status(200).json({ message: "bien connecté", instructorId: user._id, token })
           })
           .catch((error) => res.status(500).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
   },
+
   dashboard: (req, res) => {
     console.log(req.params.id);
     res.status(201).json({ instructorId: req.params.id });

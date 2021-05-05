@@ -2,6 +2,7 @@
  * Trainee Controller
  */
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken')
 const traineeController = {
   /**TO DO
    * - teste d'unicite - avec un pre.
@@ -52,7 +53,9 @@ const traineeController = {
       return res.status(401).json({ error: "Mot de passe incorrect !" });
     }
 
-    return res.status(200).json({ traineeId: trainee._id });
+    const token = jwt.sign({ userId: trainee._id}, process.env.JWT_TOKEN, { expiresIn: '48h' })
+
+    return res.status(200).json({ traineeId: trainee._id, token });
   },
 
   dashboard: (req, res) => {

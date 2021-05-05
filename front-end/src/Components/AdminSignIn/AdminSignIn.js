@@ -24,13 +24,13 @@ function AdminSignIn({setAuth}) {
           method: "POST",
           headers: {
             Accept: "application/json",
-            'Content-Type': "application/json"
+            'Content-Type': "application/json",
           },
           body: JSON.stringify(ids),
         })
       const res = await response.json()
       console.log(res);
-
+      
       if(!res.msg) {
         setAuth(true)
       } 

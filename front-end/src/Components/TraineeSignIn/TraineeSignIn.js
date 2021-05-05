@@ -3,10 +3,11 @@
  *
  */
 
-import logo from "../PageHome/logoHome.png";
+// import logo from "../PageHome/logoHome.png";
 import "./TraineeSignIn.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 function TraineeSignIn() {
   const [traineeLogin, setTraineeLogin] = useState({});
 
@@ -32,6 +33,7 @@ function TraineeSignIn() {
       );
       const res = await response.json();
       console.log(res);
+      localStorage.setItem('jwt', res.token);
     } catch (err) {
       console.log(err);
     }
@@ -64,7 +66,7 @@ function TraineeSignIn() {
         <div className="contentLink">
           <p className="subButton">
             Don't have an account? Sign-up
-            <Link to="/Trainee/SignUp">
+            <Link to="/trainee/signup">
               <span className="linkHere">here</span>
             </Link>
           </p>

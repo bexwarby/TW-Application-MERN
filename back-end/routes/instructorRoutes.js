@@ -2,9 +2,9 @@
  * Instructor Router : /instuctor/...
  */
 
+const router = require("express").Router();
 const instructorCtrl = require("../controllers/controllersInstructor");
 
-const router = require("express").Router();
 
 router.post("/signup", instructorCtrl.signUp);
 router.post("/signup/rating", instructorCtrl.rating); /* inscription */

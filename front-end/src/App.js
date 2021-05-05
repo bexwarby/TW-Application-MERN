@@ -51,17 +51,17 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/TraineeSignIn">
+            <Route exact path="/trainee/signIn">
               <TraineeSignIn />
             </Route>
-            <Route path="/Trainee/SignUp">
+            <Route exact path="/trainee/signup">
               <TraineeSignUp />
             </Route>
-            <Route path="/InstructorSignIn">
+            <Route exact path="/instructor/signin">
               <InstructorSignIn />
             </Route>
             <div>
-              <Route path="/Welcome" component={Welcome} />
+              <Route exact path="/Welcome" component={Welcome} />
               <Route path="/Instructor/signup/step1" component={Name} />
               <Route path="/Instructor/signup/step2" component={HoursTotal} />
               <Route path="/Instructor/signup/step3" component={Ratings} />

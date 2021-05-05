@@ -22,6 +22,7 @@ mongoose
   .catch((err) => console.log("Erreur connection" + err));
 
 // Imports Middleware (auth ...)
+const auth = require('./middleware/auth')
 
 // Imports Router
 const traineeRouter = require("./routes/traineeRoutes");
@@ -41,6 +42,9 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
+// middleware a appliquer sur toutes les routes sauf signin & signup
+app.get('*', auth.connect)
 
 // Routers
 app.use("/trainee", traineeRouter);
