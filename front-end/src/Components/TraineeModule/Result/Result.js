@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 function Result(props) {
   const { state } = useStateMachine(updateAction);
   const { actions } = useStateMachine({ updateAction });
+
   const { handleSubmit } = useForm();
   const onSubmit = async () => {
     actions.updateAction();

@@ -38,7 +38,7 @@ function TraineeFlyHours(props) {
         )}
         <input type="submit" value="Submit" />
         <button type="button" onClick={backClick}>
-          Back
+          return
         </button>
         <button type="button" onClick={homeClick}>
           Home

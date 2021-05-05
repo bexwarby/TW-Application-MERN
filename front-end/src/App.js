@@ -9,9 +9,11 @@ import Home from "./Components/PageHome/PageHome";
 import TraineeSignIn from "./Components/TraineeSignIn/TraineeSignIn";
 import TraineeSignUp from "./Components/TraineeSignUp/TraineeSignUp";
 import InstructorSignIn from "./Components/InstructorSignIn/InstructorSignIn";
+//////Trainee Module///
 import TraineeModule from "./Components/TraineeModule/1Module/TraineeModule";
 import TraineeEmail from "./Components/TraineeModule/2Email/TraineeEmail";
 import TraineeFlyHours from "./Components/TraineeModule/3FlyHours/TraineeFlyHours";
+import TraineeSimEquipment from "./Components/TraineeModule/4SimEquipment/TraineeSimEquipment";
 //import InstructorSignUp from "./navigation/InstructorSignUp";
 //import SignUpPilot from "./Components/InstructorSignUp/SignUp";
 //import InstructorHome from "./Components/PageInstructor/PageInstructor";
@@ -67,6 +69,10 @@ function App() {
               <Route path="/Trainee/module/step1" component={TraineeModule} />
               <Route path="/Trainee/module/step2" component={TraineeEmail} />
               <Route path="/Trainee/module/step3" component={TraineeFlyHours} />
+              <Route
+                path="/Trainee/module/step4"
+                component={TraineeSimEquipment}
+              />
             </div>
             <div>
               <Route path="/Welcome" component={Welcome} />
