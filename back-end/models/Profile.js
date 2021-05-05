@@ -9,7 +9,7 @@ const stepSchema = new Schema({
   stepName: { type: String, required: true },
 });
 
- const ratingSchema = new Schema({
+const ratingSchema = new Schema({
   ratingName: { type: String, require: true },
 });
 
