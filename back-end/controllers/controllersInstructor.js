@@ -153,6 +153,14 @@ module.exports = {
     res.status(201).json(req.body);
   },
   calendar: (req, res) => {
+    const Calendar = require("../models/Formation");
+    const calendarLessons = new Calendar({
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      time: req.body.time,
+    });
+    calendarLessons
+
     console.log(req.body);
     res.status(201).json(req.body);
   },

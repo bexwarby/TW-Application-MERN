@@ -3,7 +3,6 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema({
-  
   /** GENERAL */
   // front/InstructorSignUp/1Name :
   fullName: { type: String, required: true },
