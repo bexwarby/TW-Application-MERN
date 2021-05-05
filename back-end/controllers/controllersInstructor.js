@@ -4,6 +4,7 @@
 
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   /* USER CONTROLLERS */
@@ -173,17 +174,21 @@ module.exports = {
         if (!user) {
           return res.status(400).json({ message: "Instructeur non trouvée" });
         }
+
         bcrypt
           .compare(password, user.password)
           .then((confirmation) => {
             if (!confirmation) {
               res.status(400).json({ message: "mot de passe erroné" });
+              return;
             }
+
             const token = jwt.sign(
               { userId: user._id },
               process.env.JWT_SECRET_TOKEN,
               { expiresIn: "48h" }
             );
+
             res.status(200).json({
               message: "bien connecté",
               instructorId: user._id,
