@@ -31,7 +31,7 @@ function NamePilot(props) {
             <div className="numberQuestion">
               <p>1</p>
             </div>
-            <label for="fullName">
+            <label HtmlFor="fullName">
               First things first, what's your full name ?
             </label>
             <p>

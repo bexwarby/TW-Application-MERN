@@ -7,7 +7,7 @@ function CalendrierTrainee() {
   const [day, setDay] = useState(new Date());
   const onChange = (day) => {
     setDay(day);
-    //console.log(day);
+    console.log(day);
   };
   /*dates NON disponibles*/
   const disabledDates = [
@@ -23,7 +23,7 @@ function CalendrierTrainee() {
       [e.target.name]: e.target.value,
     };
     setTime(sendTime);
-    //console.log(sendTime)
+    console.log(sendTime)
   }
 
   const submitRdv = async () => {
@@ -31,7 +31,7 @@ function CalendrierTrainee() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/calendrier`,
+        `${process.env.REACT_APP_SERVER}/calendrier/trainee/book`,
         {
           method: "POST",
           headers: {
