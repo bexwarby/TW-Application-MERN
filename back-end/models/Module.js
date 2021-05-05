@@ -22,7 +22,7 @@
  * }
  */
 
-/* Imports 
+/* Imports */
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
@@ -31,7 +31,7 @@ const { Schema } = mongoose;
  */
 const StepSchema = new Schema({
   /* Nom de l'étape */
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
 
   /* Description de l'étape */
   description: String,

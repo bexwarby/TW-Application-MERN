@@ -17,7 +17,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "pm2": "pm2 start server.js -i max --watch --ignore-watch='node_modules' --time --merge-logs --name TW_SERVER"
+    "pm2": "pm2 start server.js -i max --watch --ignore-watch='node_modules' --time --merge-logs --name TW_SERVER",
+    "seed": "node ./seeders/seed.js"
   },
   "repository": {
     "type": "git",
