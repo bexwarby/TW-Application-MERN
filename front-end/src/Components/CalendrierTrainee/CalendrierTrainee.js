@@ -10,11 +10,21 @@ function CalendrierTrainee() {
     console.log(day);
   };
   /*dates NON disponibles*/
-  const disabledDates = [
-    new Date(2021, 4, 10),
-    new Date(2021, 4, 13),
-    new Date(2021, 4, 25),
+  const availabilities = [
+    {
+      startDate: new Date(2021, 4, 10, 9),
+      endDate: new Date(2021, 4, 10, 11),
+    },
+    {
+      startDate: new Date(2021, 4, 11, 13),
+      endDate: new Date(2021, 4, 11, 19),
+    },
+    {
+      startDate: new Date(2021, 4, 23, 14),
+      endDate: new Date(2021, 4, 26, 15),
+    },
   ];
+
   /*function envoyer horaire*/
   const [time, setTime] = useState({});
   function handleChange(e) {
@@ -23,7 +33,7 @@ function CalendrierTrainee() {
       [e.target.name]: e.target.value,
     };
     setTime(sendTime);
-    console.log(sendTime)
+    console.log(sendTime);
   }
 
   const submitRdv = async () => {
@@ -57,15 +67,25 @@ function CalendrierTrainee() {
         onChange={onChange}
         name="day"
         value={day}
-        tileDisabled={({ date, view }) =>
-          view === "month" && // Block day tiles only
-          disabledDates.some(
-            (disabledDate) =>
-              date.getFullYear() === disabledDate.getFullYear() &&
-              date.getMonth() === disabledDate.getMonth() &&
-              date.getDate() === disabledDate.getDate()
-          )
-        }
+        tileDisabled={({ date }) => {
+          let greyedOut = true;
+
+          availabilities.forEach((a) => {
+            a.startDate.setHours(0, 0, 0, 0);
+            a.endDate.setHours(0, 0, 0, 0);
+
+            const dateTimestamp = date.getTime();
+
+            if (
+              dateTimestamp >= a.startDate.getTime() &&
+              dateTimestamp <= a.endDate.getTime()
+            ) {
+              greyedOut = false;
+            }
+          });
+
+          return greyedOut;
+        }}
       />
 
       <p>Choose time</p>
