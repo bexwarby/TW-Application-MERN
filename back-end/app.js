@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routers
 app.use("/trainee", traineeRouter);
-app.use("/instructor", instructorRouter);
+app.use("/", instructorRouter);
 app.use("/admin", adminRouter);
 
 // Test Log 404

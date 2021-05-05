@@ -32,6 +32,7 @@ function TraineeSignIn() {
       );
       const res = await response.json();
       console.log(res);
+      localStorage.setItem("jwt", res.token);
     } catch (err) {
       console.log(err);
     }

@@ -16,19 +16,27 @@ function InstructorSignIn(e) {
     };
     setSignIn(connexion);
   }
-  const handleSignIn = async () => {
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    console.log("BP", process.env.REACT_APP_SERVER);
+
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/users/signIn`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          'Content-Type': "application/json"
-        },
-        body: JSON.stringify(signIn),
-      })
-      const res = await response.json()
-      console.log(res);
+        `${process.env.REACT_APP_SERVER}/InstructorSignIn`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(signIn),
+        }
+      );
+      const res = await response.json();
+      console.log("res", res);
+      if (res) {
+        localStorage.setItem("jwt", res.token);
+      }
     } catch (err) {
       console.log(err);
     }

@@ -3,32 +3,31 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema({
-  
   /** GENERAL */
   // front/InstructorSignUp/1Name :
-  fullName: { type: String, required: true },
+  fullName: { type: String },
   // front/InstructorSignUp/13Email :
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  instructor: { type: Boolean, required: true },
-  admin: { type: Boolean, required: true },
-  trainee: { type: Boolean, required: true },
+  instructor: { type: Boolean },
+  admin: { type: Boolean },
+  trainee: { type: Boolean },
 
   /** SPECIFIC */
   // front/InstructorSignUp/2HoursTotal :
   flightHours: Number,
   // front/InstructorSignUp/3Ratings :
-  ratingName: { type: String, required: true },
+  ratingName: { type: String },
   // front/InstructorSignUp/4Types :
   moduleName: String,
   // front/InstructorSignUp/5Equipment :
-  equipmentName: { type: String, required: true },
+  equipmentName: { type: String },
   // front/InstructorSignUp/6Software :
-  software: { type: String, required: true },
+  software: { type: String },
   // front/InstructorSignUp/7HoursClass :
-  hoursRequested: { type: String, required: true },
+  hoursRequested: { type: String },
   // front/InstructorSignUp/8Time :
-  timeTeaching: { type: String, required: true },
+  timeTeaching: { type: String },
   // front/InstructorSignUp/9Language :
   language: String,
   // front/InstructorSignUp/10LicenseFile :
@@ -37,10 +36,10 @@ const UserSchema = new Schema({
   birthDay: String,
   // front/InstructorSignUp/12Bio :
   bio: String,
-  
+
   photo: String,
-  
-  enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true
+
+  enabled: { type: Boolean }, //  todo: instructor enabled = false and trainee true
 });
 
 UserSchema.pre("save", async function (next) {

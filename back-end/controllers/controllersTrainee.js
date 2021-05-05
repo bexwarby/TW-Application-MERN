@@ -4,7 +4,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const traineeController = {
-
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
     const Trainee = require("../models/User");
@@ -46,21 +45,28 @@ const traineeController = {
     const trainee = await Trainee.findOne({ email });
 
     if (!trainee) {
-      return res.status(401).json({ error: "Utilisateur non trouvé !" });
+      return res
+        .status(401)
+        .json({ error: "Utilisateur non trouvé !00000000000000000" });
     }
 
     const encryption = require("../tools/crypt/encryption");
     const validation = encryption.compare(password, trainee.password);
     if (!validation) {
       return res.status(401).json({ error: "Mot de passe incorrect !" });
+    } else {
+      const token = jwt.sign(
+        { traineeId: trainee._id },
+        process.env.JWT_SECRET_TOKEN_TRAINEE,
+        {
+          expiresIn: "8h",
+        }
+      );
+      return res.status(200).json({
+        traineeId: trainee._id,
+        token: token,
+      });
     }
-
-    return res.status(200).json({
-      traineeId: trainee._id,
-      token: jwt.sign({ traineeId: trainee_id }, "clés_secrete_trainee", {
-        expiresIn: "8h",
-      }),
-    });
   },
 
   /* DASHBOARD CONTROLLERS */

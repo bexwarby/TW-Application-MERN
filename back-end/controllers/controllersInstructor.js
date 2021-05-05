@@ -3,9 +3,9 @@
  */
 
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 module.exports = {
-
   /* USER CONTROLLERS */
   equipment: (req, res) => {
     const Equipment = require("../models/Equipement");
@@ -107,27 +107,52 @@ module.exports = {
       }
     });
   },
+  // signIn: (req, res) => {
+  //   User.findOne({ email: req.body.email })
+  //     .then((user) => {
+  //       if (!user) {
+  //         return res.status(400).json({ message: "Instructeur non trouvée" });
+  //       }
+  //       bcrypt
+  //         .compare(req.body.password, user.password)
+  //         .then((confirmation) => {
+  //           if (!confirmation) {
+  //             res.status(400).json({ message: "mot de passe erroné" });
+  //           }
+  //           const token = jwt.sign(
+  //             { instructorId: user._id },
+  //             process.env.JWT_SECRET_TOKEN,
+  //             { expiresIn: "8h" }
+  //           );
+  //           res.status(200).json({ instructorId: user._id, token });
+  //         })
+  //         .catch(() => res.status(500).json({ message: "error" }));
+  //     })
+  //     .catch((error) => res.status(500).json({ error }));
+  // },
   signIn: (req, res) => {
-    User.findOne({ email: req.body.email })
+    const { email, password } = req.body;
+
+    User.findOne({ email: email })
       .then((user) => {
         if (!user) {
           return res.status(400).json({ message: "Instructeur non trouvée" });
         }
         bcrypt
-          .compare(req.body.password, user.password)
+          .compare(password, user.password)
           .then((confirmation) => {
             if (!confirmation) {
               res.status(400).json({ message: "mot de passe erroné" });
             }
+            const token = jwt.sign(
+              { userId: user._id },
+              process.env.JWT_SECRET_TOKEN,
+              { expiresIn: "48h" }
+            );
             res.status(200).json({
+              message: "bien connecté",
               instructorId: user._id,
-              token: jwt.sign(
-                { instructorId: user._id },
-                "clés_secrete_instructor",
-                {
-                  expiresIn: "8h",
-                }
-              ),
+              token: token,
             });
           })
           .catch((error) => res.status(500).json({ error }));

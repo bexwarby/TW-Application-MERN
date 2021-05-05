@@ -12,17 +12,21 @@ router.post("/signup/rating", instructorCtrl.rating); /* inscription */
 router.post("/signup/equipment", instructorCtrl.equipment);
 router.post("/signup/language", instructorCtrl.language);
 router.post("/signup/module", instructorCtrl.module);
-router.post("/signin", validInstructor, instructorCtrl.signIn); /* connection */
+router.post("/InstructorSignIn", instructorCtrl.signIn); /* connection */
 
-router.get("/dashboard", instructorCtrl.dashboard); /* dashboard */
+router.get(
+  "/dashboard",
+  validInstructor,
+  instructorCtrl.dashboard
+); /* dashboard */
 
-router.post("/fly", instructorCtrl.flyNow); /* flynow */
+router.post("/fly", validInstructor, instructorCtrl.flyNow); /* flynow */
 
-router.get("/calendar", instructorCtrl.calendar);
+router.get("/calendar", validInstructor, instructorCtrl.calendar);
 
-router.post("/profile/add", instructorCtrl.profileAdd);
-router.get("/profile/:id", instructorCtrl.profile);
-router.put("/profile/:id", instructorCtrl.profileEdit);
-router.delete("/profile/:id", instructorCtrl.profileDelete);
+router.post("/profile/add", validInstructor, instructorCtrl.profileAdd);
+router.get("/profile/:id", validInstructor, instructorCtrl.profile);
+router.put("/profile/:id", validInstructor, instructorCtrl.profileEdit);
+router.delete("/profile/:id", validInstructor, instructorCtrl.profileDelete);
 
 module.exports = router;
