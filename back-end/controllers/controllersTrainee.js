@@ -2,7 +2,6 @@
  * Trainee Controller
  */
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 const traineeController = {
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
@@ -23,6 +22,7 @@ const traineeController = {
       language: "",
       licenceFile: "",
       birthDay: "",
+      weekstoStart: "",
       bio: "",
       photo: "",
       dateInsert: Date.now(),

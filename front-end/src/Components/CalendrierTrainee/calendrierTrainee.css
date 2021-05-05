@@ -1,0 +1,4 @@
+
+button:not(:disabled){
+    background-color: blue;
+}
