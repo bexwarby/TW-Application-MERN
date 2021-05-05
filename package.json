@@ -1,0 +1,21 @@
+{
+  "name": "true-wings-mvp",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "front-end": "npm start --prefix ./front-end",
+    "back-end": "npm start --prefix ./back-end",
+    "start": "concurrently \"npm run front-end\" \" npm run back-end\"",
+    "setup": "npm install && cd ./front-end && npm install && cd ../back-end && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.lebocal.academy/fsjs-session-7/true-wings-mvp.git"
+  },
+  "author": "FSJSS7",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.0.2",
+    "cross-env": "^7.0.3"
+  }
+}
