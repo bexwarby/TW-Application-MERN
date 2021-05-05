@@ -4,6 +4,7 @@
 
 const User = require("../models/User");
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 
 /**TO DO
@@ -119,8 +120,6 @@ module.exports = {
         bcrypt
           .compare(password, user.password)
           .then((confirmation) => {
-            console.log('BP', confirmation);
-
             if (!confirmation) {
               res.status(400).json({ message: "mot de passe erroné" });
             }
@@ -131,6 +130,7 @@ module.exports = {
       })
       .catch((error) => res.status(500).json({ error }));
   },
+  
 
   dashboard: (req, res) => {
     console.log(req.params.id);
