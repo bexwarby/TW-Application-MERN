@@ -1,8 +1,17 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const { ratingSchema } = require("../models/Rating");
-const { stepSchema } = require("../models/Step");
+/* const { ratingSchema } = require("../models/Rating");
+const { stepSchema } = require("../models/Step"); */
+
+ 
+const stepSchema = new Schema({
+  stepName: { type: String, required: true },
+});
+
+ const ratingSchema = new Schema({
+  ratingName: { type: String, require: true },
+});
 
 const profileStep = new Schema({
   modulesId: { type: String, required: true },

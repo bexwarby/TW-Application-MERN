@@ -90,7 +90,7 @@ module.exports = {
       });
   },
   module: (req, res) => {
-    const Module = require("../models/module");
+    const Module = require("../models/Module");
     const { moduleName, nbHours, price, steps } = req.body;
     const optionModule = new Module({
       moduleName,

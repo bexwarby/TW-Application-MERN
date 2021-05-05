@@ -1,36 +1,28 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const instructorSchema = require("../instructor/Instructor");
-const traineeSchema = require("../trainee/Trainee");
+const lessonSchema = new Schema({
 
-const equipmentLessonSchema = new Schema({
-  equipmentName: { type: String, required: true },
-  software: { type: Boolean, required: true },
-});
+  userId: { type: String, required: true },
+  user_userId: { type: String, required: true },
+  instructorName: { type: String, required: true },
+  traineeName: { type: String, required: true },
+  notation: { type: String, required: true },
 
-const datesLessonSchema = new Schema({
+  lessonName: { type: String, required: true },
+  hoursRequested: String,
+  timeTeaching: { type: String, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   time: { type: Number, required: true },
-});
-
-const moduleLessonSchema = new Schema({
   moduleName: { type: String, required: true },
   moduleId: { type: String, required: true },
-  prepaid: { type: Number, required: true },
-});
-
-const lessonSchema = new Schema({
-  lessonName: { type: String, required: true },
-  hoursRequested: { type: String, required: true },
-  timeTeaching: { type: String, required: true },
-  dates: datesLessonSchema,
-  module: moduleLessonSchema,
-  equipments: [equipmentLessonSchema],
-  instructor: instructorSchema,
+  prepaid: Number,
+  equipmentName: [String],
+  software: [String],
   canceled: { type: Boolean, required: true },
   language: { type: String, required: true },
+
 });
 
 const formationSchema = new Schema({
