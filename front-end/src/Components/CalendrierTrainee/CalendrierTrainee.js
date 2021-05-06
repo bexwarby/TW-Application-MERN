@@ -21,7 +21,7 @@ function CalendrierTrainee() {
     },
     {
       startDate: new Date(2021, 4, 23, 14),
-      endDate: new Date(2021, 4, 26, 15),
+      endDate: new Date(2021, 4, 23, 15),
     },
   ];
 
