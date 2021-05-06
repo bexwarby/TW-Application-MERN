@@ -42,8 +42,8 @@ const StepSchema = new Schema({
  */
 const ModuleSchema = new Schema({
   /* Nom du module */
-  name: { type: String, required: true },
-
+/*   name: { type: String, required: true },
+ */
   /* Etapes */
   steps: [StepSchema],
 
