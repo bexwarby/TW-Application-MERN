@@ -12,10 +12,10 @@ function TraineeWeekStart(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/profile/step7");
+    props.history.push("/trainee/profile/step7");
   };
   const backClick = () => {
-    props.history.push("/Trainee/profile/step5");
+    props.history.push("/trainee/profile/step5");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -27,79 +27,28 @@ function TraineeWeekStart(props) {
         required. *
       </h1>
       <form className="modulForm" onSubmit={handleSubmit(onSubmit)}>
-        <button type="button" onClick={homeClick}>
-          Home
-        </button>
-        <input
-          type="submit"
-          className="inputStart"
-          value="1"
-          {...register("weekStart1")}
-        />
-
-        <input
-          type="submit"
-          className="inputStart"
-          value="2"
-          {...register("weekStart2")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value="3"
-          {...register("weekStart3")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value="4"
-          {...register("weekStart4")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value="5"
-          {...register("weekStart5")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value="6"
-          {...register("weekStart6")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value="7"
-          {...register("weekStart7")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value="8"
-          {...register("weekStart8")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value="9"
-          {...register("weekStart9")}
-        />
-        <input
-          type="submit"
-          className="inputStart"
-          value=" 10"
-          {...register("weekStart10")}
-        />
-
-        <input
-          type="submit"
-          className="inputStart"
-          value="11"
-          {...register("weekStart11")}
-        />
+        <select
+          {...register("startDate")}
+          id="startDate"
+          name="startDate"
+          size="5"
+          multiple
+        >
+          <option value="week1">1</option>
+          <option value="week2">2</option>
+          <option value="week3">3</option>
+          <option value="week4">4</option>
+          <option value="week5">5</option>
+          <option value="week6">6</option>
+          <option value="week7">7</option>
+          <option value="week8">8</option>
+          <option value="week9">9</option>
+          <option value="week10">10</option>
+          <option value="week11">11</option>
+        </select>
+        <input type="submit" value="OK" />
       </form>
-      <input type="submit" value="OK" />
+
       <button className="button" onClick={backClick}>
         return
       </button>

@@ -7,10 +7,10 @@ function TraineeSimEquipment(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/profile/step6");
+    props.history.push("/trainee/profile/step6");
   };
   const backClick = () => {
-    props.history.push("/Trainee/profile/step4");
+    props.history.push("/trainee/profile/step4");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -24,37 +24,22 @@ function TraineeSimEquipment(props) {
           question is required. *
         </h1>
         <h2>Our instructors mostly use MSFS or Xplane 11.</h2>
-        <input
-          type="submit"
-          className="inputSoftware"
-          value="MSFS"
-          {...register("MSFS")}
-        />
-        <input
-          type="submit"
-          className="inputSoftware"
-          value="Xplane 11"
-          {...register("Xplane 11")}
-        />
-        <input
-          type="submit"
-          className="inputSoftware"
-          value="Prepa 3D"
-          {...register("Prepa 3D")}
-        />
-        <input
-          type="submit"
-          className="inputSoftware"
-          value="FSX"
-          {...register("FSX")}
-        />
-        <input
-          type="submit"
-          className="inputSoftware"
-          value="Other"
-          {...register("Other")}
-        />
+        <select
+          {...register("software")}
+          id="software"
+          name="software"
+          size="5"
+          multiple
+        >
+          <option value="MSFS">MSFS</option>
+          <option value="Xplane">Xplane 11</option>
+          <option value="Prepa">Prepa 3D</option>
+          <option value="FSX">FSX</option>
 
+          <option type="text" value="other">
+            Other
+          </option>
+        </select>
         <input type="submit" value="OK" />
         <button className="button" onClick={backClick}>
           return

@@ -12,10 +12,10 @@ function EmailChoice(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/profile/step3");
+    props.history.push("/trainee/profile/step3");
   };
   const backClick = () => {
-    props.history.push("/Trainee/profile/step1");
+    props.history.push("/trainee/profile/step1");
   };
   return (
     <div className="mainEmail">
@@ -23,8 +23,8 @@ function EmailChoice(props) {
         <h1>First things first, what's your email ?</h1>
         <h2>To link your paypal/cb order, please.</h2>
         <input
-          type="text"
-          className="inputEmail"
+          type="email"
+          id="email"
           name="email"
           placeholder="name@example.com"
           {...register("email", {

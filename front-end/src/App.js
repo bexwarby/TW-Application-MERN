@@ -112,7 +112,7 @@ function App() {
                 component={TraineeComment}
               />
             </React.Fragment>
-            {/* IntructorSignUp */}
+            {/* IntructorSignUp 
             <React.Fragment>
               <Route path="/welcome" component={Welcome} />
               <Route path="/instructor/signup/step1" component={Name} />
@@ -131,7 +131,7 @@ function App() {
               <Route path="/instructor/signup/step14" component={Password} />
               <Route path="/instructor/signup/submit" component={Submit} />
               <Route path="/instructor/signup/result" component={Result} />
-            </React.Fragment>
+            </React.Fragment>*/}
             {/*<InstructorHome />*/}
             {/* <TraineeHome /> */}
             {/* <AdminHome /> */}

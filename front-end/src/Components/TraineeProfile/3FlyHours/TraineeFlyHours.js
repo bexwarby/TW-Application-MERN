@@ -11,10 +11,10 @@ function TraineeFlyHours(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/profile/step4");
+    props.history.push("/trainee/profile/step4");
   };
   const backClick = () => {
-    props.history.push("/Trainee/profile/step2");
+    props.history.push("/trainee/profile/step2");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -26,8 +26,8 @@ function TraineeFlyHours(props) {
         <h2>Approx. None is fine, TW is a smart first step !</h2>
         <input
           type="text"
-          className="flyHourInput"
-          {...register("flyHours")}
+          id="flightHours"
+          {...register("flightHours")}
           placeholder="Type your answer here"
         />
         {errors.timeTeaching && (

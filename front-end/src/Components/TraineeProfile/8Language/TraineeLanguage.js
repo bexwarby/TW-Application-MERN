@@ -27,36 +27,21 @@ function TraineeSimEquipment(props) {
           We recommend English as it's the aviation language and it's easier to
           find an instructor.
         </h2>
-        <input
-          type="submit"
-          className="inputLanguage"
-          value="English"
-          {...register("English")}
-        />
-        <input
-          type="submit"
-          className="inputLanguage"
-          value="French"
-          {...register("French")}
-        />
-        <input
-          type="submit"
-          className="inputLanguage"
-          value="Italian"
-          {...register("Italian")}
-        />
-        <input
-          type="submit"
-          className="inputLanguage"
-          value="Spanish"
-          {...register("Spanish")}
-        />
-        <input
-          type="submit"
-          className="inputLanguage"
-          value="Other"
-          {...register("Other")}
-        />
+        <select
+          {...register("language")}
+          id="language"
+          name="language"
+          size="5"
+          multiple
+        >
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="italian">Italian</option>
+          <option value="spanish">Spanish</option>
+          <option type="text" value="other">
+            Other
+          </option>
+        </select>
 
         <input type="submit" value="OK" />
         <button className="button" onClick={backClick}>

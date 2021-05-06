@@ -12,10 +12,10 @@ function TraineeWeekStart(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/profile/step8");
+    props.history.push("/trainee/profile/step8");
   };
   const backClick = () => {
-    props.history.push("/Trainee/profile/step6");
+    props.history.push("/trainee/profile/step6");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -29,9 +29,9 @@ function TraineeWeekStart(props) {
         <h2>Day of the week, part of the day...</h2>
         <input
           type="text"
-          className="inputTimeForTrained"
-          name="trained"
-          {...register("trained", {
+          id="availabilities"
+          name="availabilities"
+          {...register("availabilities", {
             required: "required",
 
             minLength: { value: 1, message: "Type your answer here" },
