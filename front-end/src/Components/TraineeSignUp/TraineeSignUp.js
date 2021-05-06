@@ -32,8 +32,9 @@ function TraineeSignUp() {
           body: JSON.stringify(newSignup),
         }
       );
-      const res = await response.json();
-      console.log(res);
+      console.log(response);
+      const data = await response.json();
+      console.log(data);
     } catch (err) {
       console.log(err);
     }

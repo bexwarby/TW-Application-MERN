@@ -10,27 +10,41 @@ module.exports = {
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
     const Instructor = require("../models/User");
-    const { fullName, email, password } = req.body;
+    const {
+      fullName,
+      email,
+      password,
+      role,
+      flightHours,
+      ratingName,
+      moduleName,
+      equipmentName,
+      software,
+      hoursRequested,
+      timeTeaching,
+      language,
+      licenceFile,
+      birthDay,
+      bio
+    } = req.body;
     const docInstructor = new Instructor({
       fullName: fullName,
       email: email,
       password: password,
-      instructor: false,
-      admin: false,
-      trainee: true,
-      flightHours: 0,
-      ratingName: "",
-      moduleName: "",
-      equipmentName: "",
-      software: "",
-      hoursRequested: 0,
-      timeTeaching: "",
-      language: "",
-      licenceFile: "",
-      birthDay: "",
-      bio: "",
-      photo: "",
-      dateInsert: Date.now(),
+      role: role,
+      flightHours: flightHours,
+      ratingName: ratingName,
+      moduleName: moduleName,
+      equipmentName: equipmentName,
+      software: software,
+      hoursRequested: hoursRequested,
+      timeTeaching: timeTeaching,
+      language: language,
+      licenceFile: licenceFile,
+      birthDay: birthDay,
+      bio: bio,
+      photo: photo,
+      datInsert: Date.now(),
       enabled: true,
     });
     console.log(req.body);
@@ -76,7 +90,7 @@ module.exports = {
       });
   },
   module: (req, res) => {
-    const Module = require("../models/module");
+    const Module = require("../models/Module");
     const { moduleName, nbHours, price, steps } = req.body;
     const optionModule = new Module({
       moduleName,
@@ -210,6 +224,14 @@ module.exports = {
     res.status(201).json(req.body);
   },
   calendar: (req, res) => {
+    const Calendar = require("../models/Formation");
+    const calendarLessons = new Calendar({
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      time: req.body.time,
+    });
+    calendarLessons
+
     console.log(req.body);
     res.status(201).json(req.body);
   },

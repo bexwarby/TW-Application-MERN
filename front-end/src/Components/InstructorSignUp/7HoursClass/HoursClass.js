@@ -37,7 +37,7 @@ function HoursClass(props) {
             <div className="numberQuestion">
               <p>7</p>
             </div>
-            <label for="hoursTraining">
+            <label htmlFor="hoursTraining">
               How many hours of flightsim training could you give per week?
             </label>
             <p>

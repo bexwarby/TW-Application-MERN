@@ -34,7 +34,7 @@ function Email(props) {
               <p>13</p>
             </div>
             <div>
-              <label for="email">Please write down your email.</label>
+              <label htmlFor="email">Please write down your email.</label>
               <p>
                 It will only be used to let you know when a student requests an
                 instructor.

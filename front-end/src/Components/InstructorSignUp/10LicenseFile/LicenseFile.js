@@ -32,7 +32,7 @@ function LicenseFile(props) {
             <div className="numberQuestion">
               <p>10</p>
             </div>
-            <label for="file">
+            <label htmlFor="file">
               Add a picture or your license or <b>later</b> by email
             </label>
             <p>

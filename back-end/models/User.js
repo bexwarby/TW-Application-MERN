@@ -2,46 +2,86 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
-const UserSchema = new Schema({
-  /** GENERAL */
-  // front/InstructorSignUp/1Name :
-  fullName: { type: String },
-  // front/InstructorSignUp/13Email :
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  instructor: { type: Boolean },
-  admin: { type: Boolean },
-  trainee: { type: Boolean },
+/**
+ * Schema disponibilités
+ */
+const AvailabilitiesSchema = new Schema({
+  /* Date de début */
+  startDate: {
+    type: Date,
+    required: true,
+  },
 
-  /** SPECIFIC */
-  // front/InstructorSignUp/2HoursTotal :
+  /* Date de fin */
+  endDate: {
+    type: Date,
+    requried: true,
+  },
+});
+
+/**
+ * Schema utilisateur
+ */
+const UserSchema = new Schema({
+  /* Nom d'utilisateur */
+  fullName: { type: String, required: true },
+
+  /* Email */
+  email: { type: String, required: true, unique: true },
+
+  /* Mot de passe */
+  password: { type: String, required: true },
+
+  /* Role */
+  role: {
+    type: String,
+    enum: ["admin", "pending-instructor", "instructor", "trainee"],
+    required: true,
+  },
+
+  /* Temps de vol en heures */
   flightHours: Number,
-  // front/InstructorSignUp/3Ratings :
-  ratingName: String,
-  // front/InstructorSignUp/4Types :
-  moduleName: String,
-  // front/InstructorSignUp/5Equipment :
-  equipmentName: String,
-  // front/InstructorSignUp/6Software :
-  software: String,
-  // front/InstructorSignUp/7HoursClass :
-  hoursRequested: String,
-  // front/InstructorSignUp/8Time :
-  timeTeaching: String,
-  // front/InstructorSignUp/9Language :
-  language: String,
-  // front/InstructorSignUp/10LicenseFile :
+
+  /* Certifications */
+  ratings: [String],
+
+  /* Ids modules enseignés ou suivis */
+  modules: [String],
+
+  /* Equipements dont dipose l'utilisateur */
+  equipment: [String],
+
+  /* Logiciel dont dipose l'utilisateur */
+  software: [String],
+
+  /* Objectifs  d'heure d'enseignement ou de cours à suivre */
+  weeklyHoursGoal: Number,
+
+  /* Disponibilités */
+  availabilities: [AvailabilitiesSchema],
+
+  /* Langues */
+  language: [String],
+
+  /* Chemin vers le fichier de licence */
   licenceFile: String,
-  // front/InstructorSignUp/11Birthday :
-  birthDay: String,
-  // front/InstructorSignUp/12Bio :
+
+  /* Date de naissance */
+  birthDay: Date,
+
+  /* Description */
   bio: String,
 
-  weeksToStart: String,
-
+  /* Chemin vers la photo */
   photo: String,
 
-  enabled: { type: Boolean, required: true }, //  todo: instructor enabled = false and trainee true
+  /* Crédits d'heures de cours */
+  credits: {
+    type: Number,
+    default: 0,
+    min: 0,
+    required: true,
+  },
 });
 
 UserSchema.pre("save", async function (next) {

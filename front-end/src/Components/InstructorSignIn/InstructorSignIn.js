@@ -66,13 +66,16 @@ function InstructorSignIn(e) {
           </label>
         </div>
         <div className="button">
-          <button onClick={handleSignIn}>Acces page</button>
+          <button onClick={handleSignIn}>Access page</button>
         </div>
         <div>
-          <span>Don't have an account? Sign-up</span>
-          <Link className="link" to="/Welcome">
+          <p>Don't have an account? Sign-up
+          <span>
+            <Link className="link" to="/Welcome">
             here
-          </Link>
+            </Link>
+          </span>
+          </p>
         </div>
       </div>
     </div>

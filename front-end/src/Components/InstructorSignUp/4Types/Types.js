@@ -29,7 +29,7 @@ function Types(props) {
             <div className="numberQuestion">
               <p>4</p>
             </div>
-            <label for="types">
+            <label htmlFor="types">
               What training types would you like to teach ?
             </label>
             <p>

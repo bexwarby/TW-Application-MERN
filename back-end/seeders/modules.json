@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Vol de nuit",
+    "steps": [
+      {
+        "name": "Le vol de nuit VFR",
+        "description": "Vol de nuit simple VFR evolution 3500-4500ft"
+      },
+      {
+        "name": "Le vol de nuit IFR",
+        "description": "Vol de nuit simple IFR approche"
+      }
+    ],
+    "level": "professional",
+    "stepPrice": 2
+  },
+  {
+    "name": "Aérodrome d'altitude",
+    "steps": [
+      {
+        "name": "Approche 1",
+        "description": "Approche 1"
+      },
+      {
+        "name": "Approche 1",
+        "description": "Approche 1"
+      }
+    ],
+    "level": "professional",
+    "stepPrice": 2
+  }
+]

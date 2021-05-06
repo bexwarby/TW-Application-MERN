@@ -30,7 +30,7 @@ function Password(props) {
               <p>14</p>
             </div>
             <div>
-              <label for="email">Please write down your password.</label>
+              <label htmlFor="email">Please write down your password.</label>
 
               <input
                 {...register("password")}

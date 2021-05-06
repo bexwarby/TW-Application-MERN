@@ -33,7 +33,7 @@ function Ratings(props) {
             <div className="numberQuestion">
               <p>3</p>
             </div>
-            <label for="ratingName">Which ratings do you have ?</label>
+            <label htmlFor="ratingName">Which ratings do you have ?</label>
             <p>
               Tick even expired.
               <br />

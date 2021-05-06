@@ -34,7 +34,7 @@ function HoursTotal(props) {
             <div className="numberQuestion">
               <p>2</p>
             </div>
-            <label for="flightHours">
+            <label htmlFor="flightHours">
               How many "real-world flight hours" do you have approximately?
             </label>
             <input

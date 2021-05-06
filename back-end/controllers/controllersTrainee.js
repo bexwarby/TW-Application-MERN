@@ -2,29 +2,19 @@
  * Trainee Controller
  */
 const jwt = require("jsonwebtoken");
+
 const traineeController = {
+
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
     const Trainee = require("../models/User");
-    const { fullName, email, password } = req.body;
+    const { fullName, email, password, role } = req.body;
 
     const docTrainee = new Trainee({
       fullName: fullName,
       email: email,
       password: password,
-      instructor: false,
-      admin: false,
-      trainee: true,
-      flightHours: 0,
-      moduleName: "",
-      equipmentName: "",
-      software: "",
-      language: "",
-      licenceFile: "",
-      birthDay: "",
-      weekstoStart: "",
-      bio: "",
-      photo: "",
+      role: role,
       dateInsert: Date.now(),
       enabled: true,
     });
@@ -47,7 +37,7 @@ const traineeController = {
     if (!trainee) {
       return res
         .status(401)
-        .json({ error: "Utilisateur non trouvé !00000000000000000" });
+        .json({ error: "Utilisateur non trouvé !" });
     }
 
     const encryption = require("../tools/crypt/encryption");
