@@ -11,10 +11,10 @@ function TraineeFlyHours(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/module/step4");
+    props.history.push("/Trainee/profile/step4");
   };
   const backClick = () => {
-    props.history.push("/Trainee/module/step2");
+    props.history.push("/Trainee/profile/step2");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -22,10 +22,7 @@ function TraineeFlyHours(props) {
   return (
     <div className="mainTraineeFlyHours">
       <form className="TrianeeFlyHoursForm" onSubmit={handleSubmit(onSubmit)}>
-        <h1>
-          How many "real-world flight hours" do you have ?This question is
-          required. *
-        </h1>
+        <h1>How many "real-world flight hours" do you have ?</h1>
         <h2>Approx. None is fine, TW is a smart first step !</h2>
         <input
           type="text"

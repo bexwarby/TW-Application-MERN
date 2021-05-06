@@ -12,10 +12,10 @@ function EmailChoice(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/module/step3");
+    props.history.push("/Trainee/profile/step3");
   };
   const backClick = () => {
-    props.history.push("/Trainee/module/step1");
+    props.history.push("/Trainee/profile/step1");
   };
   return (
     <div className="mainEmail">
@@ -26,6 +26,7 @@ function EmailChoice(props) {
           type="text"
           className="inputEmail"
           name="email"
+          placeholder="name@example.com"
           {...register("email", {
             required: "required",
 
@@ -33,9 +34,9 @@ function EmailChoice(props) {
           })}
         />
         {errors.hours && <span role="alert">{errors.hours.message}</span>}
-        <span>
-          <input type="submit" className="inputSubmit" value="submit" />
-        </span>
+
+        <input type="submit" className="inputSubmit" value="OK" />
+
         <button className="buttonBack" onClick={backClick}>
           Return
         </button>

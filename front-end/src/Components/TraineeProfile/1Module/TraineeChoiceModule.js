@@ -2,7 +2,7 @@
  * Module de l'eleve
  */
 
-import "./TraineeModule.css";
+import "./TraineeChoiceModule.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
@@ -13,7 +13,7 @@ function TraineeModule(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/module/step2");
+    props.history.push("/Trainee/profile/step2");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -25,9 +25,6 @@ function TraineeModule(props) {
         required. *
       </h3>
       <form className="modulForm" onSubmit={handleSubmit(onSubmit)}>
-        <button type="button" onClick={homeClick}>
-          Home
-        </button>
         <input
           type="submit"
           className="inputModule"
@@ -126,7 +123,10 @@ function TraineeModule(props) {
           {...register("Expert tailored training")}
         />
       </form>
-      <input type="submit" className="inputSubmit" value="submit" />
+      <input type="submit" className="inputSubmit" value="OK" />
+      <button type="button" onClick={homeClick}>
+        Home
+      </button>
     </div>
   );
 }

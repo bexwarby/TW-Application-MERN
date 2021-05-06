@@ -7,10 +7,10 @@ function TraineeSimEquipment(props) {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/module/step5");
+    props.history.push("/Trainee/profile/step5");
   };
   const backClick = () => {
-    props.history.push("/Trainee/module/step3");
+    props.history.push("/Trainee/profile/step3");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -26,12 +26,23 @@ function TraineeSimEquipment(props) {
           What sim equipments do you have or plan to get ?This question is
           required. *
         </h1>
-        <input
-          type="submit"
-          className="inputSimEquipment"
-          value="Joystick"
-          {...register("Joystick")}
-        />
+        <h2>
+          For most of the online trainings you will need at least a basic
+          joystick with yaw axis (39€). VFR : VR glasses required.
+        </h2>
+        <label>Choose as many as apply</label>
+        <br />
+        <br />
+        <span>
+          Joystick
+          <input
+            type="checkbox"
+            className="inputSimEquipment"
+            value="Joystick"
+            {...register("Joystick")}
+          />
+        </span>
+
         <input
           type="submit"
           className="inputSimEquipment"
@@ -62,7 +73,7 @@ function TraineeSimEquipment(props) {
           value="Other"
           {...register("VR/MR headset")}
         />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="OK" />
         <button className="button" onClick={backClick}>
           return
         </button>
