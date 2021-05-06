@@ -9,10 +9,11 @@ module.exports = {
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
     const Instructor = require("../models/User");
-    const { 
-      fullName, 
-      email, 
-      password, 
+    const {
+      fullName,
+      email,
+      password,
+      role,
       flightHours,
       ratingName,
       moduleName,
@@ -29,9 +30,7 @@ module.exports = {
       fullName: fullName,
       email: email,
       password: password,
-      instructor: true,
-      admin: false,
-      trainee: false,
+      role: role,
       flightHours: flightHours,
       ratingName: ratingName,
       moduleName: moduleName,
@@ -43,8 +42,8 @@ module.exports = {
       licenceFile: licenceFile,
       birthDay: birthDay,
       bio: bio,
-/*       photo: photo,
- */      dateInsert: Date.now(),
+      photo: photo,
+      datInsert: Date.now(),
       enabled: true,
     });
     console.log(req.body);

@@ -45,7 +45,7 @@ const LessonSchema = new Schema({
 /**
  * Schema formation
  */
-const trainingSchema = new Schema({
+const TrainingSchema = new Schema({
   /* Id du module */
   moduleId: {
     type: String,
@@ -90,4 +90,4 @@ const trainingSchema = new Schema({
   },
 });
 
-module.export = mongoose.model("Formation", formationSchema);
+module.export = mongoose.model("Training", TrainingSchema);
