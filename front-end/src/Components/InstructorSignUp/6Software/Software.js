@@ -12,15 +12,14 @@ import updateAction from "../updateAction";
 function Software(props) {
   const { register, handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
+  
   const onSubmit = (data) => {
     actions.updateAction(data);
     props.history.push("/Instructor/SignUp/step7");
   };
-
   const backClick = () => {
     props.history.push("/Instructor/SignUp/step5");
   };
-
   const homeClick = () => {
     props.history.push("/");
   };

@@ -8,125 +8,50 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 function TraineeModule(props) {
   const { register, handleSubmit } = useForm();
-
   const { actions } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Trainee/profile/step2");
+    props.history.push("/trainee/profile/step2");
   };
   const homeClick = () => {
     props.history.push("/");
   };
+
   return (
     <div className="mainModule">
-      <h3 className="titleModule">
-        Please confirm the training pack you paid for ?This question is
-        required. *
-      </h3>
-      <form className="modulForm" onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="submit"
-          className="inputModule"
-          value="Global overview"
-          {...register("Global overview")}
-        />
+      <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
 
-        <input
-          type="submit"
-          className="inputModule"
-          value="Stick&rudder master"
-          {...register("Stick&rudder master")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Cross-country master"
-          {...register("Cross-country master")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Patterns&emergencies"
-          {...register("Patterns&emergencies")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Private tailored training"
-          {...register("Private tailored training")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Multi-engines"
-          {...register("Multi-engines")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="IFR basics"
-          {...register("IFR basics")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="IFR departure"
-          {...register("IFR departure")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="IFR approach"
-          {...register("IFR approach")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value=" IFR flight"
-          {...register("IFR flight")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Pro tailored training"
-          {...register("Pro tailored training")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Jet transition"
-          {...register("Jet transition")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Flying the A320"
-          {...register("Flying the A320")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Flying the B737"
-          {...register("Flying the B737")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Airline assessment"
-          {...register("Airline assessment")}
-        />
-        <input
-          type="submit"
-          className="inputModule"
-          value="Expert tailored training"
-          {...register("Expert tailored training")}
-        />
-      </form>
-      <input type="submit" className="inputSubmit" value="OK" />
-      <button type="button" onClick={homeClick}>
-        Home
+        <h3 className="titleModule">
+          Please confirm the training pack you paid for ?
+      </h3>
+        <select
+          {...register("modules")}
+          id="modules"
+          name="modules"
+          size="13"
+        >
+          <option value="Coms master">MSFS</option>
+          <option value="PPL Theoretical support & coaching">Xplane 11</option>
+          <option value="Coaching to become a successful pilot">Prepa 3D</option>
+          <option value="IFR basics">IFR basics</option>
+          <option value="IFR flights">IFR flights</option>
+          <option value="IFR approaches">IFR approaches</option>
+          <option value="Tailored training">Tailored training</option>
+          <option value="CPL IR-ME Theoretical support">CPL IR-ME Theoretical support</option>
+          <option value="Flying the A320">Flying the A320</option>
+          <option value="Flying the B737">Flying the B737</option>
+          <option value="Airline assessment prep & coaching">Airline assessment prep & coaching</option>
+          <option value="Specific theoretical support">Specific theoretical support</option>
+          <option value="Tailored advanced training">Tailored advanced training</option>
+
+        </select>
+
+        <input type="submit" value="Submit" />
+        <button type="button" onClick={homeClick}>
+          Home
       </button>
+      </form>
     </div>
   );
 }
