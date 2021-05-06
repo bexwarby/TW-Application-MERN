@@ -3,6 +3,7 @@
  */
 
  import './InstructorDashboard.css'
+ import "../general.css"
 
 
  function InstructorDashboard() {

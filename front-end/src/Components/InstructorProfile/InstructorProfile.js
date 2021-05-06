@@ -3,7 +3,7 @@
  */
 
  import './InstructorProfile.css'
-
+ import "../general.css"
 
  function InstructorProfile() {
  

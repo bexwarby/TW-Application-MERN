@@ -76,7 +76,7 @@ function App() {
               <InstructorSignIn />
             </Route>
             {/* TraineeProfile */}
-            <div>
+            {/* <div>
               <Route
                 path="/trainee/profile/step1"
                 component={TraineeChoiceModule}
@@ -111,7 +111,7 @@ function App() {
                 path="/trainee/profile/step10"
                 component={TraineeComment}
               />
-            </div>
+            </div> */}
             {/* IntructorSignUp */}
             <div>
               <Route path="/welcome" component={Welcome} />

@@ -1,4 +1,6 @@
 import "./calendrierTrainee.css";
+import "../general.css"
+
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 

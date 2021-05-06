@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./submit.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -14,10 +15,10 @@ function Thanks(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/result");
+    props.history.push("/instructor/signup/result");
   };
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step14");
+    props.history.push("/instructor/signup/step14");
   };
 
   const homeClick = () => {
@@ -43,10 +44,10 @@ function Thanks(props) {
             </p>
           </div>
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

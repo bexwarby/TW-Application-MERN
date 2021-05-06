@@ -8,6 +8,7 @@
 
 import logo from "./logoHome.png";
 import "./PageHome.css";
+import "../general.css"
 import { Link } from "react-router-dom";
 function PageHome() {
   return (

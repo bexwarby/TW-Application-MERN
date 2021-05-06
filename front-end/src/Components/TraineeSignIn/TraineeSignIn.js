@@ -5,6 +5,7 @@
 
 /* import logo from "../PageHome/logoHome.png";
  */import "./TraineeSignIn.css";
+import "../general.css"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 function TraineeSignIn() {
@@ -57,15 +58,14 @@ function TraineeSignIn() {
           />
         </div>
         <div className="contentButton">
-          <button className="buttonLogin" onClick={handleSignUp}>
+          <button className="enter" onClick={handleSignUp}>
             Login
           </button>
         </div>
         <div className="contentLink">
           <p className="subButton">
-            Don't have an account? Sign-up
             <Link to="/usr/trainee/signup">
-              <span className="linkHere">here</span>
+              Don't have an account? Sign-up here
             </Link>
           </p>
         </div>

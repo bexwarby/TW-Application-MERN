@@ -7,6 +7,7 @@
  */
 
 import './PageInstructor.css'
+import "../general.css"
 
 
 import InstructorNav from '../../navigation/InstructorNav'

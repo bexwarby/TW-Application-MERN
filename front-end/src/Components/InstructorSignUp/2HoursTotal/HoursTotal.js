@@ -3,6 +3,7 @@
  * */
 
 import "./hoursTotal.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -50,10 +51,10 @@ function HoursTotal(props) {
           </div>
           {errors.flightHours && <span role="alert">{errors.flightHours.message}</span>}
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

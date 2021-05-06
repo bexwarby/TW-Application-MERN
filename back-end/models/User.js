@@ -57,6 +57,9 @@ const UserSchema = new Schema({
   /* Objectifs  d'heure d'enseignement ou de cours à suivre */
   weeklyHoursGoal: Number,
 
+  /* Préference d'horaires et jours */
+  timeTeaching: String,
+  
   /* Disponibilités */
   availabilities: [AvailabilitiesSchema],
 

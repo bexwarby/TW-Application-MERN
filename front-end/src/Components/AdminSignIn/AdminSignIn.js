@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import './AdminSignIn.css'
+import "../general.css"
 
 
 function AdminSignIn({setAuth}) {
@@ -48,7 +49,7 @@ function AdminSignIn({setAuth}) {
     <div className="adminContainer">
       <form>
         <h2>True Wings Admin</h2>
-        <input type="text" name="mail" id="mail" placeholder="mail" onChange={handleChange} />
+        <input type="text" name="email" id="email" placeholder="email" onChange={handleChange} />
         <input type="password" name="password" id="password" placeholder="password" onChange={handleChange} />
         <button onClick={signIn}>Connection</button>
       </form>

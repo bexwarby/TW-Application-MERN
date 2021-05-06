@@ -4,9 +4,11 @@
  */
 
 import "./InstructorSignIn.css";
+import "../general.css"
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
-function InstructorSignIn(e) {
+function InstructorSignIn() {
   const [signIn, setSignIn] = useState({});
 
   function handleData(e) {
@@ -47,11 +49,10 @@ function InstructorSignIn(e) {
 
       <br></br>
       <div className="loginArea">
-        <label>Enter the password in your sign up confirmation email</label>
-
-        <input type="password" name="password" onChange={handleData} />
         <label>Email</label>
         <input type="email" name="email" onChange={handleData} />
+        <label>Password</label>
+        <input type="password" name="password" onChange={handleData} />
         <div className="checkBoxArea">
           <input
             className="checkBox"
@@ -60,20 +61,18 @@ function InstructorSignIn(e) {
             onClick="action()"
           />
           <label>
-            confirmed that i'm a TW instructor and i don't have the right to get
+            confirmed that I'm a TW instructor and i don't have the right to get
             paid directly by a TW customer
           </label>
         </div>
         <div className="button">
-          <button onClick={handleSignIn}>Access page</button>
+          <button className="enter" onClick={handleSignIn}>Access page</button>
         </div>
         <div>
-          <p>Don't have an account? Sign-up
-          <span>
+          <p>
             <Link className="link" to="/welcome">
-            here
+              Don't have an account? Sign-up here
             </Link>
-          </span>
           </p>
         </div>
       </div>
