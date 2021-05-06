@@ -70,7 +70,7 @@ function InstructorSignIn(e) {
         <div>
           <p>Don't have an account? Sign-up
           <span>
-            <Link className="link" to="/Welcome">
+            <Link className="link" to="/welcome">
             here
             </Link>
           </span>

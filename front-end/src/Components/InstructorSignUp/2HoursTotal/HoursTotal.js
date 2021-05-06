@@ -17,10 +17,10 @@ function HoursTotal(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step3");
+    props.history.push("/instructor/signup/step3");
   };
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step1");
+    props.history.push("/instructor/signup/step1");
   };
 
   const homeClick = () => {
@@ -38,17 +38,17 @@ function HoursTotal(props) {
               How many "real-world flight hours" do you have approximately?
             </label>
             <input
-              {...register("hours", {
+              {...register("flightHours", {
                 required: "required",
                 minLength: { value: 1, message: "Please enter answer" },
               })}
               type="text"
-              className="form-control"
-              id="hours"
+              id="flightHours"
+              name="flightHours"
               placeholder="Type your answer here"
             />
           </div>
-          {errors.hours && <span role="alert">{errors.hours.message}</span>}
+          {errors.flightHours && <span role="alert">{errors.flightHours.message}</span>}
           <input type="submit" value="Submit" />
           <button type="button" onClick={backClick}>
             Back

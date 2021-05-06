@@ -76,7 +76,7 @@ function App() {
               <InstructorSignIn />
             </Route>
             {/* TraineeProfile */}
-            <React.Fragment>
+            <div>
               <Route
                 path="/trainee/profile/step1"
                 component={TraineeChoiceModule}
@@ -111,9 +111,9 @@ function App() {
                 path="/trainee/profile/step10"
                 component={TraineeComment}
               />
-            </React.Fragment>
+            </div>
             {/* IntructorSignUp */}
-            <React.Fragment>
+            <div>
               <Route path="/welcome" component={Welcome} />
               <Route path="/instructor/signup/step1" component={Name} />
               <Route path="/instructor/signup/step2" component={HoursTotal} />
@@ -131,7 +131,7 @@ function App() {
               <Route path="/instructor/signup/step14" component={Password} />
               <Route path="/instructor/signup/submit" component={Submit} />
               <Route path="/instructor/signup/result" component={Result} />
-            </React.Fragment>
+            </div>
             {/*<InstructorHome />*/}
             {/* <TraineeHome /> */}
             {/* <AdminHome /> */}

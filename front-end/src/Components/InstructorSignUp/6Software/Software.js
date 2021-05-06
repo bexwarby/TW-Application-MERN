@@ -15,10 +15,10 @@ function Software(props) {
   
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step7");
+    props.history.push("/instructor/signup/step7");
   };
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step5");
+    props.history.push("/instructor/signup/step5");
   };
   const homeClick = () => {
     props.history.push("/");

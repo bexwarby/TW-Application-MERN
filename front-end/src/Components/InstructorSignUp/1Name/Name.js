@@ -14,10 +14,10 @@ function NamePilot(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step2");
+    props.history.push("/instructor/signup/step2");
   };
   const backClick = () => {
-    props.history.push("/Welcome");
+    props.history.push("/welcome");
   };
   const homeClick = () => {
     props.history.push("/");
