@@ -34,6 +34,7 @@ function Result(props) {
         Thank you very much for joining us. We will be in touch very soon! Have
         a great day.
       </p>
+      
       <input type="submit" value="Finish" />
     </form>
   );
