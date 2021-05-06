@@ -1,44 +1,76 @@
 import "./calendrierInstructor.css";
-
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-function CalendrierInstructor() {
-  const [value, onChange] = useState(new Date());
-  const [hours, setHours] = useState("");
-  const [data, setData] = useState({});
 
-  function handleHours(event) {
-    let selectHours = {
-      [event.target.name]: event.target.value,
-    };
-    setHours(selectHours);
+function CalendrierInstructor() {
+  /* Variables d'état */
+  const [selectedDate, onChange] = useState(new Date()); // Date sélectionnée
+  const [newAvailability, setNewAvailability] = useState({});
+  const [availabilities, setAvailabilities] = useState([]); // Disponilités
+
+  /* Méthodes */
+
+  /**
+   * Gestion des dates
+   * @param {*} e
+   */
+  function handleDate(e) {
+    // TODO: Vérifier que startDate et endDate sont le même jour
+
+    /* Enregistrement de la date au format date */
+    setNewAvailability({
+      ...newAvailability,
+      [e.target.name]: new Date(e.target.value),
+    });
   }
-  function handleData() {
-    let donnee = {
-      ...data,
-      date: value,
-      heure: hours,
-    };
-    setData(donnee);
-    console.log(data);
+
+  /**
+   * Ajout de la nouvelle disponibilité à la liste
+   */
+  function addAvailability() {
+    /* Ajout de la nouvelle disponibilité à la liste */
+    setAvailabilities([...availabilities, newAvailability]);
+
+    /* Vidage la nouvelle disponibilité */
+    setNewAvailability({});
+
+    // TODO: Envoyer les disponibiltés à jour au back-end
   }
+
   return (
     <div>
-      <Calendar onChange={onChange} value={value} />
-      <p>Choose time</p>
-      <select id="time" name="time" onChange={handleHours} value="timeSend">
-        {/**/}
-        <option value=" ">--Please choose hours time slot--</option>
-        <option value="8-9">8h-9h</option>
-        <option value="9-10">9h-10h</option>
-        <option value="10-11">10h-11h</option>
-        <option value="11-12">11h-12h</option>
-        <option value="13-14">13h-14h</option>
-        <option value="14-15">14h-15h</option>
-        <option value="15-16">15h-16h</option>
-        <option value="16-17">16h-17h</option>
-      </select>
-      <input type="submit" className="submitCalendar" onClick={handleData} />
+      <Calendar
+        onChange={onChange}
+        value={selectedDate}
+        tileDisabled={({ date }) => {
+          let greyedOut = true;
+
+          availabilities.forEach((a) => {
+            a.startDate.setHours(0, 0, 0, 0);
+            a.endDate.setHours(0, 0, 0, 0);
+
+            const dateTimestamp = date.getTime();
+
+            if (
+              dateTimestamp >= a.startDate.getTime() &&
+              dateTimestamp <= a.endDate.getTime()
+            ) {
+              greyedOut = false;
+            }
+          });
+
+          return greyedOut;
+        }}
+      />
+      <p>Availability start date:</p>
+      <input type="datetime-local" name="startDate" onChange={handleDate} />
+
+      <p>Availability end date:</p>
+      <input type="datetime-local" name="endDate" onChange={handleDate} />
+
+      <button className="submitCalendar" onClick={addAvailability}>
+        Save
+      </button>
     </div>
   );
 }

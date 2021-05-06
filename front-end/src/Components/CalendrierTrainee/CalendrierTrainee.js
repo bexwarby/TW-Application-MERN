@@ -61,6 +61,41 @@ function CalendrierTrainee() {
     }
   };
 
+  function renderOptions() {
+    /* Liste des heures disponibles */
+    let avaibleHours = [];
+
+    /* Timestamp du jour sélectionné à 0h */
+    const dayTimestamp = day.getTime();
+
+    availabilities.forEach((availability) => {
+      /* Jour de la disponibilité */
+      let startDay = new Date(availability.startDate.getTime()); // Nouvel objet date
+
+      /* Passage de l'heure à minuit */
+      startDay.setHours(0, 0, 0, 0);
+
+      /* Si le jour de la disponibilité correspond au jour sélectionné */
+      if (dayTimestamp == startDay.getTime()) {
+        /* Récupération des heures de début et de fin de la disponiblité */
+        const startHour = availability.startDate.getHours();
+        const endHour = availability.endDate.getHours();
+
+        /* Création de la liste des heure de l'heure de début à l'heure de fin */
+        for (let i = startHour; i <= endHour; i++) {
+          avaibleHours.push(i);
+        }
+      }
+    });
+
+    /* Génération du JSX */
+    return avaibleHours.map((hour) => (
+      <option value={hour}>
+        {hour}h - {hour + 1}h
+      </option>
+    ));
+  }
+
   return (
     <div>
       <Calendar
@@ -97,14 +132,7 @@ function CalendrierTrainee() {
         value="timeSend"
         key="timeSend"
       >
-        <option value="8-9">8-9</option>
-        <option value="9-10">9-10</option>
-        <option value="10-11">10-11</option>
-        <option value="11-12">11-12</option>
-        <option value="13-14">13-14</option>
-        <option value="14-15">14-15</option>
-        <option value="15-16">15-16</option>
-        <option value="16-17">16-17</option>
+        {renderOptions()}
       </select>
 
       <button type="button" onClick={submitRdv}>
