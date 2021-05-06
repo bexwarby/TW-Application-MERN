@@ -18,11 +18,11 @@ function Time(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step9");
+    props.history.push("/instructor/signup/step9");
   };
 
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step7");
+    props.history.push("/instructor/signup/step7");
   };
 
   const homeClick = () => {
@@ -37,7 +37,7 @@ function Time(props) {
             <div className="numberQuestion">
               <p>8</p>
             </div>
-            <label htmlFor="time">
+            <label htmlFor="timeTeaching">
               Please let us know the more convenient time for you to train ?
             </label>
             <p>Day of the week, part of the day...</p>

@@ -14,11 +14,11 @@ function Language(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step10");
+    props.history.push("/instructor/signup/step10");
   };
 
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step8");
+    props.history.push("/instructor/signup/step8");
   };
 
   const homeClick = () => {
