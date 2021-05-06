@@ -3,13 +3,11 @@
  */
 
 const router = require("express").Router();
-const adminController = require("../controllers/controllersAdmin");
+const adminController = require("../controllers/adminControllers");
 
 
-router.post("/dbInitModules", adminController.dbInitModules);
-router.post("/dbAddAdminUsers", adminController.dbAddAdminUsers);
-router.post("/signIn", adminController.signIn);
+// router.post('/signin', adminController.signIn) MOVED
 
-router.post('/signin', adminController.signIn)
+
 
 module.exports = router;

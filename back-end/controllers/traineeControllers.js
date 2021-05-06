@@ -1,22 +1,23 @@
 /**
  * Trainee Controller
  */
+const Trainee = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-const traineeController = {
+
+module.exports = {
 
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
-    const Trainee = require("../models/User");
-    const { fullName, email, password, role } = req.body;
+
+    const { fullName, email, password } = req.body;
 
     const docTrainee = new Trainee({
-      fullName: fullName,
-      email: email,
-      password: password,
-      role: role,
+      fullName,
+      email,
+      password,
+      role: "trainee",
       dateInsert: Date.now(),
-      enabled: true,
     });
 
     docTrainee.save((err) => {
@@ -31,31 +32,35 @@ const traineeController = {
   /* USER CONTROLLERS */
   signIn: async (req, res) => {
     const { email, password } = req.body;
-    const Trainee = require("../models/User");
-    const trainee = await Trainee.findOne({ email });
 
-    if (!trainee) {
-      return res
-        .status(401)
-        .json({ error: "Utilisateur non trouvé !" });
-    }
+    try {
+      const trainee = await Trainee.findOne({ email, role: "trainee" });
 
-    const encryption = require("../tools/crypt/encryption");
-    const validation = encryption.compare(password, trainee.password);
-    if (!validation) {
-      return res.status(401).json({ error: "Mot de passe incorrect !" });
-    } else {
-      const token = jwt.sign(
-        { traineeId: trainee._id },
-        process.env.JWT_SECRET_TOKEN_TRAINEE,
-        {
-          expiresIn: "8h",
-        }
-      );
-      return res.status(200).json({
-        traineeId: trainee._id,
-        token: token,
-      });
+      if (!trainee) {
+        return res
+          .status(401)
+          .json({ error: "Utilisateur non trouvé !" });
+      }
+
+      const encryption = require("../tools/crypt/encryption");
+      const validation = encryption.compare(password, trainee.password);
+      if (!validation) {
+        return res.status(401).json({ error: "Mot de passe incorrect !" });
+      } else {
+        const token = jwt.sign(
+          { traineeId: trainee._id },
+          process.env.JWT_SECRET_TOKEN_TRAINEE,
+          {
+            expiresIn: "8h",
+          }
+        );
+        return res.status(200).json({
+          traineeId: trainee._id,
+          token: token,
+        });
+      }
+    } catch (err) {
+      console.log(err);
     }
   },
 
@@ -96,4 +101,3 @@ const traineeController = {
   },
 };
 
-module.exports = traineeController;

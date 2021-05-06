@@ -2,31 +2,19 @@
  * Instructor Router : /instuctor/...
  */
 
-const instructorCtrl = require("../controllers/controllersInstructor");
-
 const router = require("express").Router();
-const validInstructor = require("../middlewares/tokenverifInstructor");
+const instructorControllers = require("../controllers/instructorControllers");
 
-router.post("/signup", instructorCtrl.signUp);
-router.post("/signup/rating", instructorCtrl.rating); /* inscription */
-router.post("/signup/equipment", instructorCtrl.equipment);
-router.post("/signup/language", instructorCtrl.language);
-router.post("/signup/module", instructorCtrl.module);
-router.post("/InstructorSignIn", instructorCtrl.signIn); /* connection */
 
-router.get(
-  "/dashboard",
-  validInstructor,
-  instructorCtrl.dashboard
-); /* dashboard */
+router.get("/dashboard", instructorControllers.dashboard); /* dashboard */
 
-router.post("/fly", validInstructor, instructorCtrl.flyNow); /* flynow */
+router.post("/fly", instructorControllers.flyNow); /* flynow */
 
-router.get("/calendar", validInstructor, instructorCtrl.calendar);
+router.get("/calendar", instructorControllers.calendar);
 
-router.post("/profile/add", validInstructor, instructorCtrl.profileAdd);
-router.get("/profile/:id", validInstructor, instructorCtrl.profile);
-router.put("/profile/:id", validInstructor, instructorCtrl.profileEdit);
-router.delete("/profile/:id", validInstructor, instructorCtrl.profileDelete);
+router.post("/profile/add", instructorControllers.profileAdd);
+router.get("/profile/:id", instructorControllers.profile);
+router.put("/profile/:id", instructorControllers.profileEdit);
+router.delete("/profile/:id", instructorControllers.profileDelete);
 
 module.exports = router;

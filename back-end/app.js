@@ -21,8 +21,10 @@ mongoose
   .catch((err) => console.log("Erreur connection" + err));
 
 // Imports Middleware (auth ...)
+const authToken = require('./middlewares/authToken') 
 
 // Imports Router
+const usrRouter = require('./routes/usrRoutes')
 const traineeRouter = require("./routes/traineeRoutes");
 const instructorRouter = require("./routes/instructorRoutes");
 const adminRouter = require("./routes/adminRoutes");
@@ -41,9 +43,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routers
-app.use("/trainee", traineeRouter);
-app.use("/", instructorRouter);
-app.use("/admin", adminRouter);
+app.use("/usr", usrRouter);
+app.use("/admin", authToken.admin, adminRouter);
+app.use("/trainee", authToken.trainee, traineeRouter);
+app.use("/instructor", authToken.instructor, instructorRouter);
 
 // Test Log 404
 app.all("*", (req, res, next) => {
