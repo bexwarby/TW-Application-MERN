@@ -53,6 +53,16 @@ const ModuleSchema = new Schema({
     enum: ["private", "professional", "expert"],
   },
 
+  /* Niveau nom */
+  levelName: {
+    type: String,
+    enum: [
+      "Private pilot level (15h total)", 
+      "Professional pilot level (25h total)", 
+      "Expert pilot level (20h total)"
+    ],
+  },
+
   /* Prix de l'étape */
   stepPrice: {
     type: Number,

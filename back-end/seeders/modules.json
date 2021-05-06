@@ -1,25 +1,25 @@
 [
   {
-    "name": "Private pilot level (15h total)",
+    "levelName": "Private pilot level (15h total)",
     "steps": [
       {
         "name": "Coms master",
-        "description": " "
+        "description": ""
       },
       {
         "name": "PPL Theoretical support & coaching",
-        "description": " "
+        "description": ""
       },
       {
         "name": "Coaching to become a successful pilot",
-        "description": " "
+        "description": ""
       }
     ],
     "level": "private",
     "stepPrice": 195
   },
   {
-    "name": "Professional pilot level (25h total)",
+    "levelName": "Professional pilot level (25h total)",
     "steps": [
       {
         "name": "IFR basics",
@@ -46,7 +46,7 @@
     "stepPrice": 345
   },
   {
-    "name": "Expert pilot level (20h total)",
+    "levelName": "Expert pilot level (20h total)",
     "steps": [
       {
         "name": "Flying the A320",
