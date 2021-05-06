@@ -9,7 +9,7 @@ const modules = require("./modules.json");
 
 function seedModules() {
   modules.forEach((moduleData) => {
-    Module.findOne({ name: moduleData.name }, (err, existingModule) => {
+    Module.findOne({ name: moduleData.levelName }, (err, existingModule) => {
       if (err) {
         console.log("Modules seeder: Module find failed");
         return;
@@ -18,7 +18,7 @@ function seedModules() {
       if (existingModule) {
         console.log(
           "Modules seeder: Skipping insert, module " +
-            moduleData.name +
+            moduleData.levelName +
             " exists"
         );
         return;
@@ -32,7 +32,7 @@ function seedModules() {
           return;
         }
 
-        console.log("Modules seeder: Module " + moduleData.name + " inserted");
+        console.log("Modules seeder: Module " + moduleData.levelName + " inserted");
       });
     });
   });

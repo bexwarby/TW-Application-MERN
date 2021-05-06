@@ -1,32 +1,75 @@
 [
   {
-    "name": "Vol de nuit",
+    "levelName": "Private pilot level (15h total)",
     "steps": [
       {
-        "name": "Le vol de nuit VFR",
-        "description": "Vol de nuit simple VFR evolution 3500-4500ft"
+        "name": "Coms master",
+        "description": ""
       },
       {
-        "name": "Le vol de nuit IFR",
-        "description": "Vol de nuit simple IFR approche"
+        "name": "PPL Theoretical support & coaching",
+        "description": ""
+      },
+      {
+        "name": "Coaching to become a successful pilot",
+        "description": ""
       }
     ],
-    "level": "professional",
-    "stepPrice": 2
+    "level": "private",
+    "stepPrice": 195
   },
   {
-    "name": "Aérodrome d'altitude",
+    "levelName": "Professional pilot level (25h total)",
     "steps": [
       {
-        "name": "Approche 1",
-        "description": "Approche 1"
+        "name": "IFR basics",
+        "description": " "
       },
       {
-        "name": "Approche 1",
-        "description": "Approche 1"
+        "name": "IFR flights",
+        "description": " "
+      },
+      {
+        "name": "IFR approaches",
+        "description": " "
+      },
+      {
+        "name": "Tailored training",
+        "description": " "
+      },
+      {
+        "name": "CPL IR-ME Theoretical support",
+        "description": " "
       }
     ],
     "level": "professional",
-    "stepPrice": 2
+    "stepPrice": 345
+  },
+  {
+    "levelName": "Expert pilot level (20h total)",
+    "steps": [
+      {
+        "name": "Flying the A320",
+        "description": " "
+      },
+      {
+        "name": "Flying the B737",
+        "description": " "
+      },
+      {
+        "name": "Airline assessment prep & coaching",
+        "description": " "
+      },
+      {
+        "name": "Specific theoretical support",
+        "description": " "
+      },
+      {
+        "name": "Tailored advanced training",
+        "description": " "
+      }
+    ],
+    "level": "expert",
+    "stepPrice": 495
   }
 ]
