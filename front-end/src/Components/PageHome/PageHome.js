@@ -17,12 +17,12 @@ function PageHome() {
       </div>
       <div className="contentTraineeInstructor">
         <div className="linkTrainee">
-          <Link to="/TraineeSignIn">
+          <Link to="/usr/trainee/signin">
             <p className="link">TRAINEE</p>
           </Link>
         </div>
         <div className="linkInstructor">
-          <Link to="/InstructorSignIn">
+          <Link to="/usr/instructor/signin">
             <p className="link">INSTRUCTOR</p>
           </Link>
         </div>

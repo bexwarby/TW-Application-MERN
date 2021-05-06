@@ -14,11 +14,11 @@ export default function AdminNav({ auth }) {
       <div>
 
         <Switch>
-          <Route exact path="admin/signin" render={ () => {
+          <Route exact path="/usr/admin/signin" render={ () => {
             return (
               auth ? 
               <Redirect to="/admin/validation" /> :
-              <Redirect to="admin/signin" />
+              <Redirect to="/usr/admin/signin" />
             )
           }} />
           

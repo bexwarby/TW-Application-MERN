@@ -20,7 +20,7 @@ function TraineeSignIn() {
   const handleSignUp = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/signin`,
+        `${process.env.REACT_APP_SERVER}/usr/trainee/signin`,
         {
           method: "POST",
           headers: {
@@ -31,7 +31,6 @@ function TraineeSignIn() {
         }
       );
       const res = await response.json();
-      console.log(res);
       localStorage.setItem("jwt", res.token);
     } catch (err) {
       console.log(err);
@@ -65,7 +64,7 @@ function TraineeSignIn() {
         <div className="contentLink">
           <p className="subButton">
             Don't have an account? Sign-up
-            <Link to="/Trainee/SignUp">
+            <Link to="/usr/trainee/signup">
               <span className="linkHere">here</span>
             </Link>
           </p>

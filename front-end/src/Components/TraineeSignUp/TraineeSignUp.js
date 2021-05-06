@@ -22,7 +22,7 @@ function TraineeSignUp() {
     console.log(newSignup);
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/signup`,
+        `${process.env.REACT_APP_SERVER}/usr/trainee/signup`,
         {
           method: "POST",
           headers: {

@@ -56,13 +56,13 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/TraineeSignIn">
+            <Route path="/usr/trainee/signin">
               <TraineeSignIn />
             </Route>
-            <Route path="/Trainee/SignUp">
+            <Route path="/usr/trainee/signup">
               <TraineeSignUp />
             </Route>
-            <Route path="/InstructorSignIn">
+            <Route path="/usr/instructor/signin">
               <InstructorSignIn />
             </Route>
 

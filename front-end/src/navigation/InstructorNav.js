@@ -15,13 +15,13 @@ export default function InstructorNav() {
             <div>
                 
                 <Switch>
-                    <Route exact path="/Instructor/dashboard">
+                    <Route exact path="/instructor/dashboard">
                         <InstructorDashboard />
                     </Route>
-                    <Route exact path="/Instructor/fly">
+                    <Route exact path="/instructor/fly">
                         <InstructorFly />
                     </Route>
-                    <Route exact path="/Instructor/profile">
+                    <Route exact path="/instructor/profile">
                         <InstructorProfile />
                     </Route>
                 </Switch>
@@ -29,15 +29,15 @@ export default function InstructorNav() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/Instructor/dashboard">
+                            <Link to="/instructor/dashboard">
                                 Dashboard instructeur
                             </Link>
                         </li>
                         <li>
-                            <Link to="/Instructor/fly">Fly instructeur</Link>
+                            <Link to="/instructor/fly">Fly instructeur</Link>
                         </li>
                         <li>
-                            <Link to="/Instructor/profile">
+                            <Link to="/instructor/profile">
                                 Profil instructeur
                             </Link>
                         </li>

@@ -18,11 +18,10 @@ function InstructorSignIn(e) {
   }
   const handleSignIn = async (e) => {
     e.preventDefault();
-    console.log("BP", process.env.REACT_APP_SERVER);
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/InstructorSignIn`,
+        `${process.env.REACT_APP_SERVER}/usr/instructor/signin`,
         {
           method: "POST",
           headers: {

@@ -20,7 +20,7 @@ function AdminSignIn({setAuth}) {
     
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/admin/signin`, {
+        `${process.env.REACT_APP_SERVER}/usr/admin/signin`, {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -31,7 +31,8 @@ function AdminSignIn({setAuth}) {
       const res = await response.json()
       console.log(res);
 
-      if(!res.msg) {
+      if(!res.message && res.token) {
+        localStorage.setItem("jwt", res.token);
         setAuth(true)
       } 
 
