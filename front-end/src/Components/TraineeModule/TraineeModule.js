@@ -1,20 +1,19 @@
 /**
- * Module de l'eleve
+ * page profil de l'eleve
  */
 
- import './TraineeModule.css'
+ import './TraineeProfile.css'
 
 
- function TraineeModule() {
+ function TraineeProfile() {
  
  
    return (
      <div>
-       <h3>Module eleves</h3>
-       <p>Afficher le module courant ou la selectiondes module si aucun n'est en cours</p>
+       <h3>Profil eleve</h3>
      </div>
    );
  }
  
- export default TraineeModule;
+ export default TraineeProfile;
  

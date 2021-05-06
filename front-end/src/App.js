@@ -9,7 +9,17 @@ import Home from "./Components/PageHome/PageHome";
 import TraineeSignIn from "./Components/TraineeSignIn/TraineeSignIn";
 import TraineeSignUp from "./Components/TraineeSignUp/TraineeSignUp";
 import InstructorSignIn from "./Components/InstructorSignIn/InstructorSignIn";
-
+//////Trainee profile///
+import TraineeChoiceModule from "./Components/TraineeProfile/1Module/TraineeChoiceModule";
+import TraineeEmail from "./Components/TraineeProfile/2Email/TraineeEmail";
+import TraineeFlyHours from "./Components/TraineeProfile/3FlyHours/TraineeFlyHours";
+import TraineeSimEquipment from "./Components/TraineeProfile/4SimEquipment/TraineeSimEquipment";
+import TraineeSoftware from "./Components/TraineeProfile/5Software/TraineeSoftware";
+import TraineeWeekStart from "./Components/TraineeProfile/6WeekStart/TraineeWeekStart";
+import TraineeTimeForTrained from "./Components/TraineeProfile/7TimeForTrained/TraineeTimeForTrained";
+import TraineeLanguage from "./Components/TraineeProfile/8Language/TraineeLanguage";
+import TraineeBirth from "./Components/TraineeProfile/9Birth/TraineeBirth";
+import TraineeComment from "./Components/TraineeProfile/10AddComment/TraineeComment";
 //import InstructorSignUp from "./navigation/InstructorSignUp";
 //import SignUpPilot from "./Components/InstructorSignUp/SignUp";
 //import InstructorHome from "./Components/PageInstructor/PageInstructor";
@@ -65,7 +75,42 @@ function App() {
             <Route path="/usr/instructor/signin">
               <InstructorSignIn />
             </Route>
-
+            <React.Fragment>
+              <Route
+                path="/Trainee/profile/step1"
+                component={TraineeChoiceModule}
+              />
+              <Route path="/Trainee/profile/step2" component={TraineeEmail} />
+              <Route
+                path="/Trainee/profile/step3"
+                component={TraineeFlyHours}
+              />
+              <Route
+                path="/Trainee/profile/step4"
+                component={TraineeSimEquipment}
+              />
+              <Route
+                path="/Trainee/profile/step5"
+                component={TraineeSoftware}
+              />
+              <Route
+                path="/Trainee/profile/step6"
+                component={TraineeWeekStart}
+              />
+              <Route
+                path="/Trainee/profile/step7"
+                component={TraineeTimeForTrained}
+              />
+              <Route
+                path="/Trainee/profile/step8"
+                component={TraineeLanguage}
+              />
+              <Route path="/Trainee/profile/step9" component={TraineeBirth} />
+              <Route
+                path="/Trainee/profile/step10"
+                component={TraineeComment}
+              />
+            </React.Fragment>
             <React.Fragment>
               <Route path="/Welcome" component={Welcome} />
               <Route path="/Instructor/signup/step1" component={Name} />
