@@ -15,8 +15,12 @@ const AvailabilitiesSchema = new Schema({
   /* Date de fin */
   endDate: {
     type: Date,
-    requried: true,
+    required: true,
   },
+
+  /*Heure*/
+
+  time: Number,
 });
 
 /**
@@ -56,6 +60,9 @@ const UserSchema = new Schema({
 
   /* Objectifs  d'heure d'enseignement ou de cours à suivre */
   weeklyHoursGoal: Number,
+
+  /* Préference d'horaires et jours */
+  timeTeaching: String,
 
   /* Disponibilités */
   availabilities: [AvailabilitiesSchema],

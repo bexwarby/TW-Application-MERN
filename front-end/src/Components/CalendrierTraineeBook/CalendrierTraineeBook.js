@@ -1,6 +1,4 @@
-import "./calendrierTrainee.css";
-import "../general.css";
-
+import "./calendrierTraineeBook.css";
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 
@@ -11,24 +9,24 @@ function CalendrierTrainee() {
     setDay(day);
     console.log(day);
   };
-  /*dates NON disponibles*/
+  /*dates disponibles*/
   const availabilities = [
     {
-      startDate: new Date(2021, 4, 10, 9),
+      startDate: new Date(2021, 4, 10, 8),
       endDate: new Date(2021, 4, 10, 11),
     },
     {
       startDate: new Date(2021, 4, 11, 13),
-      endDate: new Date(2021, 4, 11, 19),
+      endDate: new Date(2021, 4, 11, 17),
     },
     {
       startDate: new Date(2021, 4, 23, 14),
-      endDate: new Date(2021, 4, 23, 15),
+      endDate: new Date(2021, 4, 2, 15),
     },
   ];
 
   /*function envoyer horaire*/
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState({});
   function handleChange(e) {
     let sendTime = {
       ...time,
@@ -38,24 +36,20 @@ function CalendrierTrainee() {
     console.log(sendTime);
   }
 
-  /*fetch*/
-  const submitRdv = async (e) => {
-    e.preventDefault();
-
+  const submitRdv = async () => {
+    /*fetch*/
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/calendar/book`,
+        `${process.env.REACT_APP_SERVER}/calendrier/trainee/book`,
         {
-          method: "PUT",
+          method: "POST",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            traineeId: "609424c66354f85420ebc75a",
-            startDate: day,
-            endDate: day,
-            time: Number(time.time),
+            date: day,
+            time: time,
           }),
         }
       );
@@ -123,12 +117,11 @@ function CalendrierTrainee() {
               greyedOut = false;
             }
           });
-
           return greyedOut;
         }}
       />
 
-      <p>Choose time</p>
+      <label htmlFor="time">Choose horary</label>
       <select
         id="time"
         name="time"
@@ -136,10 +129,35 @@ function CalendrierTrainee() {
         onChange={handleChange}
         value="timeSend"
         key="timeSend"
-      >
-        {renderOptions()}
-      </select>
+        isDisabled={(time) => {
+          let greyedOut = true;
+          availabilities.forEach((a) => {
+            a.startDate.setHours(0, 0, 0, 0);
+            a.endDate.setHours(0, 0, 0, 0);
 
+            const dateTimestamp = time.getHours();
+
+            if (
+              dateTimestamp >= a.startDate.getTime() &&
+              dateTimestamp <= a.endDate.getTime()
+            ) {
+              greyedOut = false;
+            }
+          });
+          return greyedOut;
+        }}
+      >
+        <option>Time</option>
+        <option value="8-9">8-9</option>
+        <option value="9-10">9-10</option>
+        <option value="10-11">10-11</option>
+        <option value="11-12">11-12</option>
+        <option value="13-14">13-14</option>
+        <option value="14-15">14-15</option>
+        <option value="15-16">15-16</option>
+        <option value="16-17">16-17</option>
+      </select>
+      {renderOptions()}
       <button type="button" onClick={submitRdv}>
         Envoyer
       </button>
@@ -148,3 +166,34 @@ function CalendrierTrainee() {
 }
 
 export default CalendrierTrainee;
+
+/*const availabilities = [
+    {
+      startDate: new Date(2021, 4, 10, 9),
+      endDate: new Date(2021, 4, 10, 11),
+    },
+    {
+      startDate: new Date(2021, 4, 11, 13),
+      endDate: new Date(2021, 4, 11, 19),
+    },
+    {
+      startDate: new Date(2021, 4, 23, 14),
+      endDate: new Date(2021, 4, 26, 15),
+    },
+  ];
+
+const date = new Date(2021, 4, 29);
+let greyedOut = true;
+availabilities.forEach((a) => {
+            a.startDate.setHours(0, 0, 0, 0);
+            a.endDate.setHours(0, 0, 0, 0);
+            const dateTimestamp = date.getTime();
+
+            if (
+              dateTimestamp >= a.startDate.getTime() &&
+              dateTimestamp <= a.endDate.getTime()){
+              greyedOut = false;
+            }
+});
+        
+        console.log(greyedOut);*/

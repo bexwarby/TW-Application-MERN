@@ -3,6 +3,7 @@
  */
 
  import './TraineeDashboard.css'
+ import "../general.css"
 
 
  function TraineeDashboard() {

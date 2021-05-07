@@ -4,6 +4,7 @@
  */
 import { useState } from "react";
 import "./TraineeSignUp.css";
+import "../general.css"
 
 function TraineeSignUp() {
   /*variable d'état*/
@@ -32,7 +33,7 @@ function TraineeSignUp() {
           body: JSON.stringify(newSignup),
         }
       );
-      console.log(response);
+      /*       console.log(response); */
       const data = await response.json();
       console.log(data);
     } catch (err) {
@@ -44,40 +45,24 @@ function TraineeSignUp() {
     <div id="newTrainee">
       {/* TITRE FORMULAIRE */}
       <h2 className="title">SIGNUP TRAINEE</h2>
+      <div className="inputSection">
+        {/* INPUT FULLNAME */}
+        <label>Enter your full name: </label>
+        <input type="text" name="fullName" onChange={handleData} required />
 
-      {/* INPUT FULLNAME */}
-      <label>Enter your full name * : </label>
-      <br></br>
-      <br></br>
-      <input type="text" name="fullName" onChange={handleData} />
+        {/* INPUT EMAIL */}
+        <label>Enter your email: </label>
+        <input type="text" name="email" onChange={handleData} required />
 
-      <br></br>
-      <br></br>
+        {/* INPUT PASSWORD */}
+        <label>Enter password *: </label>
+        <input type="password" name="password" onChange={handleData} required />
 
-      {/* INPUT EMAIL */}
-      <label>Enter your email *: </label>
-      <br></br>
-      <br></br>
-      <input type="text" name="email" onChange={handleData} />
-
-      <br></br>
-      <br></br>
-
-      {/* INPUT PASSWORD */}
-      <label>Enter password *: </label>
-      <br></br>
-      <br></br>
-      <input type="password" name="password" onChange={handleData} />
-      <br></br>
-      <br></br>
-
-      <p> * fields required</p>
-      <br></br>
-
-      {/* BUTTON VALIDER */}
-      <button className="valider" onClick={handleSignup}>
-        Validate
+        {/* BUTTON VALIDER */}
+        <button className="enter" onClick={handleSignup}>
+          Enter
       </button>
+      </div>
     </div>
   );
 }

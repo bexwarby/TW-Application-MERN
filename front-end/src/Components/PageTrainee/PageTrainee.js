@@ -7,6 +7,7 @@
  */
 
 import './PageTrainee.css'
+import "../general.css"
 
 import TraineeNav from '../../navigation/TraineeNav'
 

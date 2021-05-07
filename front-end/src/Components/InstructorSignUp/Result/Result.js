@@ -1,6 +1,7 @@
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 import { useForm } from "react-hook-form";
+import "../general.css"
 
 function Result(props) {
   const { state } = useStateMachine(updateAction);
@@ -29,7 +30,7 @@ function Result(props) {
 
   return (
     <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
-      <pre> {JSON.stringify(state, null, 2)} </pre>
+      {/* <pre> {JSON.stringify(state, null, 2)} </pre> */}
       <p>
         Thank you very much for joining us. We will be in touch very soon! Have
         a great day.

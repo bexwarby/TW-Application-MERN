@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./LicenseFile.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -14,11 +15,11 @@ function LicenseFile(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step11");
+    props.history.push("/instructor/signup/step11");
   };
 
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step9");
+    props.history.push("/instructor/signup/step9");
   };
 
   const homeClick = () => {
@@ -32,7 +33,7 @@ function LicenseFile(props) {
             <div className="numberQuestion">
               <p>10</p>
             </div>
-            <label htmlFor="file">
+            <label htmlFor="licenceFile">
               Add a picture or your license or <b>later</b> by email
             </label>
             <p>
@@ -48,10 +49,10 @@ function LicenseFile(props) {
             </div>
           </div>
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

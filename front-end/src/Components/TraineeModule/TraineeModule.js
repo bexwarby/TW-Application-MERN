@@ -3,6 +3,7 @@
  */
 
  import './TraineeProfile.css'
+ import "../general.css"
 
 
  function TraineeProfile() {

@@ -1,5 +1,6 @@
 /* Imports */
 import "./password.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -10,11 +11,11 @@ function Password(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/submit");
+    props.history.push("/instructor/signup/submit");
   };
 
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step13");
+    props.history.push("/instructor/signup/step13");
   };
 
   const homeClick = () => {
@@ -30,7 +31,7 @@ function Password(props) {
               <p>14</p>
             </div>
             <div>
-              <label htmlFor="email">Please write down your password.</label>
+              <label htmlFor="password">Please write down your password.</label>
 
               <input
                 {...register("password")}
@@ -43,10 +44,10 @@ function Password(props) {
           </div>
 
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

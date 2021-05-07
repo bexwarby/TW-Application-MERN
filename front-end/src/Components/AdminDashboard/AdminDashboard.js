@@ -3,6 +3,7 @@
  */
 
 import './AdminDashboard.css'
+import "../general.css"
 
 
 function AdminDashboard() {

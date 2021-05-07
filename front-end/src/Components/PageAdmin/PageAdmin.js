@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import './PageAdmin.css'
+import "../general.css"
 
 import AdminNav from '../../navigation/AdminNav'
 import AdminSignIn from '../AdminSignIn/AdminSignIn'

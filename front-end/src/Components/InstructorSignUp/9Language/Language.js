@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./language.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -14,11 +15,11 @@ function Language(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step10");
+    props.history.push("/instructor/signup/step10");
   };
 
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step8");
+    props.history.push("/instructor/signup/step8");
   };
 
   const homeClick = () => {
@@ -58,10 +59,10 @@ function Language(props) {
             </select>
           </div>
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

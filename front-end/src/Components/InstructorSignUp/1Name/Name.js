@@ -1,5 +1,6 @@
 /* Imports */
 import "./name.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -14,10 +15,10 @@ function NamePilot(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step2");
+    props.history.push("/instructor/signup/step2");
   };
   const backClick = () => {
-    props.history.push("/Welcome");
+    props.history.push("/welcome");
   };
   const homeClick = () => {
     props.history.push("/");
@@ -54,10 +55,10 @@ function NamePilot(props) {
           )}
           <input type="submit" value="Submit" />
 
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

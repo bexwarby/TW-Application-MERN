@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./hoursClass.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -18,11 +19,11 @@ function HoursClass(props) {
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("/Instructor/SignUp/step8");
+    props.history.push("/instructor/signup/step8");
   };
 
   const backClick = () => {
-    props.history.push("/Instructor/SignUp/step6");
+    props.history.push("/instructor/signup/step6");
   };
 
   const homeClick = () => {
@@ -37,32 +38,32 @@ function HoursClass(props) {
             <div className="numberQuestion">
               <p>7</p>
             </div>
-            <label htmlFor="hoursTraining">
+            <label htmlFor="weeklyHoursGoal">
               How many hours of flightsim training could you give per week?
             </label>
             <p>
               <em>(Think about unproductive layover with Netflix...)</em>
             </p>
             <input
-              {...register("hoursRequested", {
+              {...register("weeklyHoursGoal", {
                 required: "required",
                 minLength: { value: 1, message: "Please enter answer" },
               })}
-              type="text"
+              type="number"
               className="form-control"
-              id="hoursRequested"
+              id="weeklyHoursGoal"
               placeholder="Type your answer here"
             />
           </div>
-          {errors.hoursRequested && (
-            <span role="alert">{errors.hoursRequested.message}</span>
+          {errors.weeklyHoursGoal && (
+            <span role="alert">{errors.weeklyHoursGoal.message}</span>
           )}
           <input type="submit" value="Submit" />
 
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>
