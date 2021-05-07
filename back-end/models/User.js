@@ -9,13 +9,13 @@ const AvailabilitiesSchema = new Schema({
   /* Date de début */
   startDate: {
     type: Date,
-    required: true,
+    // required: true,
   },
 
   /* Date de fin */
   endDate: {
     type: Date,
-    requried: true,
+    // requried: true,
   },
 });
 
@@ -80,7 +80,7 @@ const UserSchema = new Schema({
     type: Number,
     default: 0,
     min: 0,
-    required: true,
+    // required: true,
   },
 });
 

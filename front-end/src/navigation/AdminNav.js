@@ -4,33 +4,14 @@
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
-// Imports des composants qui seront affichés
-import AdminDashboard from '../Components/AdminDashboard/AdminDashboard'
-import AdminValidation from '../Components/AdminValidation/AdminValidation'
+import AdminDashboard from '../Components/PageAdmin/AdminDashboard/AdminDashboard'
+import AdminValidation from '../Components/PageAdmin/AdminValidation/AdminValidation'
 
-export default function AdminNav({ auth }) {
+
+export default function AdminNav({ adminId }) {
   return (
     <Router>
       <div>
-
-        <Switch>
-          <Route exact path="/usr/admin/signin" render={ () => {
-            return (
-              auth ? 
-              <Redirect to="/admin/validation" /> :
-              <Redirect to="/usr/admin/signin" />
-            )
-          }} />
-          
-          <Route exact path="/admin/dashboard">
-            <AdminDashboard />
-          </Route>
-
-          <Route exact path="/admin/validation">
-            <AdminValidation />
-          </Route>
-
-        </Switch>
 
         <nav>
           <ul>
@@ -38,10 +19,21 @@ export default function AdminNav({ auth }) {
               <Link to="/admin/dashboard">Dashboard Admin</Link>
             </li>
             <li>
-              <Link to="/admin/validation">Fly instructeur</Link>
+              <Link to="/admin/validation">Validation</Link>
             </li>
           </ul>
         </nav>
+
+        <Switch>
+          <Route exact path="/admin" render={() => {
+            return (adminId ? <Redirect to="/admin/validation" /> : <Redirect to="/admin/signin" />)
+          }} />
+
+          <Route exact path="/admin/dashboard" component={AdminDashboard} />
+          <Route exact path="/admin/validation" component={AdminValidation} />
+
+        </Switch>
+
       </div>
     </Router>
   );

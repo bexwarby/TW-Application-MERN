@@ -12,6 +12,7 @@ const instructorController = require("../controllers/instructorControllers");
 
 //admin
 router.post('/admin/signin', adminController.signIn)
+router.post('/admin/signup', adminController.signUp)
 
 // trainee
 router.post("/trainee/signup", traineeController.signUp)

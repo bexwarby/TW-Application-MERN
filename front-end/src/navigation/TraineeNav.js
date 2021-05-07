@@ -2,35 +2,18 @@
  * Barre de navidation Eleve
  */
 
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-// Imports des composants qui seront affichés 
-import TraineeDashboard from '../Components/TraineeDashboard/TraineeDashboard';
-import TraineeFlybook from '../Components/TraineeFlyBook/TraineeFlyBook';
-import TraineeModule from '../Components/TraineeModule/TraineeModule';
-import TraineeProfile from '../Components/TraineeProfile/TraineeProfile';
+import TraineeDashboard from '../Components/PageTrainee/TraineeDashboard/TraineeDashboard';
+import TraineeFlybook from '../Components/PageTrainee/TraineeFlyBook/TraineeFlyBook';
+import TraineeModule from '../Components/PageTrainee/TraineeModule/TraineeModule';
+import TraineeProfile from '../Components/PageTrainee/TraineeProfile/TraineeProfile';
 
 
-export default function TraineeNav() {
+export default function TraineeNav({ traineeId }) {
   return (
     <Router>
       <div>
-
-        <Switch>
-          <Route exact path="/trainee/dashboard">
-            <TraineeDashboard />
-          </Route>
-          <Route exact path="/trainee/module">
-            <TraineeModule />
-          </Route>
-          <Route exact path="/trainee/flybook">
-            <TraineeFlybook />
-          </Route>
-          <Route exact path="/trainee/profile">
-            <TraineeProfile />
-          </Route>
-        </Switch>
 
         <nav>
           <ul>
@@ -48,6 +31,17 @@ export default function TraineeNav() {
             </li>
           </ul>
         </nav>
+
+        <Switch>
+        <Route exact path="/trainee" render={() => {
+            return (traineeId ? <Redirect to="/trainee/module" /> : <Redirect to="/trainee/signin" />)
+          }} />
+          <Route exact path="/trainee/dashboard" component={TraineeDashboard} />
+          <Route exact path="/trainee/module" component={TraineeModule} />
+          <Route exact path="/trainee/flybook" component={TraineeFlybook} />
+          <Route exact path="/trainee/profile" component={TraineeProfile} />
+        </Switch>
+
 
       </div>
     </Router>

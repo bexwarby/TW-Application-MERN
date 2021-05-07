@@ -5,22 +5,24 @@
  * le dossier Components de CE dossier ou importer un composant partagé. 
  * ex: import { SharedComponentEXAMPLE } '../../Components/index'
  */
-
-import './PageTrainee.css'
+ import { useEffect, useState } from "react";
+ import './PageTrainee.css'
 
 import TraineeNav from '../../navigation/TraineeNav'
+import TraineeSignIn from '../PageTrainee/TraineeSignIn/TraineeSignIn'
 
-function PageTrainee() {
+function PageTrainee({setUserID}) {
+  const [traineeId, setTraineeId] = useState(false)
 
+  // useEffect(() => {
+  //   setUserID(traineeId)
+  // }, [traineeId]);
 
   return (
     <div>
-      <h3>Trainee Home Component</h3>
-      <p>Rendu conditionnel</p>
-      <p>SI pas de module selectionné ALORS composant choix module SINON composant du module en cours</p>
 
-      <p>Trainee Navigation PROGRES / MODULE EN COURS / FLYBOOK / PROFILE</p>
-      <TraineeNav />
+      {traineeId ? <TraineeNav traineeId={traineeId} /> : <TraineeSignIn setTraineeId={setTraineeId} setUserID={setUserID} />}
+
     </div>
   );
 }

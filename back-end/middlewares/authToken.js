@@ -7,7 +7,9 @@ module.exports = {
       const myToken = jwt.verify(token, process.env.JWT_SECRET_TOKEN_ADMIN);
       const adminId = myToken.adminId;
       if (req.body.adminId && req.body.adminId !== adminId) {
-        throw "adminId n'est pas bon";
+        // throw "adminId n'est pas bon";
+        res.redirect('/admin')
+        return
       } else {
         next();
       }
@@ -22,7 +24,9 @@ module.exports = {
       const myToken = jwt.verify(token, process.env.JWT_SECRET_TOKEN_INSTRUCTOR);
       const instructorId = myToken.instructorId;
       if (req.body.instructorId && req.body.instructorId !== instructorId) {
-        throw "InstructorId n'est pas bon";
+        // throw "InstructorId n'est pas bon";
+        res.redirect('/instructor')
+        return
       } else {
         next();
       }
@@ -37,7 +41,9 @@ module.exports = {
       const myToken = jwt.verify(token, process.env.JWT_SECRET_TOKEN_TRAINEE);
       const traineeId = myToken.traineeId;
       if (req.body.traineeId && req.body.traineeId !== traineeId) {
-        throw "traineeId n'est pas bon";
+        // throw "traineeId n'est pas bon";
+        res.redirect('/trainee')
+        return
       } else {
         next();
       }

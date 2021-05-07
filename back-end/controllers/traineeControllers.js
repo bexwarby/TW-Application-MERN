@@ -51,7 +51,7 @@ module.exports = {
           { traineeId: trainee._id },
           process.env.JWT_SECRET_TOKEN_TRAINEE,
           {
-            expiresIn: "8h",
+            expiresIn: "24h",
           }
         );
         return res.status(200).json({
@@ -99,5 +99,6 @@ module.exports = {
     console.log(req.params.id);
     res.status(200).send(`trainee ${req.params.id} a bien été supprimé`);
   },
+
 };
 

@@ -6,21 +6,25 @@
  * ex: import { SharedComponentEXAMPLE } '../../Components/index'
  */
 
+import { useEffect, useState } from "react";
 import './PageInstructor.css'
 
 
 import InstructorNav from '../../navigation/InstructorNav'
+import InstructorSignIn from './InstructorSignIn/InstructorSignIn'
 
 
-function PageInstructor() {
+function PageInstructor({ setUserID }) {
+  const [instructorId, setInstructorId] = useState(false)
 
+  // useEffect(() => {
+  //   setUserID(instructorId)
+  // }, [instructorId]);
 
   return (
     <div>
-      <h3>Instructor Home Component</h3>
-      <p>Rendu conditionnel de BOOK / FLY / PROFILE</p>
+      {instructorId ? <InstructorNav instructorId={instructorId} /> : <InstructorSignIn setInstructorId={setInstructorId} setUserID={setUserID} />}
 
-      <InstructorNav />
     </div>
   );
 }

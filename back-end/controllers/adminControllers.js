@@ -3,16 +3,18 @@
  */
 const User = require("../models/User");
 const encryption = require("../tools/crypt/encryption");
+const jwt = require('jsonwebtoken')
 
 const adminController = {
   signIn: async (req, res) => {
     const adminUser = await User.findOne({ email: req.body.email, role: "admin" });
+    console.log(adminUser);
 
     try {
+
       if (!adminUser) {
         return res.status(401).json({ error: "Administrator not found !" });
       }
-
       const valid = await encryption.compare(
         req.body.password,
         adminUser.password
@@ -26,7 +28,7 @@ const adminController = {
         { adminId: adminUser._id },
         process.env.JWT_SECRET_TOKEN_ADMIN,
         {
-          expiresIn: "8h",
+          expiresIn: "24h",
         }
       );
       
@@ -45,19 +47,18 @@ const adminController = {
 
     const { fullName, email, password } = req.body;
 
-    const docTrainee = new Trainee({
+    const docAdmin = new User({
       fullName,
       email,
       password,
       role: "admin",
-      dateInsert: Date.now(),
     });
 
-    docTrainee.save((err) => {
+    docAdmin.save((err) => {
       if (err) {
         res.status(501).json({ message: err.message });
       } else {
-        res.json({ message: "New trainee created!" });
+        res.json({ message: "New admin created!" });
       }
     });
   },

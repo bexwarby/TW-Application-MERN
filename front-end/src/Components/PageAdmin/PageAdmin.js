@@ -2,29 +2,24 @@
  * Conteneur de la page Admin s
  */
 
-import { useState } from 'react';
+import { useContext} from "react";
 import './PageAdmin.css'
+import { AppContext } from '../../AppContext'
 
 import AdminNav from '../../navigation/AdminNav'
-import AdminSignIn from '../AdminSignIn/AdminSignIn'
-
+import AdminSignIn from '../PageAdmin/AdminSignIn/AdminSignIn'
 
 
 function PageAdmin() {
-  const [ auth, setAuth ] = useState(false)
+  const context = useContext(AppContext)
+
 
   return (
     <div>
-      {auth ? <AdminNav auth={auth} /> : <AdminSignIn setAuth={setAuth} />}
-
-      {/* <p>Liste des instructeurs a valider</p>
-      <p>Navigation: VALIDATION / PROFILS DES MEMBRES</p> */}
+      {context.userID?.adminId ? <AdminNav adminId={context.userID.adminId} /> : <AdminSignIn />}
+      {/* {uid.adminId ? <AdminNav adminId={adminId} /> : <AdminSignIn setAdminId={setAdminId} setUserID={setUserID} />} */}
     </div>
   );
 }
 
 export default PageAdmin;
-
-// // TRY
-// {!auth && <AdminSignIn setAuth={setAuth} />}
-// {auth && <AdminNav />}

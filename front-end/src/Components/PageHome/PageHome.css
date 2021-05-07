@@ -2,7 +2,6 @@
 
 .link {
   color: white;
-  padding-top: 8px;
   letter-spacing: -0.2px;
   font-family: Montserrat;
   font-weight: bold;
@@ -16,6 +15,7 @@
     flex-direction: row;
     justify-content: center;
   }
+  
   .contentTraineeInstructor {
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
     width: 100vw;
     text-align: center;
     height: 37px;
-    padding-top: 6px;
+    padding: 3px;
     border-width: 1px;
     border-radius: 2px;
     border-color: rgba(128, 128, 128, 0.548);
@@ -39,6 +39,7 @@
     justify-content: center;
     align-items: center;
   }
+  
   .linkInstructor {
     margin-top: 20px;
     background-color: black;
@@ -50,7 +51,7 @@
     border-width: 1px;
     border-radius: 2px;
     height: 37px;
-    padding-top: 6px;
+    padding: 3px;
     border-color: rgba(128, 128, 128, 0.548);
     border-style: solid;
     border-left: hidden;
@@ -58,6 +59,7 @@
   }
   /*gestion link*/
 }
+
 @media screen and (max-height: 668px) {
   .contentTraineeInstructor {
     margin-top: 52%;
