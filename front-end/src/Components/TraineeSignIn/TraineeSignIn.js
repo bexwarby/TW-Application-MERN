@@ -4,7 +4,7 @@
  */
 
 /* import logo from "../PageHome/logoHome.png";
- */import "./TraineeSignIn.css";
+ */ import "./TraineeSignIn.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 function TraineeSignIn() {

@@ -2,12 +2,12 @@ import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-const Welcome = (props) => {
+const TraineeWelcome = (props) => {
   const { handleSubmit } = useForm();
   const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("Trainee/profile/step9");
+    props.history.push("Trainee/profile/result");
   };
   const backClick = () => {
     props.history.push("Trainee/profile/step10");
@@ -34,11 +34,11 @@ const Welcome = (props) => {
       <button type="button" onClick={backClick}>
         Back
       </button>
-      <button type="button" onClick={homrClick}>
+      <button type="button" onClick={homeClick}>
         Home
       </button>
     </form>
   );
 };
 
-export default Welcome;
+export default TraineeWelcome;

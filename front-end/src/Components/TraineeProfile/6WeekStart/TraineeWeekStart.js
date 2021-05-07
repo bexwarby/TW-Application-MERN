@@ -27,13 +27,10 @@ function TraineeWeekStart(props) {
         required. *
       </h1>
       <form className="modulForm" onSubmit={handleSubmit(onSubmit)}>
-        <select
-          {...register("startDate")}
-          id="startDate"
-          name="startDate"
-          size="5"
-          multiple
-        >
+        <select {...register("startDate")} id="startDate" name="startDate">
+          <option value="Choose number of week">
+            --Choose number of week--
+          </option>
           <option value="week1">1</option>
           <option value="week2">2</option>
           <option value="week3">3</option>

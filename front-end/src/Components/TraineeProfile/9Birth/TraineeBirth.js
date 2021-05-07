@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
-
 function TraineeBirth(props) {
   const { register, handleSubmit } = useForm();
-  const { action } = useStateMachine({ updateAction });
+
+  const { actions } = useStateMachine({ updateAction });
   const onSubmit = (data) => {
-    action.updateAction(data);
+    actions.updateAction(data);
     props.history.push("/trainee/profile/step10");
   };
   const backClick = () => {
@@ -23,7 +23,7 @@ function TraineeBirth(props) {
         <h2>What is your date of birth please ?This question is required. *</h2>
         <input
           type="date"
-          label="birthDay"
+          //label="birthDay"
           id="birthDay"
           name="birthDay"
           {...register("birthDay")}

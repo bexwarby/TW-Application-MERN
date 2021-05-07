@@ -24,13 +24,8 @@ function TraineeSimEquipment(props) {
           question is required. *
         </h1>
         <h2>Our instructors mostly use MSFS or Xplane 11.</h2>
-        <select
-          {...register("software")}
-          id="software"
-          name="software"
-          size="5"
-          multiple
-        >
+        <select {...register("software")} id="software" name="software">
+          <option value="Choose your software">--Choose your software--</option>
           <option value="MSFS">MSFS</option>
           <option value="Xplane">Xplane 11</option>
           <option value="Prepa">Prepa 3D</option>
