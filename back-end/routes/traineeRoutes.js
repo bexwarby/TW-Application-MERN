@@ -6,6 +6,7 @@ const router = require("express").Router();
 
 const traineeController = require("../controllers/traineeControllers");
 
+router.put("/calendar/book", traineeController.calendar);
 
 router.get("/dashboard/:id", traineeController.dashboard);
 

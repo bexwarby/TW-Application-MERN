@@ -17,6 +17,10 @@ const AvailabilitiesSchema = new Schema({
     type: Date,
     requried: true,
   },
+
+  /*Heure*/
+
+  time: Number,
 });
 
 /**
@@ -59,7 +63,7 @@ const UserSchema = new Schema({
 
   /* Préference d'horaires et jours */
   timeTeaching: String,
-  
+
   /* Disponibilités */
   availabilities: [AvailabilitiesSchema],
 

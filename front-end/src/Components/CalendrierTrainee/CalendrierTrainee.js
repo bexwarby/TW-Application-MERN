@@ -1,5 +1,5 @@
 import "./calendrierTrainee.css";
-import "../general.css"
+import "../general.css";
 
 import React, { useState } from "react";
 import Calendar from "react-calendar";
@@ -38,20 +38,22 @@ function CalendrierTrainee() {
     console.log(sendTime);
   }
 
-  const submitRdv = async () => {
-    /*fetch*/
+  /*fetch*/
+  const submitRdv = async (e) => {
+    e.preventDefault();
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/calendrier/trainee/book`,
+        `${process.env.REACT_APP_SERVER}/trainee/calendar/book`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            date: day,
+            startDate: day,
+            endDate: day,
             time: time,
           }),
         }
