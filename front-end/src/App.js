@@ -20,7 +20,7 @@ import { StateMachineProvider } from "little-state-machine";
 
 import PageAdmin from "./Components/PageAdmin/PageAdmin";
 import CalendrierTrainee from "./Components/CalendrierTrainee/CalendrierTrainee";
-
+import TraineeModule from "./Components/TraineeModule/TraineeModule";
 import Welcome from "./Components/InstructorSignUp/Welcome/Welcome";
 import Name from "./Components/InstructorSignUp/1Name/Name";
 import HoursTotal from "./Components/InstructorSignUp/2HoursTotal/HoursTotal";
@@ -64,6 +64,9 @@ function App() {
             </Route>
             <Route path="/usr/instructor/signin">
               <InstructorSignIn />
+            </Route>
+            <Route path="/usr/trainee/module">
+              <TraineeModule />
             </Route>
 
             <React.Fragment>
