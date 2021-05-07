@@ -44,9 +44,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routers
 app.use("/usr", usrRouter);
-app.use("/admin", authToken.admin, adminRouter);
-app.use("/trainee", traineeRouter);
-app.use("/instructor", authToken.instructor, instructorRouter);
+app.use("/admin", /*authToken.admin,*/ adminRouter);
+app.use("/trainee", /*authToken.trainee,*/ traineeRouter);
+app.use("/instructor", /*authToken.instructor,*/ instructorRouter);
 
 // Test Log 404
 app.all("*", (req, res, next) => {

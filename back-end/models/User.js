@@ -15,7 +15,7 @@ const AvailabilitiesSchema = new Schema({
   /* Date de fin */
   endDate: {
     type: Date,
-    requried: true,
+    required: true,
   },
 
   /*Heure*/

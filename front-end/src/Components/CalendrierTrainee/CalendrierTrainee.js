@@ -28,7 +28,7 @@ function CalendrierTrainee() {
   ];
 
   /*function envoyer horaire*/
-  const [time, setTime] = useState({});
+  const [time, setTime] = useState(0);
   function handleChange(e) {
     let sendTime = {
       ...time,
@@ -52,9 +52,10 @@ function CalendrierTrainee() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            traineeId: "609424c66354f85420ebc75a",
             startDate: day,
             endDate: day,
-            time: time,
+            time: Number(time.time),
           }),
         }
       );
