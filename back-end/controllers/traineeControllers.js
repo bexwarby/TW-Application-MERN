@@ -4,12 +4,9 @@
 const Trainee = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-
 module.exports = {
-
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
-
     const { fullName, email, password } = req.body;
 
     const docTrainee = new Trainee({
@@ -37,9 +34,7 @@ module.exports = {
       const trainee = await Trainee.findOne({ email, role: "trainee" });
 
       if (!trainee) {
-        return res
-          .status(401)
-          .json({ error: "Utilisateur non trouvé !" });
+        return res.status(401).json({ error: "Utilisateur non trouvé !" });
       }
 
       const encryption = require("../tools/crypt/encryption");
@@ -64,23 +59,28 @@ module.exports = {
     }
   },
 
+  /*CALENDAR BOOKING*/
+
   calendar: async (req, res) => {
-    const { startDate, endDate, time } = req.body;
+    const { traineeId, startDate, endDate, time } = req.body;
 
-    const booking = new Calendar({
-      startDate,
-      endDate,
-      time,
-    });
-
-    booking.save((err) => {
-      if (err) {
-        res.status(401).json({ err: "Booking refused" });
-      return;
-      }
-        res.status(201).json({ message: "Booking ok" });
-    });
-
+    try {
+      await Trainee.findByIdAndUpdate(
+        traineeId,
+        {
+          $addToSet: {
+            availabilities: { startDate, endDate, time },
+          },
+        },
+        { new: true, upsert: true },
+        (err, doc) => {
+          if (err) return res.status(400).json({ msg: err });
+          else res.status(201).json(doc);
+        }
+      );
+    } catch (err) {
+      return res.status(500).json({ msg: err });
+    }
   },
 
   /* DASHBOARD CONTROLLERS */
@@ -119,4 +119,3 @@ module.exports = {
     res.status(200).send(`trainee ${req.params.id} a bien été supprimé`);
   },
 };
-

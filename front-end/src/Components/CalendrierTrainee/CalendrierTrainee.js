@@ -1,5 +1,5 @@
 import "./calendrierTrainee.css";
-import "../general.css"
+import "../general.css";
 
 import React, { useState } from "react";
 import Calendar from "react-calendar";
@@ -28,7 +28,7 @@ function CalendrierTrainee() {
   ];
 
   /*function envoyer horaire*/
-  const [time, setTime] = useState({});
+  const [time, setTime] = useState(0);
   function handleChange(e) {
     let sendTime = {
       ...time,
@@ -38,21 +38,24 @@ function CalendrierTrainee() {
     console.log(sendTime);
   }
 
-  const submitRdv = async () => {
-    /*fetch*/
+  /*fetch*/
+  const submitRdv = async (e) => {
+    e.preventDefault();
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/calendrier/trainee/book`,
+        `${process.env.REACT_APP_SERVER}/trainee/calendar/book`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            date: day,
-            time: time,
+            traineeId: "609424c66354f85420ebc75a",
+            startDate: day,
+            endDate: day,
+            time: Number(time.time),
           }),
         }
       );
