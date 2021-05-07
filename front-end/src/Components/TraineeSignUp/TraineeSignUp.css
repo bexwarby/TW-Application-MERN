@@ -51,12 +51,14 @@
 
 #newTrainee {
   font-family: Montserrat;
+  color: white;
 }
 #newTrainee .title {
   text-align: center;
   font-size: 10vh;
   font-weight: bold;
   font-family: Montserrat;
+  color: white;
 }
 
 input,

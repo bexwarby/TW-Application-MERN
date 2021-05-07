@@ -64,6 +64,25 @@ module.exports = {
     }
   },
 
+  calendar: async (req, res) => {
+    const { startDate, endDate, time } = req.body;
+
+    const booking = new Calendar({
+      startDate,
+      endDate,
+      time,
+    });
+
+    booking.save((err) => {
+      if (err) {
+        res.status(401).json({ err: "Booking refused" });
+      return;
+      }
+        res.status(201).json({ message: "Booking ok" });
+    });
+
+  },
+
   /* DASHBOARD CONTROLLERS */
   dashboard: (req, res) => {
     console.log(req.params.id);

@@ -70,7 +70,7 @@ function InstructorSignIn() {
         </div>
         <div>
           <p>
-            <Link className="link" to="/welcome">
+            <Link className="link" to="/usr/instructor/signup">
               Don't have an account? Sign-up here
             </Link>
           </p>
