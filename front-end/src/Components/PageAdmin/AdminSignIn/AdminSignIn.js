@@ -33,9 +33,7 @@ function AdminSignIn() {
         body: JSON.stringify(ids),
       })
       const res = await response.json()
-      console.log(res);
 
-      // if(!res.message) {
       if (res.token) {
         localStorage.setItem("jwt", res.token);
         context.setUserID({adminId: res.adminId})
@@ -51,7 +49,7 @@ function AdminSignIn() {
     <div className="adminContainer">
       <form>
         <h2>True Wings Admin</h2>
-        <input type="text" name="email" id="email" placeholder="mail" onChange={handleChange} />
+        <input type="text" name="email" id="email" placeholder="email" onChange={handleChange} />
         <input type="password" name="password" id="password" placeholder="password" onChange={handleChange} />
         <button onClick={signIn}>Connection</button>
       </form>

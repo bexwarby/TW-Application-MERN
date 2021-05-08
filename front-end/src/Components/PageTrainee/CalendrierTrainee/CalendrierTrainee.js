@@ -1,66 +1,65 @@
 import "./calendrierTrainee.css";
-import React, { useState } from "react";
+
+import React, { useState, useContext } from "react";
+import { AppContext } from '../../../AppContext'
+
 import Calendar from "react-calendar";
 
 function CalendrierTrainee() {
+  const context = useContext(AppContext)
+
   /*function envoyer date*/
   const [day, setDay] = useState(new Date());
   const onChange = (day) => {
     setDay(day);
-    //console.log(day);
+    console.log(day);
   };
   /*dates NON disponibles*/
-  const disabledDates = [
-    new Date(2021, 4, 10),
-    new Date(2021, 4, 13),
-    new Date(2021, 4, 25),
+  const availabilities = [
+    {
+      startDate: new Date(2021, 4, 10, 9),
+      endDate: new Date(2021, 4, 10, 11),
+    },
+    {
+      startDate: new Date(2021, 4, 11, 13),
+      endDate: new Date(2021, 4, 11, 19),
+    },
+    {
+      startDate: new Date(2021, 4, 23, 14),
+      endDate: new Date(2021, 4, 23, 15),
+    },
   ];
+
   /*function envoyer horaire*/
-  const [horaire, setHoraire] = useState({});
+  const [time, setTime] = useState(0);
   function handleChange(e) {
-    let sendHoraire = {
-      ...horaire,
+    let sendTime = {
+      ...time,
       [e.target.name]: e.target.value,
     };
-    setHoraire(sendHoraire);
-    //console.log(sendHoraire)
+    setTime(sendTime);
+    console.log(sendTime);
   }
-  /*function envoyer date ET horaire*/
-  /*async function submitRdv(event) {
-    const message = await fetch(
-      `${process.env.REACT_APP_SERVER}/trainee/calendrier`,
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          date: day,
-          horaire: horaire,
-        }),
-      }
-    );
-    console.log(message);
-    const data = await message.json();
-    console.log(data);
-  }*/
 
-  const submitRdv = async () => {
-    /*fetch*/
+  /*fetch*/
+  const submitRdv = async (e) => {
+    e.preventDefault();
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/calendrier`,
+        `${process.env.REACT_APP_SERVER}/trainee/calendar/book`,  
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
+            'Authorization': `Bearer ${context.userID?.token}`
           },
           body: JSON.stringify({
-            date: day,
-            horaire: horaire,
+            traineeId: context.userID?.traineeId,
+            startDate: day,
+            endDate: day,
+            time: Number(time.time),
           }),
         }
       );
@@ -71,39 +70,78 @@ function CalendrierTrainee() {
     }
   };
 
+  function renderOptions() {
+    /* Liste des heures disponibles */
+    let avaibleHours = [];
+
+    /* Timestamp du jour sélectionné à 0h */
+    const dayTimestamp = day.getTime();
+
+    availabilities.forEach((availability) => {
+      /* Jour de la disponibilité */
+      let startDay = new Date(availability.startDate.getTime()); // Nouvel objet date
+
+      /* Passage de l'heure à minuit */
+      startDay.setHours(0, 0, 0, 0);
+
+      /* Si le jour de la disponibilité correspond au jour sélectionné */
+      if (dayTimestamp == startDay.getTime()) {
+        /* Récupération des heures de début et de fin de la disponiblité */
+        const startHour = availability.startDate.getHours();
+        const endHour = availability.endDate.getHours();
+
+        /* Création de la liste des heure de l'heure de début à l'heure de fin */
+        for (let i = startHour; i <= endHour; i++) {
+          avaibleHours.push(i);
+        }
+      }
+    });
+
+    /* Génération du JSX */
+    return avaibleHours.map((hour) => (
+      <option value={hour}>
+        {hour}h - {hour + 1}h
+      </option>
+    ));
+  }
+
   return (
     <div>
       <Calendar
         onChange={onChange}
         name="day"
         value={day}
-        tileDisabled={({ date, view }) =>
-          view === "month" && // Block day tiles only
-          disabledDates.some(
-            (disabledDate) =>
-              date.getFullYear() === disabledDate.getFullYear() &&
-              date.getMonth() === disabledDate.getMonth() &&
-              date.getDate() === disabledDate.getDate()
-          )
-        }
+        tileDisabled={({ date }) => {
+          let greyedOut = true;
+
+          availabilities.forEach((a) => {
+            a.startDate.setHours(0, 0, 0, 0);
+            a.endDate.setHours(0, 0, 0, 0);
+
+            const dateTimestamp = date.getTime();
+
+            if (
+              dateTimestamp >= a.startDate.getTime() &&
+              dateTimestamp <= a.endDate.getTime()
+            ) {
+              greyedOut = false;
+            }
+          });
+
+          return greyedOut;
+        }}
       />
 
       <p>Choose time</p>
       <select
-        id="horaire"
-        name="horaire"
+        id="time"
+        name="time"
         size=""
         onChange={handleChange}
-        value="horaireSend"
+        value="timeSend"
+        key="timeSend"
       >
-        <option value="8-9">8-9</option>
-        <option value="9-10">9-10</option>
-        <option value="10-11">10-11</option>
-        <option value="11-12">11-12</option>
-        <option value="13-14">13-14</option>
-        <option value="14-15">14-15</option>
-        <option value="15-16">15-16</option>
-        <option value="16-17">16-17</option>
+        {renderOptions()}
       </select>
 
       <button type="button" onClick={submitRdv}>

@@ -2,83 +2,55 @@
  * Trainee SignUp -- page d'inscription de l'eleve
  *
  */
-import { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { StateMachineProvider } from "little-state-machine";
+import React from "react";
 import "./TraineeSignUp.css";
 
-function TraineeSignUp() {
-  /*variable d'état*/
-  const [newSignup, setnewSignup] = useState({});
-  function handleData(e) {
-    let inscription = {
-      ...newSignup,
-      [e.target.name]: e.target.value,
-    };
-    console.log(inscription);
-    setnewSignup(inscription);
-  }
+import PageHome from "../../PageHome/PageHome"
 
-  const handleSignup = async () => {
-    /*fetch*/
-    console.log(newSignup);
-    try {
-      const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/usr/trainee/signup`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newSignup),
-        }
-      );
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+import TraineeChoiceModule from "./1Module/TraineeChoiceModule";
+import TraineeEmail from "./2Email/TraineeEmail";
+import TraineeFlyHours from "./3FlyHours/TraineeFlyHours";
+import TraineeSimEquipment from "./4SimEquipment/TraineeSimEquipment";
+import TraineeSoftware from "./5Software/TraineeSoftware";
+import TraineeWeekStart from "./6WeekStart/TraineeWeekStart";
+import TraineeTimeForTrained from "./7TimeForTrained/TraineeTimeForTrained";
+import TraineeLanguage from "./8Language/TraineeLanguage";
+import TraineeBirth from "./9Birth/TraineeBirth";
+import TraineeComment from "./10AddComment/TraineeComment";
+import TraineeWelcome from "./11Welcome/TraineeWelcome";
+import TraineeLoginInformation from "./12LoginInformation/TraineeLoginInformation";
+import TraineeResult from "./Result/TraineeResult";
+
+
+
+function TraineeSignUp() {
+
 
   return (
-    <div id="newTrainee">
-      {/* TITRE FORMULAIRE */}
-      <h2 className="title">SIGNUP TRAINEE</h2>
-
-      {/* INPUT FULLNAME */}
-      <label>Enter your full name * : </label>
-      <br></br>
-      <br></br>
-      <input type="text" name="fullName" onChange={handleData} />
-
-      <br></br>
-      <br></br>
-
-      {/* INPUT EMAIL */}
-      <label>Enter your email *: </label>
-      <br></br>
-      <br></br>
-      <input type="text" name="email" onChange={handleData} />
-
-      <br></br>
-      <br></br>
-
-      {/* INPUT PASSWORD */}
-      <label>Enter password *: </label>
-      <br></br>
-      <br></br>
-      <input type="password" name="password" onChange={handleData} />
-      <br></br>
-      <br></br>
-
-      <p> * fields required</p>
-      <br></br>
-
-      {/* BUTTON VALIDER */}
-      <button className="valider" onClick={handleSignup}>
-        Validate
-      </button>
-    </div>
+    <StateMachineProvider>
+      <Router>
+        <Switch>
+          <React.Fragment>
+            <Route exact path="/" component={PageHome} />
+            <Route exact path="/trainee/signup/step1" component={TraineeChoiceModule} />
+            <Route exact path="/trainee/signup/step2" component={TraineeEmail} />
+            <Route exact path="/trainee/signup/step3" component={TraineeFlyHours} />
+            <Route exact path="/trainee/signup/step4" component={TraineeSimEquipment} />
+            <Route exact path="/trainee/signup/step5" component={TraineeSoftware} />
+            <Route exact path="/trainee/signup/step6" component={TraineeWeekStart} />
+            <Route exact path="/trainee/signup/step7" component={TraineeTimeForTrained} />
+            <Route exact path="/trainee/signup/step8" component={TraineeLanguage} />
+            <Route exact path="/trainee/signup/step9" component={TraineeBirth} />
+            <Route exact path="/trainee/signup/step10" component={TraineeComment} />
+            <Route exact path="/trainee/signup/step11" component={TraineeWelcome} />
+            <Route exact path="/trainee/signup/step12" component={TraineeLoginInformation} />
+            <Route exact path="/trainee/signup/result" component={TraineeResult} />
+          </React.Fragment>
+        </Switch>
+      </Router>
+    </StateMachineProvider>
   );
 }
 

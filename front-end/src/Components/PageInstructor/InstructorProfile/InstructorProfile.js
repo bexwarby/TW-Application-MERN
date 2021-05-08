@@ -4,7 +4,6 @@
 
  import './InstructorProfile.css'
 
-
  function InstructorProfile() {
  
  

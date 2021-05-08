@@ -1,5 +1,5 @@
 /**
- * Module de l'eleve
+ * page profil de l'eleve
  */
 
  import './TraineeModule.css'
@@ -10,8 +10,7 @@
  
    return (
      <div>
-       <h3>Module eleves</h3>
-       <p>Afficher le module courant ou la selectiondes module si aucun n'est en cours</p>
+       <h3>Profil eleve TraineeModule</h3>
      </div>
    );
  }

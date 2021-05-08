@@ -2,7 +2,6 @@
  * Dashboard de l'eleve
  */
 
-import { useEffect, useState } from 'react';
 import './TraineeDashboard.css'
 
 

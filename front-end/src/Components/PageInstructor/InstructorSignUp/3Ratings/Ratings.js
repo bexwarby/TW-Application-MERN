@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./ratings.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -33,7 +34,7 @@ function Ratings(props) {
             <div className="numberQuestion">
               <p>3</p>
             </div>
-            <label htmlFor="ratingName">Which ratings do you have ?</label>
+            <label htmlFor="ratings">Which ratings do you have ?</label>
             <p>
               Tick even expired.
               <br />
@@ -42,11 +43,10 @@ function Ratings(props) {
             </p>
             <p>Choose as many as apply</p>
             <select
-              {...register("ratingName")}
-              id="ratingName"
-              className="ratings"
-              name="ratingName"
-              size="10"
+              {...register("ratings")}
+              id="ratings"
+              name="ratings"
+              size="11"
               multiple
             >
               <option value="FI">FI</option>
@@ -59,13 +59,14 @@ function Ratings(props) {
               <option value="TRI">TRI/TRE or SFI/SFE</option>
               <option value="A320">A320 TR</option>
               <option value="B737">B737 TR</option>
+              <option value="other">Other</option>
             </select>
           </div>
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

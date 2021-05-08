@@ -9,14 +9,18 @@ const AvailabilitiesSchema = new Schema({
   /* Date de début */
   startDate: {
     type: Date,
-    // required: true,
+    required: true,
   },
 
   /* Date de fin */
   endDate: {
     type: Date,
-    // requried: true,
+    required: true,
   },
+
+  /*Heure*/
+
+  time: Number,
 });
 
 /**
@@ -57,8 +61,20 @@ const UserSchema = new Schema({
   /* Objectifs  d'heure d'enseignement ou de cours à suivre */
   weeklyHoursGoal: Number,
 
+  /* Préference d'horaires et jours */
+  timeTeaching: String,
+
   /* Disponibilités */
   availabilities: [AvailabilitiesSchema],
+
+  /* Trainee: préférence debut des cours */
+  availability: String,
+
+  /* Trainee: Temps de travail souhaité */
+  wishedWork: String,
+
+  /* Trainee: Cours souhaité*/
+  wishedlearn: String,
 
   /* Langues */
   language: [String],
@@ -74,6 +90,9 @@ const UserSchema = new Schema({
 
   /* Chemin vers la photo */
   photo: String,
+
+  /* trainee Commentaires */
+  addComment: String,
 
   /* Crédits d'heures de cours */
   credits: {

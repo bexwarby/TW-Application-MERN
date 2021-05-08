@@ -2,7 +2,7 @@
  * Conteneur de la page Admin s
  */
 
-import { useContext} from "react";
+import { useContext } from "react";
 import './PageAdmin.css'
 import { AppContext } from '../../AppContext'
 
@@ -17,7 +17,6 @@ function PageAdmin() {
   return (
     <div>
       {context.userID?.adminId ? <AdminNav adminId={context.userID.adminId} /> : <AdminSignIn />}
-      {/* {uid.adminId ? <AdminNav adminId={adminId} /> : <AdminSignIn setAdminId={setAdminId} setUserID={setUserID} />} */}
     </div>
   );
 }

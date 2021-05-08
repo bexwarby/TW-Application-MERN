@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./time.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -37,7 +38,7 @@ function Time(props) {
             <div className="numberQuestion">
               <p>8</p>
             </div>
-            <label htmlFor="time">
+            <label htmlFor="timeTeaching">
               Please let us know the more convenient time for you to train ?
             </label>
             <p>Day of the week, part of the day...</p>
@@ -57,10 +58,10 @@ function Time(props) {
           )}
           <input type="submit" value="Submit" />
 
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

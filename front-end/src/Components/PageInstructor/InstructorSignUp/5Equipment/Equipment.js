@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./equipment.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -44,28 +45,26 @@ function Equipment(props) {
             </p>
             <p>Choose as many as apply</p>
             <select
-              {...register("equipmentName")}
-              id="equipmentName"
-              name="equipmentName"
+              {...register("equipment")}
+              id="equipment"
+              name="equipment"
               size="6"
               multiple
             >
               <option value="joystick">Joystick</option>
               <option value="yoke">Yoke</option>
               <option value="rudder">Rudder pedals</option>
-              <option value="force">Force feed back yoke</option>
-              <option value="jet">
-                VR/MR headset (FYI : Already in use during type ratings)
-              </option>
-              <option value="LVO">Other</option>
+              <option value="force feed">Force feed back yoke</option>
+              <option value="VR/MR">VR/MR headset</option>
+              <option value="other">Other</option>
             </select>
           </div>
           <input type="submit" value="Submit" />
 
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

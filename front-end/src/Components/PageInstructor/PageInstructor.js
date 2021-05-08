@@ -1,12 +1,9 @@
 /**
  * Conteneur de la page Home pour l'instructeur
- * 
- * Je peux importer les composants nécessaire uniquement sur cette page depuis 
- * le dossier Components de CE dossier ou importer un composant partagé. 
- * ex: import { SharedComponentEXAMPLE } '../../Components/index'
  */
 
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { AppContext } from '../../AppContext'
 import './PageInstructor.css'
 
 
@@ -14,16 +11,13 @@ import InstructorNav from '../../navigation/InstructorNav'
 import InstructorSignIn from './InstructorSignIn/InstructorSignIn'
 
 
-function PageInstructor({ setUserID }) {
-  const [instructorId, setInstructorId] = useState(false)
+function PageInstructor() {
+  const context = useContext(AppContext)
 
-  // useEffect(() => {
-  //   setUserID(instructorId)
-  // }, [instructorId]);
 
   return (
     <div>
-      {instructorId ? <InstructorNav instructorId={instructorId} /> : <InstructorSignIn setInstructorId={setInstructorId} setUserID={setUserID} />}
+      {context.userID?.instructorId ? <InstructorNav instructorId={context.userID?.instructorId} /> : <InstructorSignIn />}
 
     </div>
   );

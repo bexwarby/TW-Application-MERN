@@ -4,6 +4,7 @@
 
 /* Imports */
 import "./language.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -33,7 +34,9 @@ function Language(props) {
             <div className="numberQuestion">
               <p>9</p>
             </div>
-            <label htmlFor="language">In which language(s) can you train?</label>
+            <label htmlFor="language">
+              In which language(s) can you train?
+            </label>
             <p>
               We recommend English as it's the aviation language and it's easier
               to find an instructor.
@@ -50,14 +53,16 @@ function Language(props) {
               <option value="french">French</option>
               <option value="italian">Italian</option>
               <option value="spanish">Spanish</option>
-              <option value="other">Other</option>
+              <option type="text" value="other">
+                Other
+              </option>
             </select>
           </div>
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

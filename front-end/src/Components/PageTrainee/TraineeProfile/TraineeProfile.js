@@ -1,5 +1,5 @@
 /**
- * page profil de l'eleve
+ * Fly Book de l'eleve
  */
 
  import './TraineeProfile.css'
@@ -10,7 +10,7 @@
  
    return (
      <div>
-       <h3>Profil eleve</h3>
+       <h3>Page profil eleve</h3>
      </div>
    );
  }

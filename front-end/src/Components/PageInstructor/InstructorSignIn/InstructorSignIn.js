@@ -4,11 +4,14 @@
  */
 
 import "./InstructorSignIn.css";
-import { useState } from "react";
+
+import { useState, useContext } from "react";
+import { AppContext } from '../../../AppContext'
 import { Link } from "react-router-dom";
 
 
-function InstructorSignIn({setInstructorId, setUserID}) {
+function InstructorSignIn() {
+  const context = useContext(AppContext)
   const [signIn, setSignIn] = useState({});
 
   function handleData(e) {
@@ -37,8 +40,7 @@ function InstructorSignIn({setInstructorId, setUserID}) {
       console.log("res", res);
       if (res.token) {
         localStorage.setItem("jwt", res.token);
-        setInstructorId(res.instructorId)
-        setUserID(res.instructorId)
+        context.setUserID({instructorId: res.instructorId})
       }
     } catch (err) {
       console.log(err);
@@ -51,11 +53,10 @@ function InstructorSignIn({setInstructorId, setUserID}) {
 
       <br></br>
       <div className="loginArea">
-        <label>Enter the password in your sign up confirmation email</label>
-
-        <input type="password" name="password" onChange={handleData} />
         <label>Email</label>
         <input type="email" name="email" onChange={handleData} />
+        <label>Password</label>
+        <input type="password" name="password" onChange={handleData} />
         <div className="checkBoxArea">
           <input
             className="checkBox"
@@ -64,20 +65,20 @@ function InstructorSignIn({setInstructorId, setUserID}) {
             onClick="action()"
           />
           <label>
-            confirmed that i'm a TW instructor and i don't have the right to get
+            confirmed that I'm a TW instructor and i don't have the right to get
             paid directly by a TW customer
           </label>
         </div>
         <div className="button">
-          <button onClick={handleSignIn}>Access page</button>
+          <button className="enter" onClick={handleSignIn}>Access page</button>
         </div>
         <div>
           <p>Don't have an account? Sign-up
-          <span>
-            <Link className="link" to="/instructor/signup" > 
-            here
-            </Link>
-          </span>
+            <span>
+              <Link className="link" to="/instructor/signup" >
+                here
+              </Link>
+            </span>
           </p>
         </div>
       </div>

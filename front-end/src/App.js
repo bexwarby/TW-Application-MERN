@@ -33,6 +33,7 @@ function App() {
     setUserID
   }
 
+
   return (
     <AppContext.Provider value={appContextValue}>
       <div className="contentApp">
@@ -40,15 +41,10 @@ function App() {
           <Switch>
 
             <Route exact path="/" component={PageHome} />
-            <Route exact path="/admin">
-              <PageAdmin />
-            </Route>
-            <Route exact path="/trainee">
-              <PageTrainee />
-            </Route>
-            <Route exact path="/instructor">
-              <PageInstructor />
-            </Route>
+            <Route exact path="/admin" component={PageAdmin} />
+            <Route exact path="/trainee" component={PageTrainee} />
+            <Route exact path="/instructor" component={PageInstructor} />
+
 
             <Route path="/instructor/signup" component={InstructorSignUp} />
             <Route path="/trainee/signup" component={TraineeSignUp} />
@@ -63,3 +59,5 @@ function App() {
 }
 
 export default App;
+
+

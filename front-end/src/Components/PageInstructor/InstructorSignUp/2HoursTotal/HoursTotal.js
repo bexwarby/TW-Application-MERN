@@ -3,6 +3,7 @@
  * */
 
 import "./hoursTotal.css";
+import "../general.css"
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -38,22 +39,22 @@ function HoursTotal(props) {
               How many "real-world flight hours" do you have approximately?
             </label>
             <input
-              {...register("hours", {
+              {...register("flightHours", {
                 required: "required",
                 minLength: { value: 1, message: "Please enter answer" },
               })}
               type="text"
-              className="form-control"
-              id="hours"
+              id="flightHours"
+              name="flightHours"
               placeholder="Type your answer here"
             />
           </div>
-          {errors.hours && <span role="alert">{errors.hours.message}</span>}
+          {errors.flightHours && <span role="alert">{errors.flightHours.message}</span>}
           <input type="submit" value="Submit" />
-          <button type="button" onClick={backClick}>
+          <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
-          <button type="button" onClick={homeClick}>
+          <button className="enter" type="button" onClick={homeClick}>
             Home
           </button>
         </div>

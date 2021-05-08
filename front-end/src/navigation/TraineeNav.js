@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-ro
 
 import TraineeDashboard from '../Components/PageTrainee/TraineeDashboard/TraineeDashboard';
 import TraineeFlybook from '../Components/PageTrainee/TraineeFlyBook/TraineeFlyBook';
+import CalendrierTrainee from '../Components/PageTrainee/CalendrierTrainee/CalendrierTrainee'
 import TraineeModule from '../Components/PageTrainee/TraineeModule/TraineeModule';
 import TraineeProfile from '../Components/PageTrainee/TraineeProfile/TraineeProfile';
 
@@ -33,12 +34,13 @@ export default function TraineeNav({ traineeId }) {
         </nav>
 
         <Switch>
-        <Route exact path="/trainee" render={() => {
+          <Route exact path="/trainee" render={() => {
             return (traineeId ? <Redirect to="/trainee/module" /> : <Redirect to="/trainee/signin" />)
           }} />
           <Route exact path="/trainee/dashboard" component={TraineeDashboard} />
           <Route exact path="/trainee/module" component={TraineeModule} />
-          <Route exact path="/trainee/flybook" component={TraineeFlybook} />
+          <Route exact path="/trainee/flybook" component={CalendrierTrainee} />
+          {/* <Route exact path="/trainee/flybook" component={TraineeFlybook} /> */}
           <Route exact path="/trainee/profile" component={TraineeProfile} />
         </Switch>
 

@@ -3,13 +3,14 @@
  *
  */
 
-/* import logo from "../PageHome/logoHome.png";
- */import "./TraineeSignIn.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from '../../../AppContext'
 import { Link } from "react-router-dom";
+import "./TraineeSignIn.css";
 
 
-function TraineeSignIn({ setTraineeId, setUserID }) {
+function TraineeSignIn() {
+  const context = useContext(AppContext)
   const [traineeLogin, setTraineeLogin] = useState({});
 
   function handleData(e) {
@@ -33,9 +34,10 @@ function TraineeSignIn({ setTraineeId, setUserID }) {
         }
       );
       const res = await response.json();
-      localStorage.setItem("jwt", res.token);
-      setTraineeId(res.traineeId)
-      setUserID(res.traineeId)
+      if (res.token) {
+        localStorage.setItem("jwt", res.token);
+        context.setUserID({ traineeId: res.traineeId, token: res.token })
+      }
     } catch (err) {
       console.log(err);
     }
@@ -61,14 +63,14 @@ function TraineeSignIn({ setTraineeId, setUserID }) {
           />
         </div>
         <div className="contentButton">
-          <button className="buttonLogin" onClick={handleSignUp}>
+          <button className="enter" onClick={handleSignUp}>
             Login
           </button>
         </div>
         <div className="contentLink">
           <p className="subButton">
             Don't have an account? Sign-up
-            <Link to="/trainee/signup">
+            <Link to="/trainee/signup/step1">
               <span className="linkHere">here</span>
             </Link>
           </p>
