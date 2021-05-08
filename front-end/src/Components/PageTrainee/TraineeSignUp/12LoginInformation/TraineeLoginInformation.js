@@ -19,6 +19,7 @@ function TraineeLoginInformation(props) {
   };
   const homeClick = () => {
     props.history.push("/");
+    window.location = "/"
   };
   return (
     <div className="mainLoginInfo">

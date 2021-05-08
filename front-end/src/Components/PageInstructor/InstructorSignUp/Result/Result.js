@@ -9,7 +9,7 @@ function Result(props) {
   const { handleSubmit } = useForm();
   const onSubmit = async () => {
     actions.updateAction();
-    props.history.push("/");
+    // props.history.push("/instructor");
 
     const message = await fetch(
       `${process.env.REACT_APP_SERVER}/usr/instructor/signup`,
@@ -25,7 +25,13 @@ function Result(props) {
     console.log(message);
     const data = await message.json();
 
-    console.log(data);
+    if (data.instructorId) {
+      window.location = ("/instructor/signin")
+    } else {
+      props.history.push("/instructor/signup/step1");
+      // window.location = ("/instructor/signup/step1")
+    }
+    console.log(data); 
   };
 
   return (

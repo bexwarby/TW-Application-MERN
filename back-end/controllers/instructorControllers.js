@@ -50,11 +50,12 @@ module.exports = {
     });
     console.log(req.body);
 
-    docInstructor.save((err) => {
+    docInstructor.save((err, doc) => {
       if (err) {
         res.status(501).json({ message: err });
       } else {
-        res.json({ message: "New Instructor created!" });
+        console.log(doc);
+        res.json({ message: "New Instructor created!", instructorId: doc._id });
       }
     });
   },

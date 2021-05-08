@@ -16,7 +16,7 @@ function PageTrainee() {
 
   return (
     <div>
-      {context.userID?.traineeId ? <TraineeNav traineeId={context.userID?.traineeId} /> : <TraineeSignIn />}
+      {context.userID?.traineeId ? <TraineeNav traineeId={context.userID.traineeId} /> : <TraineeSignIn />}
     </div>
   );
 }

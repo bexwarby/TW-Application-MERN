@@ -3,7 +3,8 @@
  */
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-import React from 'react'
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext';
 
 import InstructorCalendar from "../Components/PageInstructor/InstructorCalendrier/InstructorCalendrier"
 import InstructorFly from "../Components/PageInstructor/InstructorFly/InstructorFly";
@@ -12,6 +13,16 @@ import InstructorProfile from "../Components/PageInstructor/InstructorProfile/In
 
 
 export default function InstructorNav({ instructorId }) {
+  const context = useContext(AppContext)
+
+  const logout = () => {
+    context.setUserID({})
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("userId");
+    window.location = "/"
+  }
+
+
   return (
     <Router>
       <div>
@@ -29,6 +40,9 @@ export default function InstructorNav({ instructorId }) {
             </li>
             <li>
               <Link to="/instructor/profile">Profil instructeur</Link>
+            </li>
+            <li>
+              <Link to="/" onClick={logout}>logout</Link>
             </li>
           </ul>
         </nav>

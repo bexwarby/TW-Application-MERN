@@ -15,7 +15,8 @@ function TraineeModule(props) {
     props.history.push("/trainee/signup/step2");
   };
   const homeClick = () => {
-    props.history.push("/");
+    props.history.push("/trainee");
+    window.location = "/trainee"
   };
 
   return (

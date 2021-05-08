@@ -17,7 +17,7 @@ function PageInstructor() {
 
   return (
     <div>
-      {context.userID?.instructorId ? <InstructorNav instructorId={context.userID?.instructorId} /> : <InstructorSignIn />}
+      {context.userID?.instructorId ? <InstructorNav instructorId={context.userID.instructorId} /> : <InstructorSignIn />}
 
     </div>
   );

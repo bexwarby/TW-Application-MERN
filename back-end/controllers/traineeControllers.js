@@ -47,11 +47,11 @@ module.exports = {
       dateInsert: Date.now(),
     });
 
-    docTrainee.save((err) => {
+    docTrainee.save((err, doc) => {
       if (err) {
         res.status(501).json({ message: err.message });
       } else {
-        res.json({ message: "New trainee created!" });
+        res.json({ message: "New trainee created!", traineeId: doc._id  });
       }
     });
   },

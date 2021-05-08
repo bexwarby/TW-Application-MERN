@@ -19,6 +19,7 @@ function EmailChoice(props) {
   };
   const homeClick = () => {
     props.history.push("/");
+    window.location = "/"
   };
   return (
     <div className="mainEmail">

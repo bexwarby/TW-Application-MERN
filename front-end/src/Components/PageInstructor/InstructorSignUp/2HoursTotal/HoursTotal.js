@@ -26,6 +26,7 @@ function HoursTotal(props) {
 
   const homeClick = () => {
     props.history.push("/instructor");
+    window.location = ("/instructor")
   };
   return (
     <div className="signUp">
