@@ -1,0 +1,26 @@
+[
+  {
+    "fullName": "Admin",
+    "email": "admin@tw.com",
+    "password": "admin",
+    "role": "admin"
+  },
+  {
+    "fullName": "Instructor",
+    "email": "instructor@tw.com",
+    "password": "instructor",
+    "role": "instructor"
+  },
+  {
+    "fullName": "Trainee",
+    "email": "trainee@tw.com",
+    "password": "trainee",
+    "role": "trainee"
+  },
+  {
+    "fullName": "InstructorPending",
+    "email": "instructorpending@tw.com",
+    "password": "instructor",
+    "role": "pending-instructor"
+  }
+]
