@@ -5,8 +5,9 @@
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import React from 'react'
 
-import InstructorDashboard from "../Components/PageInstructor/InstructorDashboard/InstructorDashboard";
+import InstructorCalendar from "../Components/PageInstructor/InstructorCalendrier/InstructorCalendrier"
 import InstructorFly from "../Components/PageInstructor/InstructorFly/InstructorFly";
+import InstructorLesson from "../Components/PageInstructor/InstructorLesson/InstructorLesson";
 import InstructorProfile from "../Components/PageInstructor/InstructorProfile/InstructorProfile";
 
 
@@ -18,10 +19,13 @@ export default function InstructorNav({ instructorId }) {
         <nav>
           <ul>
             <li>
-              <Link to="/instructor/dashboard">Dashboard instructeur</Link>
+              <Link to="/instructor/calendar">Calendrier instructeur</Link>
             </li>
             <li>
-              <Link to="/instructor/fly">Fly instructeur</Link>
+              <Link to="/instructor/fly">Dashboard instructeur</Link>
+            </li>
+            <li>
+              <Link to="/instructor/lesson">Lesson instructeur</Link>
             </li>
             <li>
               <Link to="/instructor/profile">Profil instructeur</Link>
@@ -31,11 +35,12 @@ export default function InstructorNav({ instructorId }) {
 
         <Switch>
           <Route exact path="/instructor" render={() => {
-            return (instructorId ? <Redirect to="/instructor/dashboard" /> : <Redirect to="/instructor/signin" />)
+            return (instructorId ? <Redirect to="/instructor/calendar" /> : <Redirect to="/instructor/signin" />)
           }} />
 
-          <Route exact path="/instructor/dashboard" component={InstructorDashboard} />
+          <Route exact path="/instructor/calendar" component={InstructorCalendar} />
           <Route exact path="/instructor/fly" component={InstructorFly} />
+          <Route exact path="/instructor/lesson" component={InstructorLesson} />
           <Route exact path="/instructor/profile" component={InstructorProfile} />
 
         </Switch>

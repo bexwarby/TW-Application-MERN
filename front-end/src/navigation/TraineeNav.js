@@ -5,8 +5,7 @@
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
 import TraineeDashboard from '../Components/PageTrainee/TraineeDashboard/TraineeDashboard';
-import TraineeFlybook from '../Components/PageTrainee/TraineeFlyBook/TraineeFlyBook';
-import CalendrierTrainee from '../Components/PageTrainee/CalendrierTrainee/CalendrierTrainee'
+import TraineeCalendar from '../Components/PageTrainee/TraineeCalendar/TraineeCalendar'
 import TraineeModule from '../Components/PageTrainee/TraineeModule/TraineeModule';
 import TraineeProfile from '../Components/PageTrainee/TraineeProfile/TraineeProfile';
 
@@ -25,7 +24,7 @@ export default function TraineeNav({ traineeId }) {
               <Link to="/trainee/module">Module en cours de l'élève</Link>
             </li>
             <li>
-              <Link to="/trainee/flybook">Fly et Book élève</Link>
+              <Link to="/trainee/calendar">Calendrier élève</Link>
             </li>
             <li>
               <Link to="/trainee/profile">Profil élève</Link>
@@ -39,8 +38,7 @@ export default function TraineeNav({ traineeId }) {
           }} />
           <Route exact path="/trainee/dashboard" component={TraineeDashboard} />
           <Route exact path="/trainee/module" component={TraineeModule} />
-          <Route exact path="/trainee/flybook" component={CalendrierTrainee} />
-          {/* <Route exact path="/trainee/flybook" component={TraineeFlybook} /> */}
+          <Route exact path="/trainee/calendar" component={TraineeCalendar} />
           <Route exact path="/trainee/profile" component={TraineeProfile} />
         </Switch>
 
