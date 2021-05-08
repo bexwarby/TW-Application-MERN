@@ -33,7 +33,7 @@ module.exports = {
       fullName,
       email,
       password,
-      role: "instructor",
+      role: "pending-instructor",
       flightHours,
       ratingName,
       moduleName,

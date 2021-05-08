@@ -31,7 +31,7 @@ const adminController = {
           expiresIn: "24h",
         }
       );
-      
+
       return res.status(200).json({
         adminId: adminUser._id,
         token: token,
@@ -62,6 +62,33 @@ const adminController = {
       }
     });
   },
+
+  pending: async (req, res) => {
+    try {
+      const pendingUser = await User.find({ role: "pending-instructor" });
+      console.log(pendingUser)
+      if (!pendingUser) res.status(400).json({ message: "Aucun utilisateur à valider" })
+      else res.status(200).json({ pendings: pendingUser })
+    } catch (err) {
+      console.log(err);
+    }
+
+  },
+  validate: async (req, res) => {
+    const userId = req.params.id
+    try {
+      await User.findByIdAndUpdate(
+        userId, { role: 'instructor' }, { new: true }, (err, doc) => {
+          if (err) { return res.status(400).json({ message: err }) }
+          else { return res.status(201).json({ message: 'Instructor validated', instructor: doc }) }
+        }
+      )
+
+    } catch (err) {
+      console.log(err);
+    }
+    // console.log(adminUser);
+  }
 };
 
 module.exports = adminController;
