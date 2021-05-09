@@ -30,16 +30,16 @@ export default function InstructorNav({ instructorId }) {
         <nav>
           <ul>
             <li>
-              <Link to="/instructor/calendar">Calendrier instructeur</Link>
+              <Link to="/instructor/lesson">Lessons</Link>
             </li>
             <li>
-              <Link to="/instructor/fly">Dashboard instructeur</Link>
+              <Link to="/instructor/calendar">Calendar</Link>
             </li>
             <li>
-              <Link to="/instructor/lesson">Lesson instructeur</Link>
+              <Link to="/instructor/fly">Fly Now</Link>
             </li>
             <li>
-              <Link to="/instructor/profile">Profil instructeur</Link>
+              <Link to="/instructor/profile">Profile</Link>
             </li>
             <li>
               <Link to="/" onClick={logout}>logout</Link>

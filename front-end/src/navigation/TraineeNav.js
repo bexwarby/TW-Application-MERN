@@ -30,16 +30,16 @@ export default function TraineeNav({ traineeId }) {
         <nav>
           <ul>
             <li>
-              <Link to="/trainee/dashboard">Dashboard élève</Link>
+              <Link to="/trainee/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/trainee/module">Module en cours de l'élève</Link>
+              <Link to="/trainee/module">Module</Link>
             </li>
             <li>
-              <Link to="/trainee/calendar">Calendrier élève</Link>
+              <Link to="/trainee/calendar">Calendar</Link>
             </li>
             <li>
-              <Link to="/trainee/profile">Profil élève</Link>
+              <Link to="/trainee/profile">Profile</Link>
             </li>
             <li>
               <Link to="/" onClick={logout}>logout</Link>
