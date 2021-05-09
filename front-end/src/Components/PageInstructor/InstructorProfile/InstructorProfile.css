@@ -1,10 +1,12 @@
 /*Photo Pilote*/
 
 .photo-pilote {
+  /*border-color: 10px solid rgb(253, 127, 43);*/
   width: 20vh;
-  height: auto;
-  border-radius: 100%;
-  text-align: center;
+  height: 20vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 /*Emplacement photo pilote*/
