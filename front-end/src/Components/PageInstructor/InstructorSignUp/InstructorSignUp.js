@@ -6,8 +6,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { StateMachineProvider } from "little-state-machine";
 import React from "react";
 
-import PageHome from "../../PageHome/PageHome"
-
 import Welcome from "./Welcome/Welcome";
 import Name from "./1Name/Name";
 import HoursTotal from "./2HoursTotal/HoursTotal";
@@ -34,7 +32,6 @@ function InstructorSignUp() {
     <StateMachineProvider>
       <Router>
 
-        <Route exact path="/" component={PageHome} />
         <Route exact path="/instructor/signup" component={Welcome} />
         <Route exact path="/instructor/signup/step1" component={Name} />
         <Route exact path="/instructor/signup/step2" component={HoursTotal} />

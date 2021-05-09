@@ -25,6 +25,13 @@ function Result(props) {
     console.log(message);
     const data = await message.json();
 
+    if (data.traineeId) {
+      window.location = ("/trainee")
+    }else {
+      props.history.push("/trainee/signup/step1");
+      // window.location = ("/trainee/signup/step1")
+    }
+
     console.log(data);
   };
 

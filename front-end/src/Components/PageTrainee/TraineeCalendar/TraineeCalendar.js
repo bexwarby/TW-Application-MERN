@@ -1,11 +1,11 @@
-import "./calendrierTrainee.css";
+import "./TraineeCalendar.css";
 
 import React, { useState, useContext } from "react";
 import { AppContext } from '../../../AppContext'
 
 import Calendar from "react-calendar";
 
-function CalendrierTrainee() {
+function TraineeCalendar() {
   const context = useContext(AppContext)
 
   /*function envoyer date*/
@@ -151,4 +151,4 @@ function CalendrierTrainee() {
   );
 }
 
-export default CalendrierTrainee;
+export default TraineeCalendar;

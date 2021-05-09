@@ -19,6 +19,7 @@ function TraineeWeekStart(props) {
   };
   const homeClick = () => {
     props.history.push("/");
+    window.location = "/"
   };
   return (
     <div className="mainModule">

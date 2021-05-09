@@ -3,12 +3,26 @@
  */
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import { useContext } from 'react';
+import { AppContext } from '../AppContext';
+
 
 import AdminDashboard from '../Components/PageAdmin/AdminDashboard/AdminDashboard'
 import AdminValidation from '../Components/PageAdmin/AdminValidation/AdminValidation'
 
 
 export default function AdminNav({ adminId }) {
+  const context = useContext(AppContext)
+
+
+  const logout = () => {
+    context.setUserID({})
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("userId");
+    window.location = "/"
+  }
+
+
   return (
     <Router>
       <div>
@@ -20,6 +34,9 @@ export default function AdminNav({ adminId }) {
             </li>
             <li>
               <Link to="/admin/validation">Validation</Link>
+            </li>
+            <li>
+              <Link to="/" onClick={logout}>logout</Link>
             </li>
           </ul>
         </nav>

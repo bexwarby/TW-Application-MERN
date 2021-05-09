@@ -7,8 +7,6 @@ import { StateMachineProvider } from "little-state-machine";
 import React from "react";
 import "./TraineeSignUp.css";
 
-import PageHome from "../../PageHome/PageHome"
-
 import TraineeChoiceModule from "./1Module/TraineeChoiceModule";
 import TraineeEmail from "./2Email/TraineeEmail";
 import TraineeFlyHours from "./3FlyHours/TraineeFlyHours";
@@ -33,7 +31,6 @@ function TraineeSignUp() {
       <Router>
         <Switch>
           <React.Fragment>
-            <Route exact path="/" component={PageHome} />
             <Route exact path="/trainee/signup/step1" component={TraineeChoiceModule} />
             <Route exact path="/trainee/signup/step2" component={TraineeEmail} />
             <Route exact path="/trainee/signup/step3" component={TraineeFlyHours} />

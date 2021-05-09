@@ -1,8 +1,8 @@
-import "./calendrierInstructor.css";
+import "./InstructorCalendrier.css";
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 
-function CalendrierInstructor() {
+function InstructorCalendrier() {
   /* Variables d'état */
   const [selectedDate, onChange] = useState(new Date()); // Date sélectionnée
   const [newAvailability, setNewAvailability] = useState({});
@@ -75,7 +75,7 @@ function CalendrierInstructor() {
     </div>
   );
 }
-// function CalendrierInstructor() {
+// function InstructorCalendrier() {
 //   /*function envoyer date*/
 //   const [day, setDay] = useState(new Date());
 //   const onChange = (day) => {
@@ -167,4 +167,4 @@ function CalendrierInstructor() {
 //   );
 // }
 
-export default CalendrierInstructor;
+export default InstructorCalendrier;

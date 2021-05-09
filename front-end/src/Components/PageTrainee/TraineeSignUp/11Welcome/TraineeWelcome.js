@@ -17,6 +17,7 @@ const TraineeWelcome = (props) => {
 
   const homeClick = () => {
     props.history.push("/");
+    window.location = "/"
   };
 
   return (

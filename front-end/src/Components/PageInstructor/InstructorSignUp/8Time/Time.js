@@ -28,6 +28,7 @@ function Time(props) {
 
   const homeClick = () => {
     props.history.push("/instructor");
+    window.location = ("/instructor")
   };
 
   return (

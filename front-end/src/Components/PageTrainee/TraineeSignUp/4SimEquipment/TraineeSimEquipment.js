@@ -25,6 +25,7 @@ function TraineeSimEquipment(props) {
   };
   const homeClick = () => {
     props.history.push("/");
+    window.location = "/"
   };
 
   return (

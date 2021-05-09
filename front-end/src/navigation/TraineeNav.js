@@ -3,15 +3,26 @@
  */
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import { useContext } from 'react';
+import { AppContext } from '../AppContext';
 
 import TraineeDashboard from '../Components/PageTrainee/TraineeDashboard/TraineeDashboard';
-import TraineeFlybook from '../Components/PageTrainee/TraineeFlyBook/TraineeFlyBook';
-import CalendrierTrainee from '../Components/PageTrainee/CalendrierTrainee/CalendrierTrainee'
+import TraineeCalendar from '../Components/PageTrainee/TraineeCalendar/TraineeCalendar'
 import TraineeModule from '../Components/PageTrainee/TraineeModule/TraineeModule';
 import TraineeProfile from '../Components/PageTrainee/TraineeProfile/TraineeProfile';
 
 
 export default function TraineeNav({ traineeId }) {
+  const context = useContext(AppContext)
+
+  const logout = () => {
+    context.setUserID({})
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("userId");
+    window.location = "/"
+  }
+
+
   return (
     <Router>
       <div>
@@ -19,16 +30,19 @@ export default function TraineeNav({ traineeId }) {
         <nav>
           <ul>
             <li>
-              <Link to="/trainee/dashboard">Dashboard élève</Link>
+              <Link to="/trainee/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/trainee/module">Module en cours de l'élève</Link>
+              <Link to="/trainee/module">Module</Link>
             </li>
             <li>
-              <Link to="/trainee/flybook">Fly et Book élève</Link>
+              <Link to="/trainee/calendar">Calendar</Link>
             </li>
             <li>
-              <Link to="/trainee/profile">Profil élève</Link>
+              <Link to="/trainee/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/" onClick={logout}>logout</Link>
             </li>
           </ul>
         </nav>
@@ -39,8 +53,7 @@ export default function TraineeNav({ traineeId }) {
           }} />
           <Route exact path="/trainee/dashboard" component={TraineeDashboard} />
           <Route exact path="/trainee/module" component={TraineeModule} />
-          <Route exact path="/trainee/flybook" component={CalendrierTrainee} />
-          {/* <Route exact path="/trainee/flybook" component={TraineeFlybook} /> */}
+          <Route exact path="/trainee/calendar" component={TraineeCalendar} />
           <Route exact path="/trainee/profile" component={TraineeProfile} />
         </Switch>
 

@@ -6,6 +6,7 @@
 require("dotenv").config({ path: "./.env" });
 const mongoose = require("mongoose");
 const seedModules = require("./modules");
+const seedUsers = require("./users");
 
 /**
  * Database connection
@@ -27,3 +28,4 @@ mongoose
 
 /* Modules seeder */
 seedModules();
+seedUsers()

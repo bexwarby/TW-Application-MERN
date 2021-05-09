@@ -48,13 +48,14 @@ function TraineeSignIn() {
       <div className="contentLogo">{/* <img src={logo} /> */}</div>
       <section className="underLogo">
         <div className="contentInput">
+          <label>Email</label>
           <input
             className="myMail"
             type="text"
             name="email"
             onChange={handleData}
           />
-
+          <label>Password</label>
           <input
             className="myPassword"
             type="password"
