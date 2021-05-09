@@ -41,13 +41,13 @@ function TraineeDashboard() {
    } */
 
   return (
-    <div>
+    <div className="dashboard">
       <h3>Dashboard</h3>
 
       <h5>Private Pilot:</h5>
 
       {/* Gauge process */}
-      <div style={{ width: 200, height: 200 }}>
+      <div style={{ width: 200, height: 200 }} className="circle">
         <CircularProgressbar
           /* onLoad={onLoad} */
           value={value}
