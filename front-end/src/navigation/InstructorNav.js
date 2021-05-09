@@ -39,29 +39,28 @@ export default function InstructorNav({ instructorId }) {
         <nav>
           <ul id="nav-bar">
             <li>
-              <Link to="/instructor/lesson">
-                <FaCircleNotch color="white" />
+              <Link className="lien" to="/instructor/lesson">
+                <FaCircleNotch className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/instructor/calendar">
-                <FaRegCalendar color="white" />
+              <Link className="lien" to="/instructor/calendar">
+                <FaRegCalendar className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/instructor/fly">
-                <FaPlane color="white" />
+              <Link className="lien" to="/instructor/fly">
+                <FaPlane className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/instructor/profile">
-                <FaUser color="white" />
+              <Link className="lien" to="/instructor/profile">
+                <FaUser className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={logout}>
-                Logout
-                <FaLongArrowAltRight color="white" />
+              <Link className="lien" to="/" onClick={logout}>
+                <FaLongArrowAltRight className="logo" />
               </Link>
             </li>
           </ul>

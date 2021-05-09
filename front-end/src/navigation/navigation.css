@@ -5,10 +5,13 @@
   flex-direction: row;
   margin-top: 5%;
   justify-content: space-between;
-  color: rgb(255, 255, 255);
   list-style: none;
 }
 /*Logout*/
 .logout {
   color: white;
+}
+
+.lien:hover {
+  color: orange;
 }
