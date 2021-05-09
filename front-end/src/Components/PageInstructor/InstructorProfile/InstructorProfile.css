@@ -1,0 +1,74 @@
+/*Photo Pilote*/
+
+.photo-pilote {
+  width: 20vh;
+  height: auto;
+  border-radius: 100%;
+  text-align: center;
+}
+
+/*Emplacement photo pilote*/
+@media screen and (max-width: 450px) {
+  .photo-pilote {
+    margin-top: 10%;
+    margin-left: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/*Description pilote*/
+
+#info-general {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5%;
+  justify-content: space-between;
+  color: white;
+}
+
+.title {
+  color: white;
+}
+
+.subtitle {
+  color: rgb(8, 60, 145);
+}
+
+/*Logo*/
+
+.logo-calendar {
+  padding-left: 40vh;
+}
+
+/*Gains last week*/
+.gain-last-week {
+  margin-top: 5%;
+  padding-left: 34vh;
+  color: rgb(33, 187, 123);
+}
+
+/*Lecons effectuées et gains*/
+
+#lessons-performed {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15%;
+  justify-content: space-between;
+  color: white;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  /*voir opacity background*/
+}
+
+.name-module {
+  color: rgb(29, 104, 216);
+}
+
+.gains {
+  color: rgb(33, 187, 123);
+}
