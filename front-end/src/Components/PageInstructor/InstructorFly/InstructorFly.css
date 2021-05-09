@@ -1,0 +1,35 @@
+.btn-default {
+    font-family: Raleway-SemiBold;
+    font-size: 13px;
+    color: rgba(14, 14, 15, 0.75);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid rgba(233, 138, 60, 0.75);
+    border-radius: 100px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+hr.solid {
+    border-top: 3px solid rgb(151, 149, 149);
+    width:90%;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 4px;
+}
+
+.eva {
+    width: 40vw;
+    height: auto;
+    border-radius: 100%;
+    border-color: whitesmoke;
+    text-align: center
+}
+  
+.timing {
+    font-size: x-small;
+}
