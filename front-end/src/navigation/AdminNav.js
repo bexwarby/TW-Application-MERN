@@ -1,10 +1,15 @@
 /**
  * Barre de navidation Admin
  */
+import "./navigation.css";
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import { useContext } from 'react';
 import { AppContext } from '../AppContext';
+import { FaUser } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { BsClipboardData } from "react-icons/bs";
+
 
 
 import AdminDashboard from '../Components/PageAdmin/AdminDashboard/AdminDashboard'
@@ -28,15 +33,21 @@ export default function AdminNav({ adminId }) {
       <div>
 
         <nav>
-          <ul>
+          <ul id="nav-bar">
             <li>
-              <Link to="/admin/dashboard">Dashboard Admin</Link>
+              <Link to="/admin/dashboard">
+                <BsClipboardData color="white" size="25" />
+              </Link>
             </li>
             <li>
-              <Link to="/admin/validation">Validation</Link>
+              <Link to="/admin/validation">
+                <FaUser color="white" size="25" />
+                </Link>
             </li>
             <li>
-              <Link to="/" onClick={logout}>logout</Link>
+              <Link to="/" onClick={logout}>
+                <FaLongArrowAltRight color="white" size="25" />
+              </Link>
             </li>
           </ul>
         </nav>

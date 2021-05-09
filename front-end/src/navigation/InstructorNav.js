@@ -40,32 +40,32 @@ export default function InstructorNav({ instructorId }) {
           <ul id="nav-bar">
             <li>
               <Link to="/instructor/lesson">
-                <FaCircleNotch color="white" />
+                <FaCircleNotch color="white" size="15" />
               </Link>
             </li>
             <li>
               <Link to="/instructor/calendar">
-                <FaRegCalendar color="white" />
+                <FaRegCalendar color="white" size="15" />
               </Link>
             </li>
             <li>
               <Link to="/instructor/fly">
-                <FaPlane color="white" />
+                <FaPlane color="white" size="15" />
               </Link>
             </li>
             <li>
               <Link to="/instructor/profile">
-                <FaUser color="white" />
+                <FaUser color="white" size="15" />
               </Link>
             </li>
             <li>
               <Link to="/" onClick={logout}>
-                logout
                 <FaLongArrowAltRight color="white" />
               </Link>
             </li>
           </ul>
         </nav>
+          </div>
 
         <Switch>
           <Route
@@ -93,7 +93,6 @@ export default function InstructorNav({ instructorId }) {
             component={InstructorProfile}
           />
         </Switch>
-      </div>
     </Router>
   );
 }

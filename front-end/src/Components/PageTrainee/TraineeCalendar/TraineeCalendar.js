@@ -85,7 +85,7 @@ function TraineeCalendar() {
       startDay.setHours(0, 0, 0, 0);
 
       /* Si le jour de la disponibilité correspond au jour sélectionné */
-      if (dayTimestamp == startDay.getTime()) {
+      if (dayTimestamp === startDay.getTime()) {
         /* Récupération des heures de début et de fin de la disponiblité */
         const startHour = availability.startDate.getHours();
         const endHour = availability.endDate.getHours();
@@ -99,7 +99,7 @@ function TraineeCalendar() {
 
     /* Génération du JSX */
     return avaibleHours.map((hour) => (
-      <option value={hour}>
+      <option value={hour} key={hour}>
         {hour}h - {hour + 1}h
       </option>
     ));

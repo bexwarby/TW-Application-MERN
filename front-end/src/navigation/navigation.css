@@ -2,7 +2,12 @@
   display: flex;
   flex-direction: row;
   margin-top: 5%;
-  justify-content: space-between;
+  padding: 0;
+  justify-content: space-around;
   color: rgb(255, 255, 255);
   list-style: none;
+}
+
+#nav-bar li :hover {
+  color: orange;
 }
