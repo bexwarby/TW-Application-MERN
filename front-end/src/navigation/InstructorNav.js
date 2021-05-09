@@ -60,7 +60,7 @@ export default function InstructorNav({ instructorId }) {
             </li>
             <li>
               <Link to="/" onClick={logout}>
-                logout
+                Logout
                 <FaLongArrowAltRight color="white" />
               </Link>
             </li>
