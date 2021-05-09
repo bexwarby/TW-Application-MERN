@@ -73,7 +73,7 @@ export default function InstructorNav({ instructorId }) {
             path="/instructor"
             render={() => {
               return instructorId ? (
-                <Redirect to="/instructor/calendar" />
+                <Redirect to="/instructor/lesson" />
               ) : (
                 <Redirect to="/instructor/signin" />
               );

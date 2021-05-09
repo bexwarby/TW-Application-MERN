@@ -49,7 +49,7 @@ export default function TraineeNav({ traineeId }) {
 
         <Switch>
           <Route exact path="/trainee" render={() => {
-            return (traineeId ? <Redirect to="/trainee/module" /> : <Redirect to="/trainee/signin" />)
+            return (traineeId ? <Redirect to="/trainee/calendar" /> : <Redirect to="/trainee/signin" />)
           }} />
           <Route exact path="/trainee/dashboard" component={TraineeDashboard} />
           <Route exact path="/trainee/module" component={TraineeModule} />

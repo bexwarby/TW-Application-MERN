@@ -7,6 +7,8 @@ import { useState, useContext } from "react";
 import { AppContext } from '../../../AppContext'
 import { Link } from "react-router-dom";
 import "./TraineeSignIn.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function TraineeSignIn() {
@@ -45,14 +47,14 @@ function TraineeSignIn() {
 
   return (
     <div id="content">
-      <div className="contentLogo">{/* <img src={logo} /> */}</div>
       <section className="underLogo">
-        <div className="contentInput">
+        <div className="contentInput" >
           <label>Email</label>
           <input
             className="myMail"
             type="text"
             name="email"
+            style={{ 'color': 'white' }}
             onChange={handleData}
           />
           <label>Password</label>
@@ -60,6 +62,7 @@ function TraineeSignIn() {
             className="myPassword"
             type="password"
             name="password"
+            style={{ 'color': 'white' }}
             onChange={handleData}
           />
         </div>
@@ -70,9 +73,9 @@ function TraineeSignIn() {
         </div>
         <div className="contentLink">
           <p className="subButton">
-            Don't have an account? Sign-up
+            Don't have an account? <br />
             <Link to="/trainee/signup/step1">
-              <span className="linkHere">here</span>
+              <span className="linkHere"> Sign-up here</span>
             </Link>
           </p>
         </div>

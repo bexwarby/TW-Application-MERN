@@ -40,7 +40,7 @@ function InstructorSignIn() {
       console.log("res", res);
       if (res.token) {
         localStorage.setItem("jwt", res.token);
-        context.setUserID({instructorId: res.instructorId})
+        context.setUserID({ instructorId: res.instructorId })
       }
     } catch (err) {
       console.log(err);
@@ -73,13 +73,9 @@ function InstructorSignIn() {
           <button className="enter" onClick={handleSignIn}>Access page</button>
         </div>
         <div>
-          <p>Don't have an account? Sign-up
-            <span>
-              <Link className="link" to="/instructor/signup" >
-                here
-              </Link>
-            </span>
-          </p>
+          <Link className="link" to="/instructor/signup" >
+            Don't have an account? Sign-up here
+          </Link>
         </div>
       </div>
     </div>
