@@ -5,7 +5,8 @@
 import "./InstructorProfile.css";
 import photo from "../../../images/pilote.jpeg";
 import { FaRegCalendar } from "react-icons/fa";
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+//import InstructorCalendar from "../../../Components/PageInstructor/InstructorCalendrier/InstructorCalendrier";
 
 function InstructorProfile() {
   return (
@@ -22,14 +23,11 @@ function InstructorProfile() {
 
       {/*LOGO CALENDAR*/}
       <div>
-        <Route>
-          <h3 className="logo-calendar">
-            <Link to="/instructor/calendar">
-              {/* ====> TO DO CHANGER ROUTE*/}
-              <FaRegCalendar color="white" />
-            </Link>
-          </h3>
-        </Route>
+        <h3 className="logo-calendar">
+          <Link to="/instructor/calendar">
+            <FaRegCalendar color="white" />
+          </Link>
+        </h3>
 
         {/*DESCRIPTION*/}
         <div>
