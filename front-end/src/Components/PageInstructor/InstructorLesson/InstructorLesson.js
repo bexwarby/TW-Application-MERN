@@ -56,7 +56,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ width: 60, fontSize: 10 }}>
                     Eva Longoria
-        </p>
+                  </p>
                   <div style={{ width: 60, height: 60 }}
                     className="list-inline-item circle"
                   >
@@ -70,7 +70,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ fontSize: 10, width: 60 }}>
                     Expert wings <br />phase 2
-        </p>
+                  </p>
                 </div>
 
                 <div className="list-inline d-flex justify-content-around">
@@ -83,7 +83,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ fontSize: 10, width: 60 }}>
                     Joseph Perfect
-        </p>
+                  </p>
                   <div style={{ width: 60, height: 60 }}
                     className="list-inline-item circle"
                   >
@@ -97,7 +97,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ fontSize: 10, width: 60 }}>
                     Pro wings <br />phase 3
-        </p>
+                  </p>
                 </div>
 
                 <div className="list-inline d-flex justify-content-around">
@@ -109,7 +109,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ fontSize: 10, width: 60 }}>
                     Guillaume !
-        </p>
+                  </p>
                   <div style={{ width: 60, height: 60 }}
                     className="list-inline-item circle"
                   >
@@ -123,7 +123,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ fontSize: 10, width: 60 }}>
                     Private wings <br />phase 2
-        </p>
+                  </p>
                 </div>
 
                 <div className="list-inline d-flex justify-content-around">
@@ -136,7 +136,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ fontSize: 10, width: 60 }}>
                     Thomas Pesquet
-        </p>
+                  </p>
                   <div style={{ width: 60, height: 60 }} className="list-inline-item circle">
                     <CircularProgressbar
                       /* onLoad={onLoad} */
@@ -148,7 +148,7 @@ function InstructorLesson() {
                   <p className="list-inline-item d-flex align-items-center"
                     style={{ fontSize: 10, width: 60 }}>
                     Private wings <br />phase 1
-        </p>
+                  </p>
                 </div>
               </span>
             </div>
@@ -158,7 +158,7 @@ function InstructorLesson() {
       </div>
 
     </div>
-   
+
   );
 }
 
