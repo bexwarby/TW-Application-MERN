@@ -14,13 +14,14 @@ function AdminValidation() {
 
   useEffect(() => {
     const getPendings = async () => {
+      const token = localStorage.getItem('jwt')
       try {
         const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/pending`,
           {
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
-              'Authorization': `Bearer ${context.userID?.token}`
+              'Authorization': `Bearer ${token}`
             },
           })
 
@@ -35,7 +36,7 @@ function AdminValidation() {
   }, [validating, context.userID?.token]);
 
   async function handleCheck(id) {
-    console.log(id);
+    const token = localStorage.getItem('jwt')
     try {
       const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/validate/${id}`,
         {
@@ -43,7 +44,7 @@ function AdminValidation() {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${context.userID?.token}`
+            'Authorization': `Bearer ${token}`
           },
         })
 
@@ -61,11 +62,11 @@ function AdminValidation() {
     <div >
       <h1>Validation instructor</h1>
       <ul>
-        {pendingInstructor.map(pending => 
-           <li key={pending._id}>
-             {pending.fullName}
-             <input type="checkbox" name="validating" onClick={() => handleCheck(pending._id)} style={{width: '15px', position: 'relative',  top: '13px', left: '5px' }} />
-           </li>
+        {pendingInstructor.map(pending =>
+          <li key={pending._id}>
+            {pending.fullName}
+            <input type="checkbox" name="validating" onClick={() => handleCheck(pending._id)} style={{ width: '15px', position: 'relative', top: '13px', left: '5px' }} />
+          </li>
         )}
       </ul>
     </div>
