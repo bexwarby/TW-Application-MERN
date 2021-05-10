@@ -10,7 +10,7 @@
     transition: all 0.3s ease 0s;
 }
 
-hr.solid {
+hr.fly.solid {
     border-top: 3px solid rgb(151, 149, 149);
     width:90%;
     display: block;
@@ -22,7 +22,7 @@ hr.solid {
     border-width: 4px;
 }
 
-.eva {
+.fly.eva {
     width: 40vw;
     height: auto;
     border-radius: 100%;
@@ -30,6 +30,6 @@ hr.solid {
     text-align: center
 }
   
-.timing {
+.fly.timing {
     font-size: x-small;
 }

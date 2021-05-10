@@ -19,7 +19,7 @@ function InstructorFly() {
   return (
     <div>
       <button type="button" className="btn btn-dark bg-dark flyButton">FLY</button>
-      <hr className="solid" />
+      <hr className="fly solid" />
 
       <div>
         <Slide easing="ease">
@@ -27,16 +27,16 @@ function InstructorFly() {
           <div className="each-slide">
             <div style={{ 'backgroundColor': 'transparent' }}>
               <span>
-                <img className="img-fluid img-thumbnail rounded-circle eva" alt="" src={photo}></img>
-                <p className="timing">Lesson {number}, {date}, {time}</p>
+                <img className="img-fluid img-thumbnail rounded-circle eva fly" alt="" src={photo}></img>
+                <p className="timing fly">Lesson {number}, {date}, {time}</p>
               </span>
             </div>
           </div>
           <div className="each-slide">
             <div style={{ 'backgroundColor': 'transparent' }}>
               <span>
-                <img className="img-fluid img-thumbnail rounded-circle eva" alt="" src={photo2}></img>
-                <p className="timing">Lesson {number}, {date}, {time}</p>
+                <img className="img-fluid img-thumbnail rounded-circle eva fly" alt="" src={photo2}></img>
+                <p className="timing fly">Lesson {number}, {date}, {time}</p>
               </span>
             </div>
           </div>
