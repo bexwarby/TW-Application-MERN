@@ -14,14 +14,13 @@ function AdminValidation() {
 
   useEffect(() => {
     const getPendings = async () => {
-      const token = localStorage.getItem('jwt')
       try {
         const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/pending`,
           {
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
-              'Authorization': `Bearer ${token}`
+              'Authorization': `Bearer ${context.userID.token}`
             },
           })
 
@@ -36,7 +35,6 @@ function AdminValidation() {
   }, [validating, context.userID?.token]);
 
   async function handleCheck(id) {
-    const token = localStorage.getItem('jwt')
     try {
       const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/validate/${id}`,
         {
@@ -44,7 +42,7 @@ function AdminValidation() {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${context.userID.token}`
           },
         })
 

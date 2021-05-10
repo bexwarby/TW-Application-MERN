@@ -16,7 +16,6 @@ function TraineeModule() {
   const [idxL, setIdxL] = useState(null)
 
   useEffect(() => {
-    const token = localStorage.getItem('jwt')
     const fetchModules = async () => {
       try {
         const res = await fetch(`${process.env.REACT_APP_SERVER}/trainee/modules`,
@@ -24,7 +23,7 @@ function TraineeModule() {
             headers: {
               'Accept': "application/json",
               "Content-Type": "application/json",
-              'Authorization': `Bearer ${token}`
+              'Authorization': `Bearer ${context.userID.token}`
             },
           })
 
@@ -62,21 +61,19 @@ function TraineeModule() {
   }
 
   const handleSubmit = async () => {
-    const token = localStorage.getItem('jwt')
-
-    console.log(context.userId);
     try {
-      await fetch(`${process.env.REACT_APP_SERVER}/trainee/module/${context.userId}`,
+      const res = await fetch(`${process.env.REACT_APP_SERVER}/trainee/module/${context.userID.traineeId}`,
         {
           method: 'post',
           headers: {
             'Accept': "application/json",
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${context.userID.token}`
           },
           body: JSON.stringify({level, step})
         })
-
+        const confirm = await res.json()
+        console.log(confirm);
     } catch (err) {
       console.log(err);
     }

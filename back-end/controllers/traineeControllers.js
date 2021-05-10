@@ -165,7 +165,6 @@ module.exports = {
 
   addModule: (req, res) => {
     const userId = req.params.id
-    console.log(userId, req.body);
     res.status(200).json({message: `${userId}, votre module est enregistré.`})
     // const optionModule = new Module({
     //   levelName: req.body.moduleSelect,
