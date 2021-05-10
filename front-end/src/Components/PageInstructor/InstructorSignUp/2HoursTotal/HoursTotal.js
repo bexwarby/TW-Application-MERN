@@ -31,14 +31,16 @@ function HoursTotal(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>2</p>
             </div>
-            <label htmlFor="flightHours">
-              How many "real-world flight hours" do you have approximately?
-            </label>
+            <div className="mt-5 ml-3 mr-3" >
+              <label htmlFor="flightHours">
+                How many "real-world flight hours" do you have approximately?
+              </label>
+            </div>
             <input
               {...register("flightHours", {
                 required: "required",
@@ -51,7 +53,7 @@ function HoursTotal(props) {
             />
           </div>
           {errors.flightHours && <span role="alert">{errors.flightHours.message}</span>}
-          <input type="submit" value="Submit" />
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

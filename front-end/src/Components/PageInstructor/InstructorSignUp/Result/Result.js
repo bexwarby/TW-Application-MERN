@@ -26,23 +26,30 @@ function Result(props) {
     const data = await message.json();
 
     if (data.instructorId) {
-      window.location = ("/instructor/signin")
+      window.location = ("/")
     } else {
-      props.history.push("/instructor/signup/step1");
+      props.history.push("/instructor/signup/");
       // window.location = ("/instructor/signup/step1")
     }
-    console.log(data); 
+    console.log(data);
   };
 
   return (
     <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
-      {/* <pre> {JSON.stringify(state, null, 2)} </pre> */}
-      <p>
-        Thank you very much for joining us. We will be in touch very soon! Have
-        a great day.
-      </p>
-      
-      <input type="submit" value="Finish" />
+      <div className="formInput">
+        <div className="mt-5 ml-3 mr-3">
+          <p>
+            Thank you very much for joining us.
+            <br />
+            We will be in touch very soon! 
+            <br />
+            <br />
+            Have a great day.
+          </p>
+        </div>
+
+        <input className="enter mt-5" type="submit" value="Finish" />
+      </div>
     </form>
   );
 }

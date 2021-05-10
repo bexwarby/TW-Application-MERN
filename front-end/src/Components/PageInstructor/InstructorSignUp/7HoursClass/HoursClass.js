@@ -34,17 +34,19 @@ function HoursClass(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>7</p>
             </div>
-            <label htmlFor="weeklyHoursGoal">
-              How many hours of flightsim training could you give per week?
-            </label>
-            <p>
-              <em>(Think about unproductive layover with Netflix...)</em>
-            </p>
+            <div className="mt-5 ml-3 mr-3" >
+              <label htmlFor="weeklyHoursGoal">
+                How many hours of FlightSim training could you give per week?
+              </label>
+              <p>
+                <em>(Think about unproductive layover with Netflix...)</em>
+              </p>
+            </div>
             <input
               {...register("weeklyHoursGoal", {
                 required: "required",
@@ -59,8 +61,8 @@ function HoursClass(props) {
           {errors.weeklyHoursGoal && (
             <span role="alert">{errors.weeklyHoursGoal.message}</span>
           )}
-          <input type="submit" value="Submit" />
 
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

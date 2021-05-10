@@ -4,7 +4,7 @@
 
 /* Imports */
 import "./ratings.css";
-import "../general.css"
+import "../general.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
@@ -30,19 +30,20 @@ function Ratings(props) {
   return (
     <div className="signUp">
       <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>3</p>
             </div>
-            <label htmlFor="ratings">Which ratings do you have ?</label>
+            <div className="mt-2 ml-3 mr-3" >
+              <label htmlFor="ratings">Which ratings do you have ?</label>
             <p>
               Tick even expired.
               <br />
               Special skill (Type rating, military, mountain, heli, etc.)? Write
               it down in "other".
             </p>
-            <p>Choose as many as apply</p>
+            <p>Choose as many as apply (hold ctrl)</p>
             <select
               {...register("ratings")}
               id="ratings"
@@ -63,7 +64,8 @@ function Ratings(props) {
               <option value="other">Other</option>
             </select>
           </div>
-          <input type="submit" value="Submit" />
+          </div>
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

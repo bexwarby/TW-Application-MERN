@@ -43,6 +43,7 @@ function TraineeCalendar() {
 
   /*fetch*/
   const submitRdv = async (e) => {
+    const token = localStorage.getItem("jwt");
     e.preventDefault();
 
     try {
@@ -53,7 +54,7 @@ function TraineeCalendar() {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${context.userID?.token}`,
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             traineeId: context.userID?.traineeId,

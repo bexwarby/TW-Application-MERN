@@ -22,8 +22,8 @@ const Welcome = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
+    <form className="formInput" onSubmit={handleSubmit(onSubmit)}>
+      <div className="mt-5 ml-3 mr-3">
         <h1 className="title">TrueWings</h1>
         <p className="subtitle">
           Ready to make money from your expertise?
@@ -34,7 +34,7 @@ const Welcome = (props) => {
         </p>
       </div>
       {/* Submit Button  */}
-      <input type="submit" value="Submit" />
+      <input className="enter" type="submit" value="Let's Start" />
       <button className="enter" type="button" onClick={backClick}>
         Back
       </button>
