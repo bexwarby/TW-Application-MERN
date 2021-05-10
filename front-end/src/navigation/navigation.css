@@ -1,13 +1,17 @@
+/*Barre de navigation générale*/
+
 #nav-bar {
   display: flex;
   flex-direction: row;
   margin-top: 5%;
-  padding: 0;
-  justify-content: space-around;
-  color: rgb(255, 255, 255);
+  justify-content: space-between;
   list-style: none;
 }
+/*Logout*/
+.logout {
+  color: white;
+}
 
-#nav-bar li :hover {
+.lien:hover {
   color: orange;
 }
