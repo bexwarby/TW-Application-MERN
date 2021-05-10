@@ -40,29 +40,28 @@ export default function TraineeNav({ traineeId }) {
         <nav>
           <ul id="nav-bar">
             <li>
-              <Link to="/trainee/dashboard">
-                <FaCircleNotch color="white" />
+              <Link className="lien" to="/trainee/dashboard">
+                <FaCircleNotch />
               </Link>
             </li>
             <li>
-              <Link to="/trainee/module">
-                <FaBook color="white" />
+              <Link className="lien" to="/trainee/module">
+                <FaBook />
               </Link>
             </li>
             <li>
-              <Link to="/trainee/calendar">
-                <FaRegCalendar color="white" />
+              <Link className="lien" to="/trainee/calendar">
+                <FaRegCalendar />
               </Link>
             </li>
             <li>
-              <Link to="/trainee/profile">
-                <FaUser color="white" />
+              <Link className="lien" to="/trainee/profile">
+                <FaUser />
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={logout}>
-                Logout
-                <FaLongArrowAltRight color="white" />
+              <Link className="lien" to="/" onClick={logout}>
+                <FaLongArrowAltRight />
               </Link>
             </li>
           </ul>
