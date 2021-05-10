@@ -7,7 +7,6 @@ const Instructor = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-
 module.exports = {
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
@@ -85,12 +84,15 @@ module.exports = {
     const { email, password } = req.body;
 
     try {
-      const instructor = await Instructor.findOne({ email: email, role: "instructor" })
+      const instructor = await Instructor.findOne({
+        email: email,
+        role: "instructor",
+      });
       if (!instructor) {
         return res.status(400).json({ message: "Instructeur non trouvée" });
       }
 
-      const valid = await bcrypt.compare(password, instructor.password)
+      const valid = await bcrypt.compare(password, instructor.password);
       if (!valid) {
         res.status(400).json({ message: "mot de passe erroné" });
         return;
@@ -107,12 +109,10 @@ module.exports = {
         instructorId: instructor._id,
         token: token,
       });
-      return
-
+      return;
     } catch (err) {
-      return res.status(500).json({ message: err })
+      return res.status(500).json({ message: err });
     }
-
   },
 
   /* DASHBOARD CONTROLLERS */
@@ -130,7 +130,7 @@ module.exports = {
       startDate: req.body.startDate,
       endDate: req.body.endDate,
     });
-    calendarLessons
+    calendarLessons;
 
     console.log(req.body);
     res.status(201).json(req.body);

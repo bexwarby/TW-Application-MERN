@@ -30,12 +30,12 @@ function Email(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>13</p>
             </div>
-            <div>
+            <div className="mt-5 ml-3 mr-3">
               <label htmlFor="email">Please write down your email.</label>
               <p>
                 It will only be used to let you know when a student requests an
@@ -51,7 +51,7 @@ function Email(props) {
             </div>
           </div>
 
-          <input type="submit" value="Submit" />
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

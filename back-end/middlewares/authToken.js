@@ -4,7 +4,9 @@ module.exports = {
   admin: (req, res, next) => {
     try {
       const token = req.headers.authorization.split(" ")[1];
+      console.log(token);
       const myToken = jwt.verify(token, process.env.JWT_SECRET_TOKEN_ADMIN);
+      console.log(myToken);
       const adminId = myToken.adminId;
       if (req.body.adminId && req.body.adminId !== adminId) {
         // throw "adminId n'est pas bon";

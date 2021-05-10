@@ -34,15 +34,17 @@ function Time(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>8</p>
             </div>
-            <label htmlFor="timeTeaching">
-              Please let us know the more convenient time for you to train ?
-            </label>
-            <p>Day of the week, part of the day...</p>
+            <div className="mt-5 ml-3 mr-3" >
+              <label htmlFor="timeTeaching">
+                Please let us know the more convenient time for you to train ?
+              </label>
+              <p>Day of the week, part of the day...</p>
+            </div>
             <input
               {...register("timeTeaching", {
                 required: "required",
@@ -57,8 +59,8 @@ function Time(props) {
           {errors.timeTeaching && (
             <span role="alert">{errors.timeTeaching.message}</span>
           )}
-          <input type="submit" value="Submit" />
-
+          
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

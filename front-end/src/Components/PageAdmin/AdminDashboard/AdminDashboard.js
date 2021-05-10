@@ -15,13 +15,14 @@ function AdminDashboard() {
 
   useEffect(() => {
     const getUsers = async () => {
+      const token = localStorage.getItem('jwt')
       try {
         const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/users`,
         {
           headers: {
             'Accept': "application/json",
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${context.userID?.token}`
+            'Authorization': `Bearer ${token}`
           },
         })
 
@@ -45,6 +46,7 @@ function AdminDashboard() {
     } else {
       if (ids.fullName && ids.email && ids.password) {
         const addAdmin = async () => {
+          const token = localStorage.getItem('jwt')
           try {
             const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/signup`,
             {
@@ -52,7 +54,7 @@ function AdminDashboard() {
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                'Authorization': `Bearer ${context.userID?.token}`
+                'Authorization': `Bearer ${token}`
               },
               body: JSON.stringify(ids)
             })
@@ -73,6 +75,7 @@ function AdminDashboard() {
 
 
   async function handleDelAdmin (id) {
+    const token = localStorage.getItem('jwt')
     try {
       await fetch(`${process.env.REACT_APP_SERVER}/admin/delete/${id}`,
       {
@@ -80,7 +83,7 @@ function AdminDashboard() {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${context.userID?.token}`
+          'Authorization': `Bearer ${token}`
         },
       })
       
@@ -99,9 +102,9 @@ function AdminDashboard() {
 
   return (
     <div className="admin-dashboard">
-      <h1>Dashboard admin</h1>
+      <h1>Dashboard</h1>
       
-      <h4>ADMINS <span onClick={handleAddAdmin}>[+]</span></h4>
+      <h4>ADMINS <span className="orangeTW" onClick={handleAddAdmin}>[+]</span></h4>
       <input className="inputsAddmin" hidden type="text" name="fullName" placeholder="name" onChange={handleAddmin} style={{ height: '25px', width: 'auto', }} />
       <input className="inputsAddmin" hidden type="email" name="email" placeholder="mail" onChange={handleAddmin} style={{ height: '25px', width: 'auto', margin: 5 }} />
       <input className="inputsAddmin" hidden type="password" name="password" placeholder="password" onChange={handleAddmin} style={{ height: '25px', width: 'auto', }} />
@@ -110,7 +113,7 @@ function AdminDashboard() {
         {users.map(user => 
           user.role === 'admin' &&
           <li key={user._id}>
-            {user.fullName} - [{user.email}] <span onClick={() => handleDelAdmin(user._id)}>[delete]</span>
+            {user.fullName} - [{user.email}] <span className="orangeTW" onClick={() => handleDelAdmin(user._id)}>[delete]</span>
           </li>
         
         )}

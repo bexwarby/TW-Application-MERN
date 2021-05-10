@@ -30,26 +30,29 @@ function Equipment(props) {
   return (
     <div className="Equipment">
       <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>5</p>
             </div>
-            <label htmlFor="equipment">
-              What sim equipment do you have or plan to get?
-            </label>
-            <p>
-              <em>
-                For most of the online trainings you will need at least a basic
-                joystick with yaw axis (39€).
-              </em>
-            </p>
-            <p>Choose as many as apply</p>
+            <div className="mt-3 ml-3 mr-3" >
+              <label htmlFor="equipment">
+                What sim equipment do you have or plan to get?
+              </label>
+              <p>
+                <em>
+                  For most of the online trainings you will need at least a basic
+                  joystick with yaw axis (39€).
+                </em>
+              </p>
+              <p>Choose as many as apply (hold ctrl)</p>
+            </div>
             <select
               {...register("equipment")}
               id="equipment"
               name="equipment"
               size="6"
+              className="ml-5"
               multiple
             >
               <option value="joystick">Joystick</option>
@@ -60,14 +63,15 @@ function Equipment(props) {
               <option value="other">Other</option>
             </select>
           </div>
-          <input type="submit" value="Submit" />
-
-          <button className="enter" type="button" onClick={backClick}>
-            Back
-          </button>
-          <button className="enter" type="button" onClick={homeClick}>
-            Home
-          </button>
+          
+            <input className="enter" type="submit" value="Submit" />
+            <button className="enter" type="button" onClick={backClick}>
+              Back
+            </button>
+            <button className="enter" type="button" onClick={homeClick}>
+              Home
+            </button>
+          
         </div>
       </form>
     </div>

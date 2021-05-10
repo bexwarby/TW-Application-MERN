@@ -29,11 +29,13 @@ function Software(props) {
   return (
     <div className="signUp">
       <form className="submitSignUp" onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>6</p>
             </div>
+            <div className="mt-5 ml-3 mr-3" >
+
             <label htmlFor="software">
               Which simulation software do you plan to use for training?
             </label>
@@ -41,11 +43,13 @@ function Software(props) {
               <em>Our students mostly use MSFS or Xplane 11.</em>
             </p>
             <p>Choose 1</p>
+            </div>
             <select
               {...register("software")}
               id="software"
               name="software"
               size="5"
+              className="ml-5"
               multiple
             >
               <option value="MSFS">MSFS</option>
@@ -58,7 +62,7 @@ function Software(props) {
               </option>
             </select>
           </div>
-          <input type="submit" value="Submit" />
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

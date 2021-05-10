@@ -29,18 +29,20 @@ function LicenseFile(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>10</p>
             </div>
-            <label htmlFor="licenceFile">
-              Add a picture or your license or <b>later</b> by email
-            </label>
-            <p>
-              You can skip this question for now with the arrow at the bottom of
-              the page
-            </p>
+            <div className="mt-5 ml-3 mr-3" >
+              <label htmlFor="licenceFile">
+                Add a picture or your license or <b>later</b> by email
+              </label>
+              <p>
+                You can skip this question for now with the arrow at the bottom of
+                the page
+              </p>
+            </div>
             <div className="file-uploader">
               <input
                 {...register("licenseFile")}
@@ -49,7 +51,8 @@ function LicenseFile(props) {
               />
             </div>
           </div>
-          <input type="submit" value="Submit" />
+
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

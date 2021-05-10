@@ -30,24 +30,27 @@ function Language(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>9</p>
             </div>
-            <label htmlFor="language">
-              In which language(s) can you train?
-            </label>
-            <p>
-              We recommend English as it's the aviation language and it's easier
-              to find an instructor.
-            </p>
-            <p>Choose as many as apply</p>
+            <div className="mt-5 ml-3 mr-3" >
+              <label htmlFor="language">
+                In which language(s) can you train?
+              </label>
+              <p>
+                We recommend English as it's the aviation language and it's easier
+                to find an instructor.
+              </p>
+              <p>Choose as many as apply</p>
+            </div>
             <select
               {...register("language")}
               id="language"
               name="language"
               size="5"
+              style={{ "marginLeft": "25vw" }}
               multiple
             >
               <option value="english">English</option>
@@ -59,7 +62,8 @@ function Language(props) {
               </option>
             </select>
           </div>
-          <input type="submit" value="Submit" />
+          
+          <input className="enter" type="submit" value="Submit" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>

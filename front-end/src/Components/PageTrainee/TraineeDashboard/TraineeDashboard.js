@@ -41,15 +41,14 @@ function TraineeDashboard() {
 
   return (
     <div className="dashboard">
-      <h3>Dashboard</h3>
+      <h3 className="title">Dashboard</h3>
 
-      <h5>Private Pilot:</h5>
+      <h5 className="subtitle">Private Pilot:</h5>
 
       {/* Gauge process */}
       <div
         style={{ width: 200, height: 200 }}
-        className="circle"
-        className="gauge"
+        className="gauge circle"
       >
         <CircularProgressbar
           /* onLoad={onLoad} */
@@ -64,10 +63,10 @@ function TraineeDashboard() {
           {/* 3 levels */}
           <div className="each-slide">
             <div /* style={{ 'backgroundColor': 'black' }} */>
-              <span style={{ backgroundColor: "black" }}>
+              <span style={{ backgroundColor: "#2b2929" }}>
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
@@ -81,7 +80,7 @@ function TraineeDashboard() {
                 </div>
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
@@ -95,7 +94,7 @@ function TraineeDashboard() {
                 </div>
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
@@ -116,7 +115,7 @@ function TraineeDashboard() {
               <span>
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
@@ -130,7 +129,7 @@ function TraineeDashboard() {
                 </div>
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
@@ -145,7 +144,7 @@ function TraineeDashboard() {
 
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
@@ -160,7 +159,7 @@ function TraineeDashboard() {
 
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
@@ -175,7 +174,7 @@ function TraineeDashboard() {
 
                 <div
                   className="progress"
-                  style={{ color: "white", backgroundColor: "orange" }}
+                  style={{ color: "white", backgroundColor: "#2b2929" }}
                 >
                   <div
                     className="progress-bar"
