@@ -48,8 +48,7 @@ function TraineeDashboard() {
       {/* Gauge process */}
       <div
         style={{ width: 200, height: 200 }}
-        className="circle"
-        className="gauge"
+        className="gauge circle"
       >
         <CircularProgressbar
           /* onLoad={onLoad} */
