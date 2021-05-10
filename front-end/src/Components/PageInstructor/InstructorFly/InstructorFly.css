@@ -1,4 +1,4 @@
-.btn-default {
+.fly .btn-default {
     font-family: Raleway-SemiBold;
     font-size: 13px;
     color: rgba(14, 14, 15, 0.75);
@@ -10,7 +10,7 @@
     transition: all 0.3s ease 0s;
 }
 
-hr.fly.solid {
+.fly hr.solid {
     border-top: 3px solid rgb(151, 149, 149);
     width:90%;
     display: block;
@@ -22,14 +22,15 @@ hr.fly.solid {
     border-width: 4px;
 }
 
-.fly.eva {
-    width: 40vw;
+.fly .eva {
+    width: 50vw;
     height: auto;
     border-radius: 100%;
     border-color: whitesmoke;
     text-align: center
 }
   
-.fly.timing {
-    font-size: x-small;
+.fly .timing {
+    font-size: medium;
 }
+

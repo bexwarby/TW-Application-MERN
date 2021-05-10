@@ -17,9 +17,9 @@ function InstructorFly() {
   const time = "11:00-12:00"
 
   return (
-    <div>
+    <div className="fly">
       <button type="button" className="btn btn-dark bg-dark flyButton">FLY</button>
-      <hr className="fly solid" />
+      <hr className="solid" />
 
       <div>
         <Slide easing="ease">
@@ -27,7 +27,7 @@ function InstructorFly() {
           <div className="each-slide">
             <div style={{ 'backgroundColor': 'transparent' }}>
               <span>
-                <img className="img-fluid img-thumbnail rounded-circle eva fly" alt="" src={photo}></img>
+                <img className="img-fluid img-thumbnail rounded-circle eva" alt="" src={photo}></img>
                 <p className="timing fly">Lesson {number}, {date}, {time}</p>
               </span>
             </div>
@@ -35,7 +35,7 @@ function InstructorFly() {
           <div className="each-slide">
             <div style={{ 'backgroundColor': 'transparent' }}>
               <span>
-                <img className="img-fluid img-thumbnail rounded-circle eva fly" alt="" src={photo2}></img>
+                <img className="img-fluid img-thumbnail rounded-circle eva" alt="" src={photo2}></img>
                 <p className="timing fly">Lesson {number}, {date}, {time}</p>
               </span>
             </div>
