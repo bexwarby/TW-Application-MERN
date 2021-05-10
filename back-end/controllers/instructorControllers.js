@@ -62,9 +62,9 @@ module.exports = {
   module: (req, res) => {
     const Module = require("../models/Module");
     const optionModule = new Module({
-      moduleName: req.body.moduleSelect,
+      levelName: req.body.moduleSelect,
       nbHours: req.body.hours,
-      price: req.body.price,
+      stepsPrice: req.body.price,
       steps: req.body.choixOption,
     });
     optionModule

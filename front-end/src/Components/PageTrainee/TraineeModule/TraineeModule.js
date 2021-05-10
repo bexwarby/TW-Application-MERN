@@ -23,10 +23,10 @@ function TraineeModule() {
       return (
         <select
           onChange={(e) => {
-            privateChoice = {
+            let privateChoice = {
               [e.target.name]: e.target.value,
             };
-            setNameMode(PrivateChoice);
+            setNameMode(privateChoice);
           }}
         >
           <option name="choiceOption" value="Coms master">
@@ -50,7 +50,7 @@ function TraineeModule() {
       return (
         <select
           onChange={(e) => {
-            proChoice = {
+            let proChoice = {
               [e.target.name]: e.target.value,
             };
             setNameMode(proChoice);
@@ -77,7 +77,7 @@ function TraineeModule() {
       return (
         <select
           onChange={(e) => {
-            expertChoice = {
+            let expertChoice = {
               [e.target.name]: e.target.value,
             };
             setNameMode(expertChoice);
