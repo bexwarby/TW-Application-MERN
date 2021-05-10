@@ -1,0 +1,51 @@
+#mainTraineeProfil {
+  /*-------------------main block----------------- */
+  display: flex;
+  flex-direction: column;
+}
+.trainee {
+  justify-content: center;
+  text-align: center;
+}
+.photoTrainee {
+  width: 20vh;
+  height: 20vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+#blockStats {
+  text-align: center;
+}
+#traineeStats,
+li {
+  padding: 0vw 3vw 0vw 3vw;
+  display: inline;
+  list-style: none;
+}
+.status {
+  text-align: center;
+  justify-content: center;
+}
+#mainAccount {
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  padding: 0px;
+}
+.blockPrivate {
+  justify-content: center;
+}
+/*-------------------------history bar-------------------*/
+#historyBar {
+  text-align: center;
+}
+#TraineeHistory {
+  height: 40px;
+  padding: 0vw 12vw 0vw 12vw;
+  background-color: rgba(51, 51, 51, 0.363);
+  text-align: center;
+  margin: 0px 17vw 12px 17vw;
+  border-radius: 10px;
+  align-self: auto;
+}

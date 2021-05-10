@@ -1,12 +1,12 @@
 import "./TraineeCalendar.css";
 
 import React, { useState, useContext } from "react";
-import { AppContext } from '../../../AppContext'
+import { AppContext } from "../../../AppContext";
 
 import Calendar from "react-calendar";
 
 function TraineeCalendar() {
-  const context = useContext(AppContext)
+  const context = useContext(AppContext);
 
   /*function envoyer date*/
   const [day, setDay] = useState(new Date());
@@ -47,13 +47,13 @@ function TraineeCalendar() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/trainee/calendar/book`,  
+        `${process.env.REACT_APP_SERVER}/trainee/calendar/book`,
         {
           method: "PUT",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${context.userID?.token}`
+            Authorization: `Bearer ${context.userID?.token}`,
           },
           body: JSON.stringify({
             traineeId: context.userID?.traineeId,
@@ -106,7 +106,7 @@ function TraineeCalendar() {
   }
 
   return (
-    <div>
+    <div id="calendar">
       <Calendar
         onChange={onChange}
         name="day"
