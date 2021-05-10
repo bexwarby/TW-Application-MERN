@@ -60,38 +60,38 @@ function TraineeDashboard() {
         <Slide easing="ease">
           {/* 3 levels */}
           <div className="each-slide">
-            <div style={{ 'backgroundColor': 'white' }}>
-              <span>
-                <div className="progress">
+            <div /* style={{ 'backgroundColor': 'black' }} */>
+              <span style={{ "backgroundColor": 'black'}}>
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    aria-valuenow="40"
+                    aria-valuenow="100"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Private
                   </div>
                 </div>
-                <div className="progress">
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    aria-valuenow="40"
+                    aria-valuenow="100"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Professional
                   </div>
                 </div>
-                <div className="progress">
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    aria-valuenow="40"
+                    aria-valuenow="30"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Expert
                   </div>
                 </div>
@@ -100,64 +100,63 @@ function TraineeDashboard() {
           </div>
           {/* 5 measurements process */}
           <div className="each-slide">
-            <div style={{ 'backgroundColor': 'white' }}>
+            <div /* style={{ 'backgroundColor': 'white' }} */>
               <span>
-                <div className="progress">
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
                     aria-valuenow="15"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Handling
                   </div>
                 </div>
-
-                <div className="progress">
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
                     aria-valuenow="40"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Procedures
                   </div>
                 </div>
 
-                <div className="progress">
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
                     aria-valuenow="60"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Knowledge
                   </div>
                 </div>
 
-                <div className="progress">
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
                     aria-valuenow="90"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Trajectory
                   </div>
                 </div>
 
-                <div className="progress">
+                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
                   <div
                     className="progress-bar"
                     role="progressbar"
                     aria-valuenow="50"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    color="black">
+                  >
                     Communication
                   </div>
                 </div>
