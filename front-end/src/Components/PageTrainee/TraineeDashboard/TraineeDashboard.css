@@ -4,7 +4,7 @@
 
 /*Titre*/
 
-.title {
+.traineeDashboard .titleDash {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@
   font-family: Montserrat;
 }
 
-.subtitle {
+.traineeDashboard .subtitle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@
 }
 
 /*Slides complet*/
-.each-slide > div {
+.traineeDashboard .each-slide > div {
   padding: 10vh 10vw;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@
   color: rgb(204, 49, 49);
 }
 
-.each-slide span {
+.traineeDashboard .each-slide span {
   padding: 5vh 5vw;
   margin: 10vh;
   background: #2b2929;
@@ -41,14 +41,14 @@
   font-family: Montserrat;
 }
 
-.progress-bar {
+.traineeDashboard .progress-bar {
   padding: 0 auto;
   font-size: 16px;
-  background-color: transparent;
+  background-color: orange;
 }
 
 /*Gauge*/
-.gauge {
+.traineeDashboard .gauge {
   margin-top: 20%;
   margin-left: 10vh;
 }
