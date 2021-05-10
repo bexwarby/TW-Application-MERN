@@ -83,7 +83,8 @@ function TraineeModule() {
 
 
   return (
-    <div>
+    <div id="traineeModule" className="formInput">
+
       <h3>Modules</h3>
 
       <select name="levelName" onChange={selectLevel}>
@@ -107,7 +108,9 @@ function TraineeModule() {
       }
 
 
-      <input type="submit" value="ok" onClick={handleSubmit} />
+      <button className="enter" type="submit" onClick={handleSubmit} >
+        Selectionner
+      </button>
 
     </div>
   );
