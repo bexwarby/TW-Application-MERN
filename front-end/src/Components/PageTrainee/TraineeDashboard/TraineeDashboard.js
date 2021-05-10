@@ -2,16 +2,15 @@
  * Dashboard de l'eleve
  */
 
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-circular-progressbar/dist/styles.css';
-import './TraineeDashboard.css';
-import 'react-slideshow-image/dist/styles.css';
+import { CircularProgressbar } from "react-circular-progressbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-circular-progressbar/dist/styles.css";
+import "./TraineeDashboard.css";
+import "react-slideshow-image/dist/styles.css";
 
-import { Slide } from 'react-slideshow-image';
+import { Slide } from "react-slideshow-image";
 
 function TraineeDashboard() {
-
   const value = 10;
   const maxValue = 25;
   /* const level = level; */
@@ -47,12 +46,16 @@ function TraineeDashboard() {
       <h5>Private Pilot:</h5>
 
       {/* Gauge process */}
-      <div style={{ width: 200, height: 200 }} className="circle">
+      <div
+        style={{ width: 200, height: 200 }}
+        className="circle"
+        className="gauge"
+      >
         <CircularProgressbar
           /* onLoad={onLoad} */
           value={value}
           maxValue={maxValue}
-          text={`${value / maxValue * 100}%`}
+          text={`${(value / maxValue) * 100}%`}
         />
       </div>
 
@@ -61,8 +64,11 @@ function TraineeDashboard() {
           {/* 3 levels */}
           <div className="each-slide">
             <div /* style={{ 'backgroundColor': 'black' }} */>
-              <span style={{ "backgroundColor": 'black'}}>
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+              <span style={{ backgroundColor: "black" }}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -73,7 +79,10 @@ function TraineeDashboard() {
                     Private
                   </div>
                 </div>
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -84,7 +93,10 @@ function TraineeDashboard() {
                     Professional
                   </div>
                 </div>
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -102,7 +114,10 @@ function TraineeDashboard() {
           <div className="each-slide">
             <div /* style={{ 'backgroundColor': 'white' }} */>
               <span>
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -113,7 +128,10 @@ function TraineeDashboard() {
                     Handling
                   </div>
                 </div>
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -125,7 +143,10 @@ function TraineeDashboard() {
                   </div>
                 </div>
 
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -137,7 +158,10 @@ function TraineeDashboard() {
                   </div>
                 </div>
 
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -149,7 +173,10 @@ function TraineeDashboard() {
                   </div>
                 </div>
 
-                <div className="progress" style={{"color": "white", "backgroundColor": 'orange'}}>
+                <div
+                  className="progress"
+                  style={{ color: "white", backgroundColor: "orange" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -160,13 +187,11 @@ function TraineeDashboard() {
                     Communication
                   </div>
                 </div>
-
               </span>
             </div>
           </div>
         </Slide>
       </div>
-
     </div>
   );
 }

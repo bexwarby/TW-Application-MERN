@@ -15,13 +15,14 @@ function AdminDashboard() {
 
   useEffect(() => {
     const getUsers = async () => {
+      const token = localStorage.getItem('jwt')
       try {
         const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/users`,
         {
           headers: {
             'Accept': "application/json",
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${context.userID?.token}`
+            'Authorization': `Bearer ${token}`
           },
         })
 
@@ -45,6 +46,7 @@ function AdminDashboard() {
     } else {
       if (ids.fullName && ids.email && ids.password) {
         const addAdmin = async () => {
+          const token = localStorage.getItem('jwt')
           try {
             const res = await fetch(`${process.env.REACT_APP_SERVER}/admin/signup`,
             {
@@ -52,7 +54,7 @@ function AdminDashboard() {
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                'Authorization': `Bearer ${context.userID?.token}`
+                'Authorization': `Bearer ${token}`
               },
               body: JSON.stringify(ids)
             })
@@ -73,6 +75,7 @@ function AdminDashboard() {
 
 
   async function handleDelAdmin (id) {
+    const token = localStorage.getItem('jwt')
     try {
       await fetch(`${process.env.REACT_APP_SERVER}/admin/delete/${id}`,
       {
@@ -80,7 +83,7 @@ function AdminDashboard() {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${context.userID?.token}`
+          'Authorization': `Bearer ${token}`
         },
       })
       
