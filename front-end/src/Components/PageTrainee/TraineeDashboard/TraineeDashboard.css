@@ -1,21 +1,54 @@
+/*import style text*/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap%22");
+
+/*Titre*/
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
+  font-family: Montserrat;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
+  color: white;
+  font-family: Montserrat;
+}
+
+/*Slides complet*/
 .each-slide > div {
+  padding: 10vh 10vw;
   display: flex;
   align-items: center;
   justify-content: center;
   background-size: cover;
   background-color: transparent;
-  height: 200px;
-  color: black;
+  height: 110vw;
+  color: rgb(204, 49, 49);
 }
 
 .each-slide span {
   padding: 5vh 5vw;
-  margin: 5vh;
-  font-size: 20px;
-  background: #efefef;
+  margin: 10vh;
+  background: #2b2929;
   text-align: center;
+  font-family: Montserrat;
 }
 
+.progress-bar {
+  padding: 0 auto;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+/*Gauge*/
 .gauge {
+  margin-top: 20%;
   margin-left: 10vh;
 }

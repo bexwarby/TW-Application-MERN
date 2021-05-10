@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   /* USER CONTROLLERS */
   signUp: async (req, res) => {
-    console.log('trainee incoming', req.body);
+    console.log("trainee incoming", req.body);
     const {
       fullName,
       email,
@@ -22,13 +22,19 @@ module.exports = {
       language,
       otherLanguage,
       birthDay,
-      addComment
+      addComment,
     } = req.body;
 
-    if(otherEquipment) { equipment.push(otherEquipment) }
-    let lang = []
-    if(language) { lang.push(language) }
-    if(otherLanguage) { lang.push(otherLanguage) }
+    if (otherEquipment) {
+      equipment.push(otherEquipment);
+    }
+    let lang = [];
+    if (language) {
+      lang.push(language);
+    }
+    if (otherLanguage) {
+      lang.push(otherLanguage);
+    }
 
     const docTrainee = new Trainee({
       fullName,
@@ -38,9 +44,9 @@ module.exports = {
       flightHours,
       equipment,
       software,
-      availability, 
+      availability,
       wishedWork,
-      wishedlearn: modules, 
+      wishedlearn: modules,
       language: lang,
       birthDay,
       addComment,
@@ -51,7 +57,7 @@ module.exports = {
       if (err) {
         res.status(501).json({ message: err.message });
       } else {
-        res.json({ message: "New trainee created!", traineeId: doc._id  });
+        res.json({ message: "New trainee created!", traineeId: doc._id });
       }
     });
   },
@@ -105,7 +111,7 @@ module.exports = {
         { new: true, upsert: true },
         (err, doc) => {
           if (err) return res.status(400).json({ msg: err });
-          else res.status(201).json(doc);
+          else res.status(201).json({ message: "New Lesson booked" });
         }
       );
     } catch (err) {
@@ -148,5 +154,4 @@ module.exports = {
     console.log(req.params.id);
     res.status(200).send(`trainee ${req.params.id} a bien été supprimé`);
   },
-
 };
