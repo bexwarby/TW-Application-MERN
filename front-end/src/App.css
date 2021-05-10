@@ -5,12 +5,8 @@
   background-size: cover;
   background-color: rgb(0, 0, 0);
   width: 100vw;
-<<<<<<< HEAD
-  height: auto;
-=======
   min-height: 100vh;
 
->>>>>>> ea0c1e8eb24918915fc64b8af4ee15cd6ccbe7ef
   color: rgb(255, 255, 255);
 }
 
