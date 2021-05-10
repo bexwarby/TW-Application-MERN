@@ -26,7 +26,7 @@ function Types(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
             <div className="bg-warning text-dark p-2 text-center">
               <p>4</p>

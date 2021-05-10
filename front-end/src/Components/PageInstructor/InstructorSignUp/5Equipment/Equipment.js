@@ -52,6 +52,7 @@ function Equipment(props) {
               id="equipment"
               name="equipment"
               size="6"
+              className="ml-5"
               multiple
             >
               <option value="joystick">Joystick</option>
@@ -62,7 +63,7 @@ function Equipment(props) {
               <option value="other">Other</option>
             </select>
           </div>
-          <div className="mt-5 ml-3 mr-3" >
+          
             <input className="enter" type="submit" value="Submit" />
             <button className="enter" type="button" onClick={backClick}>
               Back
@@ -70,7 +71,7 @@ function Equipment(props) {
             <button className="enter" type="button" onClick={homeClick}>
               Home
             </button>
-          </div>
+          
         </div>
       </form>
     </div>

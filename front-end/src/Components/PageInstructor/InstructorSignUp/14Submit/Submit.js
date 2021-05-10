@@ -29,22 +29,21 @@ function Thanks(props) {
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* 14 Thank You Page */}
-        <div className="formSection">
-          <div>
-            <h3>Thank you very much for joining the crew.</h3>
-
-            <p>
+        <div className="formInput">
+          <div className="mt-5 ml-3 mr-3">
+            <h3 className="title">Thank you very much for joining the crew.</h3>
+            <p className="mt-5">
               We already have some students undertraining.
               <br />
               We will contact you as soon as a new one wants to book a lesson
               with you.
             </p>
 
-            <p className="boldItalic">
+            <h5 className="boldItalic text-warning text-center mb-4">
               "If you really want to master something, teach it"
-            </p>
+            </h5>
           </div>
-          <input type="submit" value="Submit" />
+          <input className="enter" type="submit" value="Time to Fly" />
           <button className="enter" type="button" onClick={backClick}>
             Back
           </button>
