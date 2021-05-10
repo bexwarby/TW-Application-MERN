@@ -3,10 +3,9 @@
 #nav-bar {
   display: flex;
   flex-direction: row;
-  margin-top: 5%;
+  padding: 3vh 0 0 0;
   justify-content: space-around;
   list-style: none;
-  padding: 0px;
 }
 /*Logout*/
 .logout {
