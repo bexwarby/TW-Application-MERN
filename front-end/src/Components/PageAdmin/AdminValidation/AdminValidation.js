@@ -59,9 +59,9 @@ function AdminValidation() {
   }
 
   return (
-    <div >
-      <h1>Validation instructor</h1>
-      <ul>
+    <div id="adminValidation">
+      <h1>Validator</h1>
+      <ul className="instructorList">
         {pendingInstructor.map(pending =>
           <li key={pending._id}>
             {pending.fullName}
