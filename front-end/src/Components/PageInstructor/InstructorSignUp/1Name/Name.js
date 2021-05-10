@@ -28,18 +28,20 @@ function NamePilot(props) {
   return (
     <div className="signUp">
       <form onSubmit={handleSubmit(onSubmit)} className="submitSignUp">
-        <div className="formSection">
+        <div className="formInput">
           <div className="form-group">
             <div className="numberQuestion">
-              <p>1</p>
+              <p className="bg-warning text-dark p-2 text-center">1</p>
             </div>
-            <label htmlFor="fullName">
-              First things first, what's your full name ?
-            </label>
-            <p>
-              The information requested will help the trainee to choose their
-              instructor.
-            </p>
+            <div className="mt-5 ml-3 mr-3" >
+              <label htmlFor="fullName">
+                First things first, what's your full name ?
+              </label>
+              <p>
+                The information requested will help the trainee to choose their
+                instructor.
+              </p>
+            </div>
             <input
               {...register("fullName", {
                 required: "required",
@@ -54,7 +56,7 @@ function NamePilot(props) {
           {errors.fullName && (
             <span role="alert">{errors.fullName.message}</span>
           )}
-          <input type="submit" value="Submit" />
+          <input className="enter" type="submit" value="Submit" />
 
           <button className="enter" type="button" onClick={backClick}>
             Back

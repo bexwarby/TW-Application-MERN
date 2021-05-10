@@ -28,7 +28,7 @@ function Types(props) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="formSection">
           <div className="form-group">
-            <div className="numberQuestion">
+            <div className="bg-warning text-dark p-2 text-center">
               <p>4</p>
             </div>
             <label htmlFor="modules">
@@ -36,15 +36,14 @@ function Types(props) {
             </label>
             <p>
               Reminder : On TW you <b>just need to have the rating</b> to teach
-              the same rating. Instructor/examiner ratings will just allow you
-              to do checkrides in addition.
+              the same rating. 
               <br />
               <em>
                 Instructor guides and training syllabus will be readily
                 available to you.
               </em>
             </p>
-            <p>Choose as many as apply</p>
+            <p>Choose as many as apply (hold ctrl)</p>
             <select
               {...register("modules")}
               id="modules"
@@ -67,14 +66,15 @@ function Types(props) {
               <option value="Tailored advanced training">Tailored advanced training</option>
             </select>
           </div>
-          <input type="submit" value="Submit" />
-
-          <button className="enter" type="button" onClick={backClick}>
-            Back
-          </button>
-          <button className="enter" type="button" onClick={homeClick}>
-            Home
-          </button>
+          <div className="mt-5 ml-3 mr-3" >
+            <input className="enter" type="submit" value="Submit" />
+            <button className="enter" type="button" onClick={backClick}>
+              Back
+            </button>
+            <button className="enter" type="button" onClick={homeClick}>
+              Home
+            </button>
+          </div>
         </div>
       </form>
     </div>
