@@ -49,7 +49,7 @@ function InstructorSignIn() {
 
   return (
     <div id="signIn">
-      <h1 id="mainTitle">True-Wings crew only </h1>
+      <h1 id="mainTitle" className="mt-5">TW Crew</h1>
 
       <br></br>
       <div className="loginArea">

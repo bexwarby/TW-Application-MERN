@@ -39,60 +39,56 @@ export default function InstructorNav({ instructorId }) {
         <nav>
           <ul id="nav-bar">
             <li>
-              <Link to="/instructor/lesson">
-                <FaCircleNotch color="white" size="15" />
+              <Link className="lien" to="/instructor/lesson">
+                <FaCircleNotch className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/instructor/calendar">
-                <FaRegCalendar color="white" size="15" />
+              <Link className="lien" to="/instructor/calendar">
+                <FaRegCalendar className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/instructor/fly">
-                <FaPlane color="white" size="15" />
+              <Link className="lien" to="/instructor/fly">
+                <FaPlane className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/instructor/profile">
-                <FaUser color="white" size="15" />
+              <Link className="lien" to="/instructor/profile">
+                <FaUser className="logo" />
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={logout}>
-                <FaLongArrowAltRight color="white" />
+              <Link className="lien" to="/" onClick={logout}>
+                <FaLongArrowAltRight className="logo" />
               </Link>
             </li>
           </ul>
         </nav>
-          </div>
+      </div>
 
-        <Switch>
-          <Route
-            exact
-            path="/instructor"
-            render={() => {
-              return instructorId ? (
-                <Redirect to="/instructor/lesson" />
-              ) : (
-                <Redirect to="/instructor/signin" />
-              );
-            }}
-          />
+      <Switch>
+        <Route
+          exact
+          path="/instructor"
+          render={() => {
+            return instructorId ? (
+              <Redirect to="/instructor/lesson" />
+            ) : (
+              <Redirect to="/instructor/signin" />
+            );
+          }}
+        />
 
-          <Route
-            exact
-            path="/instructor/calendar"
-            component={InstructorCalendar}
-          />
-          <Route exact path="/instructor/fly" component={InstructorFly} />
-          <Route exact path="/instructor/lesson" component={InstructorLesson} />
-          <Route
-            exact
-            path="/instructor/profile"
-            component={InstructorProfile}
-          />
-        </Switch>
+        <Route
+          exact
+          path="/instructor/calendar"
+          component={InstructorCalendar}
+        />
+        <Route exact path="/instructor/fly" component={InstructorFly} />
+        <Route exact path="/instructor/lesson" component={InstructorLesson} />
+        <Route exact path="/instructor/profile" component={InstructorProfile} />
+      </Switch>
     </Router>
   );
 }
