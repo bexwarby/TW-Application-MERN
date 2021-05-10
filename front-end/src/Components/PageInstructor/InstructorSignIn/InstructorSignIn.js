@@ -49,7 +49,7 @@ function InstructorSignIn() {
 
   return (
     <div id="signIn">
-      <h1 id="mainTitle">True-wings crew only </h1>
+      <h1 id="mainTitle" className="mt-5">TW Crew</h1>
 
       <br></br>
       <div className="loginArea">
@@ -59,13 +59,13 @@ function InstructorSignIn() {
         <input type="password" name="password" onChange={handleData} />
         <div className="checkBoxArea">
           <input
-            className="checkBox"
+            className="checkBox form-check-input" 
             type="checkbox"
             name="checkbox"
             onClick="action()"
           />
-          <label>
-            confirmed that I'm a TW instructor and i don't have the right to get
+          <label style={{ "color": "orange" }}>
+            I'm a TW instructor and don't have the right to get
             paid directly by a TW customer
           </label>
         </div>
