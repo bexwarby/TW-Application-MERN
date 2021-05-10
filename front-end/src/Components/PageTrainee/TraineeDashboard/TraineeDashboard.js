@@ -40,10 +40,10 @@ function TraineeDashboard() {
    } */
 
   return (
-    <div className="dashboard">
-      <h3 className="title">Dashboard</h3>
+    <div className="traineeDashboard">
+      <h3 className="titleDash">Dashboard</h3>
 
-      <h5 className="subtitle">Private Pilot:</h5>
+      <h5 className="subtitleDash">Private Pilot:</h5>
 
       {/* Gauge process */}
       <div
@@ -85,7 +85,7 @@ function TraineeDashboard() {
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    aria-valuenow="100"
+                    aria-valuenow="50"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   >

@@ -59,27 +59,6 @@ module.exports = {
     });
   },
 
-  module: (req, res) => {
-    const Module = require("../models/Module");
-    const { moduleName, nbHours, price, steps } = req.body;
-    const optionModule = new Module({
-      moduleName,
-      nbHours,
-      price,
-      steps,
-    });
-    optionModule
-      .save()
-      .then(() => {
-        res
-          .status(200)
-          .json({ message: `Vous avez selectionner le ${moduleName}` });
-      })
-      .catch((error) => {
-        res.status(400).json({ message: error });
-      });
-  },
-
   signIn: async (req, res) => {
     const { email, password } = req.body;
 

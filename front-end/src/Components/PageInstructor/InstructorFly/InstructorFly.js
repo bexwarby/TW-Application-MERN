@@ -17,7 +17,7 @@ function InstructorFly() {
   const time = "11:00-12:00"
 
   return (
-    <div>
+    <div className="fly">
       <button type="button" className="btn btn-dark bg-dark flyButton">FLY</button>
       <hr className="solid" />
 
@@ -28,7 +28,7 @@ function InstructorFly() {
             <div style={{ 'backgroundColor': 'transparent' }}>
               <span>
                 <img className="img-fluid img-thumbnail rounded-circle eva" alt="" src={photo}></img>
-                <p className="timing">Lesson {number}, {date}, {time}</p>
+                <p className="timing fly">Lesson {number}, {date}, {time}</p>
               </span>
             </div>
           </div>
@@ -36,7 +36,7 @@ function InstructorFly() {
             <div style={{ 'backgroundColor': 'transparent' }}>
               <span>
                 <img className="img-fluid img-thumbnail rounded-circle eva" alt="" src={photo2}></img>
-                <p className="timing">Lesson {number}, {date}, {time}</p>
+                <p className="timing fly">Lesson {number}, {date}, {time}</p>
               </span>
             </div>
           </div>

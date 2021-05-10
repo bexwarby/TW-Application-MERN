@@ -46,8 +46,10 @@ function App() {
             <Route exact path="/admin" component={PageAdmin} />
             <Route exact path="/trainee" component={PageTrainee} />
             <Route exact path="/instructor" component={PageInstructor} />
+
             <Route path="/instructor/signup" component={InstructorSignUp} />
             <Route path="/trainee/signup" component={TraineeSignUp} />
+            
             <Redirect to="/" />{" "}
             {/* Pour les autres url => redirection vers la racine */}
           </Switch>

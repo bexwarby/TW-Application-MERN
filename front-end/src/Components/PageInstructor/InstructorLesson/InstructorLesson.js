@@ -53,7 +53,7 @@ function InstructorLesson() {
                     src={photo}
                     style={{ width: 60, height: 60 }}
                   ></img>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ width: 60, fontSize: 10 }}>
                     Eva Longoria
                   </p>
@@ -67,7 +67,7 @@ function InstructorLesson() {
                       text={`${20 / maxValue * 100}%`}
                     />
                   </div>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ fontSize: 10, width: 60 }}>
                     Expert wings <br />phase 2
                   </p>
@@ -80,7 +80,7 @@ function InstructorLesson() {
                     style={{ width: 60, height: 60 }}
                   >
                   </img>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ fontSize: 10, width: 60 }}>
                     Joseph Perfect
                   </p>
@@ -94,7 +94,7 @@ function InstructorLesson() {
                       text={`${value / maxValue * 100}%`}
                     />
                   </div>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ fontSize: 10, width: 60 }}>
                     Pro wings <br />phase 3
                   </p>
@@ -106,7 +106,7 @@ function InstructorLesson() {
                     alt=""
                     src={photo3}>
                   </img>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ fontSize: 10, width: 60 }}>
                     Guillaume !
                   </p>
@@ -120,7 +120,7 @@ function InstructorLesson() {
                       text={`90%`}
                     />
                   </div>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ fontSize: 10, width: 60 }}>
                     Private wings <br />phase 2
                   </p>
@@ -133,7 +133,7 @@ function InstructorLesson() {
                     style={{ width: 60, height: 60 }}
                   >
                   </img>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ fontSize: 10, width: 60 }}>
                     Thomas Pesquet
                   </p>
@@ -145,7 +145,7 @@ function InstructorLesson() {
                       text={`${75 / maxValue * 100}%`}
                     />
                   </div>
-                  <p className="list-inline-item d-flex align-items-center"
+                  <p className="list-inline-item d-flex align-items-center text-light"
                     style={{ fontSize: 10, width: 60 }}>
                     Private wings <br />phase 1
                   </p>

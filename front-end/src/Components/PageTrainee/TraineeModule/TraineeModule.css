@@ -1,0 +1,16 @@
+#traineeModule {
+  text-align: center;
+}
+
+#traineeModule > h3 {
+  margin-bottom: 20px;
+}
+
+#traineeModule select {
+  margin: 10px 0;
+}
+
+#traineeModule button.enter {
+  margin-top: 50px;
+  font-weight: bold;
+}

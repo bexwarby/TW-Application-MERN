@@ -2,6 +2,8 @@
  * Trainee Controller
  */
 const Trainee = require("../models/User");
+const Module = require("../models/Module");
+
 const jwt = require("jsonwebtoken");
 
 module.exports = {
@@ -124,10 +126,6 @@ module.exports = {
     console.log(req.params.id);
     res.status(200).json({ traineeId: req.params.id });
   },
-  allModules: (req, res) => {
-    console.log("Demande de mes modules ");
-    res.status(200).send("Demande liste des mes modules");
-  },
   oneModule: (req, res) => {
     console.log(req.params.id);
     res.status(200).json({ moduleId: req.params.id });
@@ -154,4 +152,36 @@ module.exports = {
     console.log(req.params.id);
     res.status(200).send(`trainee ${req.params.id} a bien été supprimé`);
   },
+
+  allModules: async (req, res) => {
+    try {
+      const modules = await Module.find({})
+      if(res) res.status(200).json(modules)
+    } catch (err) {
+      return res.status(500).json({ msg: err });
+    }
+    
+  },
+
+  addModule: (req, res) => {
+    const userId = req.params.id
+    res.status(200).json({message: `${userId}, votre module est enregistré.`})
+    // const optionModule = new Module({
+    //   levelName: req.body.moduleSelect,
+    //   nbHours: req.body.hours,
+    //   stepsPrice: req.body.price,
+    //   steps: req.body.choixOption,
+    // });
+    // optionModule
+    //   .save()
+    //   .then(() => {
+    //     res
+    //       .status(200)
+    //       .json({ message: `Vous avez selectionner le ${moduleName}` });
+    //   })
+    //   .catch((error) => {
+    //     res.status(400).json({ message: error });
+    //   });
+  },
+
 };
