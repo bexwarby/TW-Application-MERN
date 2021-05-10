@@ -38,7 +38,7 @@ function InstructorCalendrier() {
   }
 
   return (
-    <div>
+    <div id="mainCalendarInstructor">
       <Calendar
         onChange={onChange}
         value={selectedDate}
@@ -63,15 +63,17 @@ function InstructorCalendrier() {
           return greyedOut;
         }}
       />
-      <p>Availability start date:</p>
-      <input type="datetime-local" name="startDate" onChange={handleDate} />
+      <div id="availabilityBlock">
+        <p>Availability start date:</p>
+        <input type="datetime-local" name="startDate" onChange={handleDate} />
 
-      <p>Availability end date:</p>
-      <input type="datetime-local" name="endDate" onChange={handleDate} />
+        <p>Availability end date:</p>
+        <input type="datetime-local" name="endDate" onChange={handleDate} />
 
-      <button className="submitCalendar" onClick={addAvailability}>
-        Save
-      </button>
+        <button className="submitCalendar" onClick={addAvailability}>
+          Save
+        </button>
+      </div>
     </div>
   );
 }

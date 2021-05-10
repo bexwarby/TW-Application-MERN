@@ -1,51 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap%22");
 #mainTraineeProfil {
   /*-------------------main block----------------- */
   display: flex;
   flex-direction: column;
+  font-family: Montserrat;
+  font-weight: bold;
 }
-.trainee {
+#mainTraineeProfil .trainee {
   justify-content: center;
   text-align: center;
 }
-.photoTrainee {
+#mainTraineeProfil .photoTrainee {
   width: 20vh;
   height: 20vh;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
 }
-#blockStats {
+#mainTraineeProfil #blockStats {
   text-align: center;
 }
-#traineeStats,
+#mainTraineeProfil #traineeStats,
 li {
   padding: 0vw 3vw 0vw 3vw;
   display: inline;
   list-style: none;
 }
-.status {
+#mainTraineeProfil .status {
   text-align: center;
   justify-content: center;
 }
-#mainAccount {
+#mainTraineeProfil #mainAccount {
   flex-direction: column;
   display: flex;
   text-align: center;
   padding: 0px;
 }
-.blockPrivate {
+#mainTraineeProfil .blockPrivate {
   justify-content: center;
 }
 /*-------------------------history bar-------------------*/
-#historyBar {
+#mainTraineeProfil #historyBar {
   text-align: center;
 }
-#TraineeHistory {
-  height: 40px;
+#mainTraineeProfil #TraineeHistory {
+  height: 4vw;
   padding: 0vw 12vw 0vw 12vw;
   background-color: rgba(51, 51, 51, 0.363);
   text-align: center;
-  margin: 0px 17vw 12px 17vw;
+  margin: 0vw 17vw 2vw 17vw;
   border-radius: 10px;
   align-self: auto;
+}
+@media screen and (max-width: 450px) {
+  #mainTraineeProfil #TraineeHistory {
+    height: 5vw;
+    background-color: rgba(51, 51, 51, 0.363);
+    text-align: center;
+    margin: 0vh 3vw;
+
+    border-radius: 10px;
+    align-self: auto;
+  }
+}
+
+#mainTraineeProfil .regularity {
+  color: green;
+}
+#mainTraineeProfil .status {
+  color: orangered;
+}
+#mainTraineeProfil .accountStatus {
+  color: rgb(80, 80, 255);
 }

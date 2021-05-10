@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap%22");
+
+/**CALENDRIER**/
+
+/*Style Général*/
+#mainCalendarInstructor .react-calendar {
+  padding-top: 15vw;
+  margin: 0 auto;
+  width: 350px;
+  max-width: 100%;
+  background: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+
+/*Couleur jour dispo*/
+button:not(:disabled) {
+  background-color: blue;
+}
+
+/*Style mois et année*/
+#mainCalendarInstructor .react-calendar__navigation__label {
+  font-size: 20px;
+  font-family: Montserrat;
+}
+
+/*Style jours (lun, mar...)*/
+#mainCalendarInstructor .react-calendar__month-view__weekdays__weekday {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  font-family: Montserrat;
+}
+
+/*Couleur jour selectionné*/
+#mainCalendarInstructor .react-calendar__tile--active:enabled:hover,
+#mainCalendarInstructor .react-calendar__tile--active:enabled:focus {
+  background: #e79f02;
+}
+
+/*Taille et style jours*/
+#mainCalendarInstructor .react-calendar__tile,
+#mainCalendarInstructor .react-calendar__month-view__days__day {
+  font-size: 20px;
+  font-family: Montserrat;
+}
+
+/**CHOIX HORAIRE**/
+
+/*Titre*/
+
+#mainCalendarInstructor .time {
+  margin-top: 20px;
+}
+
+#mainCalendarInstructor .choose-time {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+}
+
+#mainCalendarInstructor .button {
+  margin-top: 20px;
+  font-family: Montserrat;
+}
+#mainCalendarInstructor #availabilityBlock {
+  padding: 0vw 12vw 0vw 12vw;
+  background-color: rgba(51, 51, 51, 0.363);
+  text-align: center;
+  margin: 0vw 17vw 2vw 17vw;
+  border-radius: 10px;
+  align-self: auto;
+}
+#mainCalendarInstructor .datetime-local {
+}
