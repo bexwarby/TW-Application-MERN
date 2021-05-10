@@ -18,6 +18,7 @@ import PageInstructor from "./Components/PageInstructor/PageInstructor";
 import PageTrainee from "./Components/PageTrainee/PageTrainee";
 import InstructorSignUp from "./Components/PageInstructor/InstructorSignUp/InstructorSignUp";
 import TraineeSignUp from "./Components/PageTrainee/TraineeSignUp/TraineeSignUp";
+import TraineeModule from "./Components/PageTrainee/TraineeModule/TraineeModule";
 
 function App() {
   const [userID, setUserID] = useState(null);
@@ -47,6 +48,7 @@ function App() {
             <Route exact path="/trainee" component={PageTrainee} />
             <Route exact path="/instructor" component={PageInstructor} />
             <Route path="/instructor/signup" component={InstructorSignUp} />
+            <Route exact path="/trainee/module" component={TraineeModule} />
             <Route path="/trainee/signup" component={TraineeSignUp} />
             <Redirect to="/" />{" "}
             {/* Pour les autres url => redirection vers la racine */}
